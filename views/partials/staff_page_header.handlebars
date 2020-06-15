@@ -1,0 +1,66 @@
+<header class="my-auto">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top text-uppercase border-bottom">
+        <!-- Navigation :fixed top  -->
+        <div class="d-flex flex-row">
+        <a class="navbar-brand ml-5 " href="/"><i class="fas fa-3x fa-beer"></i></a>
+        <p class="h1 mx-auto my-auto">BEST BEER</p>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item dropdown mr-5 my-auto">
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            About
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/company_info">About us</a>
+                            {{!-- Create news --}}
+                            <a class="dropdown-item" href="#">News</a>
+                            {{!-- Staff login page --}}
+                            <a class="dropdown-item" href="#">Our Staff</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown mr-5 my-auto">
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Beers
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            {{!-- Create out product list --}}
+                            <a class="dropdown-item" href="/menu_page">Menu</a>
+                            <a class="dropdown-item" href="/company_promotion">Promotion</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item active mr-5">
+                    <a class="nav-link" href="/login_begin"><i class="far fa-3x fa-user"></i></a>
+                </li>
+                <li class="nav-item active mr-5">
+                    <a class="nav-link" href="/myCart_showList"><i class="fas fa-3x fa-shopping-cart"></i></a>
+                </li>
+                <li class="nav-item nav-item active mr-5">
+                    <a class="nav-link" href="#"><i class="fab fa-3x fa-facebook-square"></i></a>
+                </li>
+                <li class="nav-item active mr-5">
+                    <a class="nav-link" href="#"><i class="fab fa-3x fa-instagram"></i></a>
+                </li>
+
+
+
+
+
+            </ul>
+        </div>
+    </nav>
+</header>
+<!-- end of navbar -->

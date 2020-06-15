@@ -1,0 +1,104 @@
+<section class="secondary2">
+    <div class="text-center" style="font-size:34px;font-weight:700">
+        Statistics
+    </div>
+</section>
+<section class="secondary3">
+    <div class="col-6 offset-3">
+        <div class="userInfoContainer border border-secondary rounded bg-light">
+            <table class="table table-sm table-borderless table-hover">
+                <thead>
+                    <tr>
+                        <th class="table-secondary border-right border-bottom border-dark" scope="row" colspan="4">Total
+                            Users Registered</th>
+                        <td class=" align-middle border-bottom border-dark" colspan="2">37</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="table-secondary border-right border-bottom border-dark" scope="row" colspan="4">Newly
+                            Registered Last 7 Days</th>
+                        <td class=" align-middle border-bottom border-dark" colspan="2">4</td>
+                    </tr>
+                    <tr>
+                        <th class="table-secondary border-right border-bottom border-dark" scope="row" colspan="4">User
+                            Reactions Last 7 Days</th>
+                        <td class=" align-middle border-bottom border-dark" colspan="2">15</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-10 offset-1 text-center d-flex justify-content-around">
+        <div class="userInfoContainer col-5 border border-secondary rounded bg-light bg-success">
+            <canvas id="myChart"></canvas>
+        </div>
+        <div class="userInfoContainer col-5 border border-secondary rounded bg-light bg-success">
+            <canvas id="myLineChart"></canvas>
+        </div>
+    </div>
+</section>
+
+<script>
+    // https://www.chartjs.org/docs/latest/developers/updates.html
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Chris Cask', 'Tom Tipple', 'Jacky Jump'],
+            datasets: [{
+                label: '# of cans in Stock',
+                data: [200, 170, 90],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
+<script>
+    var ctx = document.getElementById('myLineChart').getContext('2d');
+    var myLineChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['-2 days', 'yesterday', 'today'],
+            datasets: [{
+                label: '# of cans sold',
+                data: [40, 10, 50],
+                backgroundColor: [
+                    'rgba(1, 99, 135, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(5, 9, 132, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>

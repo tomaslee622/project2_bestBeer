@@ -1,0 +1,52 @@
+<section class="secondary">
+       {{!--user ac dropdown bar start --}}
+    <div class="dropdown text-center d-flex justify-content-center">
+        <div class="dropdown p-2">
+            <button class="btn btn-warning dropdown-toggle btn-lg" type="button" id="myAC_dropdown"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                My Account
+            </button>
+            <div class="dropdown-menu" aria-labelledby="myAC_dropdown" style="font-size: 20px">
+                <a class="dropdown-item" href="/user_account-details">Account Settings</a>
+                <a class="dropdown-item" href="/user_wishlist">Wishlist</a>
+                <a class="dropdown-item" href="/user_comment_history">My Comments</a>
+            </div>
+        </div>
+        <div class="dropdown p-2">
+            <button class="btn btn-warning dropdown-toggle btn-lg" type="button" id="myPurchase_dropdown"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                My Account
+            </button>
+            <div class="dropdown-menu" aria-labelledby="myPurchase_dropdown" style="font-size: 20px">
+                <a class="dropdown-item" href="/user_purchase_history">My Record</a>
+            </div>
+        </div>
+        <div class="dropdown p-2">
+            <button class="btn btn-warning  btn-lg" type="button" id="discount" aria-haspopup="true"
+                aria-expanded="false"><a href="/user_discount_code">
+                    Discount
+                    Codes</a>
+            </button>
+            {{!-- <div class="dropdown-menu" aria-labelledby="myPurchase_dropdown" style="font-size: 20px">
+                <a class="dropdown-item" href="#">My Record</a>
+            </div> --}}
+        </div>
+    </div>
+{{!-- end of user ac dropdown bar --}}
+       
+        <div class="col-6 offset-3 text-center">
+            <div class="form-group row wishlistContainer" style="font-size:24px;font-weight:700">My Wishlist</div>
+            <div class="border border-secondary rounded d-flex justify-content-around">
+                <div class="p-2">
+                    <img src="/pure_folder/asset/product1.png" width="50px" alt="">
+                </div>
+                <div class="my-auto p-2" style="font-size: 20px">Chris's Cracking Cask</div>
+                <div class="ml-auto my-auto p-2">
+                    <!-- <a href="#" class="btn btn-primary margin-left: auto">DELETE</a> -->
+                    <a href="/beer3_detail"><i class="fas fa-3x fa-cart-plus mr-50" style="color: black;"></i></a>
+                    <a href="#"><i class="fas fa-3x fa-trash-alt" style="color: black;"></i></a>
+                </div>
+              </div>
+        </div>
+    </div>
+    </section>
