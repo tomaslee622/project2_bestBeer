@@ -5,7 +5,7 @@ module.exports = (express) => {
     const router = express.Router();
     const getData = async(target) => {
 
-        let stock,
+        let stock;
 
             let query = await knex('stock').select();
         query.then((data) => {
