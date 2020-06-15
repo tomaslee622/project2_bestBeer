@@ -11,6 +11,7 @@ app.get('/', (req, res) => {
 
   // , {layout: 'alternate'}, add this as the second argument to res.render
 });
+
 // end of navbar section
 
 app.get('/company_info', (req, res) => {

@@ -3,14 +3,35 @@ body{
     padding: 0;
     margin: 0;
     background-color: #ffffff;
+    font-family: "Times New Roman", Times, serif;
     font-weight: 600;
     line-height: 1.7;
 }
 .footer_co_policy a{
     color: white;
 }
-
-
+.navbar{
+    background-image: url(../asset/img_nav.jpeg);
+    background-position: right;
+    font-size: 24px;
+    font-weight: 700;
+}
+/* homepage modal */
+.modal-header{
+    color: #ffffff;
+}
+.modal_warning{
+    background-image: url(../asset/warning.jpeg);
+    background-position: left;
+    opacity: 0.9;
+}
+.modal_text_warning{
+    color: #CA3F41;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: left;
+}
+/* end of homepage modal */
 .secondary{
     margin: 60px;
     padding-top: 50px;
