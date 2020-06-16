@@ -3,7 +3,7 @@ const passport = require('passport');
 
 // auth with google
 router.get(
-    '',
+    '/',
     passport.authenticate('google', {
         scope: ['profile', 'email'],
     })

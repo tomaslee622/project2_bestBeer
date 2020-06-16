@@ -9,13 +9,15 @@ passport.use(
             clientID: process.env.FB_APP_ID,
             clientSecret: process.env.FB_APP_SECRET,
             callbackURL: `http://localhost:3000/auth/facebook/redirect`,
-            profileFields: ['emails'],
+            profileFields: ['email', 'name'],
         },
         function(accessToken, refreshToken, profile, done) {
-            loginOrCreate(profile.emails[0].value, done, {
-                provider: 'facebook',
-                facebook_id: profile.id,
-            });
+            console.log(profile);
+            // loginOrCreate(profile.value, done, {
+            //     provider: 'facebook',
+            //     facebook_id: profile.id,
+            // });
+            // done();
         }
     )
 );

@@ -1,7 +1,7 @@
 const knexConfig = require('../../knexfile')['development'];
 const knex = require('knex')(knexConfig);
 
-module.exports = (email, done, socialLoginID) => {
+module.exports = (profile, done, socialLoginID) => {
     let query = knex.select('*').from('users').where({ email: email });
     query
         .then((data) => {
@@ -16,7 +16,7 @@ module.exports = (email, done, socialLoginID) => {
                         socialLoginID['facebook_id'] == data[0].facebook_id
                     ) {
                         console.log('A user logged in using social account');
-                        return done(null, email);
+                        return done(null, profile.emails[0].value);
                     } else {
                         // When existing Facebook user logged in first time using Google
                         if (socialLoginID['provider'] == 'google') {
@@ -24,10 +24,10 @@ module.exports = (email, done, socialLoginID) => {
                                 .update({
                                     google_id: socialLoginID['google_id'],
                                 })
-                                .where({ email: email });
+                                .where({ email: profile.emails[0].value });
                             googleQuery2
                                 .then(() => {
-                                    return done(null, email);
+                                    return done(null, profile.emails[0].value);
                                 })
                                 .catch((err) => {
                                     console.log(err);
@@ -39,10 +39,10 @@ module.exports = (email, done, socialLoginID) => {
                                 .update({
                                     facebook_id: socialLoginID['facebook_id'],
                                 })
-                                .where({ email: email });
+                                .where({ email: profile.emails[0].value });
                             facebookQuery2
                                 .then(() => {
-                                    return done(null, email);
+                                    return done(null, profile.emails[0].value);
                                 })
                                 .catch((err) => {
                                     return done(err);
@@ -56,20 +56,24 @@ module.exports = (email, done, socialLoginID) => {
                 if (socialLoginID['provider'] == 'google') {
                     console.log('Creating a google login account for this user');
                     let googleQuery = knex('users').insert({
-                        email: email,
+                        email: profile.emails[0].value,
                         google_id: socialLoginID['google_id'],
+                        first_name: profile.name.givenName,
+                        last_name: profile.name.familyName,
                     });
                     googleQuery.then(() => {
-                        return done(null, email);
+                        return done(null, profile.email[0].value);
                     });
                 } else if (socialLoginID['provider'] == 'facebook') {
                     console.log('Creating a google login account for this user.');
                     let facebookQuery = knex('users').insert({
-                        email: email,
+                        email: profile.emails[0].value,
+                        first_name: profile.name.givenName,
+                        last_name: profile.name.familyName,
                         facebook_id: socialLoginID['facebook_id'],
                     });
                     facebookQuery.then(() => {
-                        return done(null, email);
+                        return done(null, profile.emails[0].value);
                     });
                 } else {
                     console.log('Unexpected error in loginOrCreate.js');

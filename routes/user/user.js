@@ -5,14 +5,16 @@ module.exports = (express) => {
     const router = express.Router();
 
     router.get('/profile/:id', async(req, res) => {
-        if (req.isAuthenticated()) {
-            res.redirect('/login');
-        } else {
-            let data = await userInfo.getInfo(req.params.id);
-            // // res.send(data);
-            // res.send(req.params.id);
-            res.render('user_account-details', { layout: 'loggedin_user' });
-        }
+        // if (!req.isAuthenticated()) {
+        //     res.redirect('/login');
+        // } else {
+        let data = await userInfo.getInfo(req.params.id);
+        // res.send(data);
+        res.send(data);
+        res.render('user_account-details', {
+            layout: 'loggedin_user',
+            dtasd: data,
+        });
     });
 
     router.get('/comment/:id', async(req, res) => {
