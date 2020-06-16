@@ -1,22 +1,20 @@
 const knexConfig = require('../../knexfile')['development'];
 const knex = require('knex')(knexConfig);
 
+const api = require('./callData');
+
 module.exports = (express) => {
     const router = express.Router();
-    const getData = async(target) => {
-
-        let stock;
-
-            let query = await knex('stock').select();
-        query.then((data) => {
-            console.log(data);
-            stock = data;
-        });
-    };
 
     // TODO, only staff authentication can call it
-    router.get('/stock', (req, res) => {
-        res.send(stock);
+    router.get('/stock', async(req, res) => {
+        let data = await api.getData('stock');
+        res.send(data);
+    });
+
+    router.get('/beers', async(req, res) => {
+        let data = await api.getData('beers');
+        res.send(data);
     });
 
     return router;

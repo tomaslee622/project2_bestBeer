@@ -3,7 +3,7 @@ const passport = require('passport');
 
 // auth with google
 router.get(
-    '/google',
+    '/',
     passport.authenticate('google', {
         scope: ['profile', 'email'],
     })
@@ -11,7 +11,7 @@ router.get(
 
 // callback route for google to redirect to
 router.get(
-    '/google/redirect',
+    '/redirect',
     passport.authenticate('google', {
         successRedirect: '/success',
         failureRedirect: '/error',

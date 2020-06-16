@@ -1,10 +1,9 @@
 const knexConfig = require('../../knexfile')['development'];
 const knex = require('knex')(knexConfig);
 
-let stock;
+const getData = (target) => {
+    let query = knex(target).select();
+    return query.then((data) => data);
+};
 
-let query = knex('stock').select();
-query.then((data) => {
-    console.log(data);
-    stock = data;
-});
+module.exports = { getData };
