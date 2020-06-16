@@ -21,8 +21,8 @@ module.exports = (express) => {
         return next();
     };
 
-    router.get('/', checkNotAuthenticated, (req, res) => {
-        res.render('login_input');
+    router.get('/', (req, res) => {
+        res.render('homepage');
     });
 
     router.get('/success', checkAuthenticated, (req, res) => {
