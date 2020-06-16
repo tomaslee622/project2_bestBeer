@@ -11,8 +11,14 @@ module.exports = (express) => {
 
     router.get('/:id', async(req, res) => {
         let data = await getBeerInfo(req.params.id);
-        res.send(data);
-        // res.render('beer1_detail');
+        res.render(data);
+        res.render('beer1_detail');
+    });
+
+    router.get('/', async(req, res) => {
+        // let data = await getBeerInfo();
+        // res.send(data);
+        res.render('beer1_detail');
     });
 
     return router;

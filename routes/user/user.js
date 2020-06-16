@@ -7,7 +7,6 @@ module.exports = (express) => {
     router.get('/profile/:id', async(req, res) => {
         let data = await userInfo.getInfo(req.params.id);
         res.send(data);
-        // res.send(req.params.id);
         // res.render('user_account-details', { layout: 'loggedin_user' });
     });
 
