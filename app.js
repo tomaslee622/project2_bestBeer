@@ -117,33 +117,33 @@ const setupCookie = require('./utils/init-cookie')(app);
 const setupLocalPassport = require('./utils/strategies/local-passport');
 setupLocalPassport(app);
 
-// Google Strategy setup
+// Social login setup
 const googleSetup = require('./utils/strategies/google-strategy');
-
-// Facebook Strategy setup
 const facebookSetup = require('./utils/strategies/facebook-strategy');
 
 // Auehtnication routes
-const localRouter = require('./routes/routes')(express);
 const googleAuth = require('./routes/OAuth/google-auth');
 const facebookAuth = require('./routes/OAuth/facebook-auth');
-const userInfo = require('./routes/user');
-const companyInfo = require('./routes/company');
-const checkout = require('./routes/checkout');
-const loginRegistration = require('./routes/login&register_routes');
-const beerInfo = require('./routes/beer');
+const localRouter = require('./routes/routes')(express);
+const userInfo = require('./routes/user/user')(express);
+const companyInfo = require('./routes/company')(express);
+const checkout = require('./routes/checkout')(express);
+const loginOrRegistration = require('./routes/login&register_routes')(express);
+const beerInfo = require('./routes/beer/beer')(express);
 
 // Directing to local authentication
 app.use('/', localRouter);
 
-// Directing to Google authentication
+// Directing to social login authentication
 app.use('/auth/google', googleAuth);
-
-// Directing to Facebook authentication
 app.use('/auth/facebook', facebookAuth);
 
-// Directing to user's personal info
+// Pages needed to be dynamically rendered
 app.use('/user', userInfo);
+app.use('/company', companyInfo);
+app.use('/checkout', checkout);
+app.use('/login', loginOrRegistration);
+app.use('/beer', beerInfo);
 
 // Testing the chart.js
 app.get('/chart', (req, res) => {
