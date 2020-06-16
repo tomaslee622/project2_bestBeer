@@ -22,20 +22,12 @@ module.exports = (express) => {
     };
 
     router.get('/', (req, res) => {
-        res.render('homepage');
+        if (req.isAuthenticated()) {
+            res.render('homepage', { layout: 'loggedin_User' });
+        } else {
+            res.render('homepage', { layout: 'main' });
+        }
     });
-
-    router.get('/success', checkAuthenticated, (req, res) => {
-        res.send('Hello, ' + req.user.email + ' you successfully logged in');
-    });
-
-    router.post(
-        '/login',
-        passport.authenticate('local-login', {
-            successRedirect: '/success',
-            failureRedirect: '/error',
-        })
-    );
 
     router.get('/error', (req, res) => {
         res.send('Opps, error!');

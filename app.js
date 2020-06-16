@@ -76,11 +76,8 @@ app.get('/chart', (req, res) => {
 const apiRoute = require('./routes/api/apiRoutes')(express);
 app.use('/data', apiRoute);
 
-app.listen(process.env.PORT);
-console.log('application listening to port ' + process.env.PORT);
-
-app.listen(8080, () => {
-    console.log(`App is listening to port 8080`);
+app.listen(3000, () => {
+    console.log(`App is listening to port 3000`);
 });
 
 // test comment
