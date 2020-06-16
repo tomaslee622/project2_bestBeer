@@ -8,80 +8,85 @@ app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => {
     res.render('homepage');
+  res.render('homepage');
+  // if (loggedin() == true){
+  //   res.render('homepage', { defaultLayout: 'loggedin_User' });
+  // }
+  // else {
+
+  // }
 
     // , {layout: 'alternate'}, add this as the second argument to res.render
 });
 
 // end of navbar section
 
-// app.get('/company_info', (req, res) => {
-//   res.render('company_info');
-// });
-// app.get('/company_promotion', (req, res) => {
-//   res.render('company_promotion');
-// });
-// // end of btn_group(co_info & promotion)
-// app.get('/menu_page', (req, res) => {
-//   res.render('menu_page');
-// });
 
-// app.get('/beer1_detail', (req, res) => {
-//   res.render('beer1_detail');
-// });
-// app.get('/beer2_detail', (req, res) => {
-//   res.render('beer2_detail');
-// });
-// app.get('/beer3_detail', (req, res) => {
-//   res.render('beer3_detail');
-// });
-// // end of beers detail
-// app.get('/loggedin_User', (req, res) => {
-//   res.render('loggedin_User');
-// });
+app.get('/company_info',(req, res) => {
+  res.render('company_info');
+});
+app.get('/company_promotion', (req, res) => {
+  res.render('company_promotion');
+});
+// end of btn_group(co_info & promotion)
+app.get('/menu_page', (req, res) => {
+  res.render('menu_page');
+});
 
-// app.get('/login_begin', (req, res) => {
-//   res.render('login_begin', { layout: 'main' });
-// });
-// app.get('/login_input', (req, res) => {
-//   res.render('login_input', { layout: 'main' });
-// });
-// // login_ begin & input >> using layout page_header_view
+app.get('/beer1_detail', (req, res) => {
+  res.render('beer1_detail');
+});
+app.get('/beer2_detail', (req, res) => {
+  res.render('beer2_detail');
+});
+app.get('/beer3_detail', (req, res) => {
+  res.render('beer3_detail');
+});
+// end of beers detail
+app.get('/loggedin_User', (req, res) => {
+  res.render('loggedin_User');
+});
 
-// app.get('/user_regist_registered', (req, res) => {
-//   res.render('user_regist_registered', { layout: 'loggedin_user' });
-// });
-// app.get('/user_registration', (req, res) => {
-//   res.render('user_registration', { layout: 'loggedin_user' });
-// });
-// app.get('/user_account-details', (req, res) => {
-//   res.render('user_account-details', { layout: 'loggedin_user' });
-// });
-// app.get('/user_comment_history', (req, res) => {
-//   res.render('user_comment_history', { layout: 'loggedin_user' });
-// });
-// app.get('/user_discount_code', (req, res) => {
-//   res.render('user_discount_code', { layout: 'loggedin_user' });
-// });
-// app.get('/user_purchase_history', (req, res) => {
-//   res.render('user_purchase_history', { layout: 'loggedin_user' });
-// });
-// app.get('/user_wishlist', (req, res) => {
-//   res.render('user_wishlist', { layout: 'loggedin_user' });
-// });
-// // end of users page
+app.get('/login_begin', (req, res) => {
+  res.render('login_begin', { layout: 'main' });
+});
+app.get('/login_input', (req, res) => {
+  res.render('login_input', { layout: 'main' });
+});
+// login_ begin & input >> using layout page_header_view
 
-// app.get('/myCart_showList', (req, res) => {
-//   res.render('myCart_showList', { layout: 'loggedin_user' });
-// });
-// app.get('/myCart_Delivery', (req, res) => {
-//   res.render('myCart_Delivery', { layout: 'loggedin_user' });
-// });
-// app.get('/myCart_payment', (req, res) => {
-//   res.render('myCart_payment', { layout: 'loggedin_user' });
-// });
-// app.get('/myCart_payCompleted', (req, res) => {
-//   res.render('myCart_payCompleted', { layout: 'loggedin_user' });
-// });
+app.get('/user_regist_registered', (req, res) => {
+  res.render('user_regist_registered', { layout: 'loggedin_user' });
+});
+app.get('/user_account-details', (req, res) => {
+  res.render('user_account-details', { layout: 'loggedin_user' });
+});
+app.get('/user_comment_history', (req, res) => {
+  res.render('user_comment_history', { layout: 'loggedin_user' });
+});
+app.get('/user_discount_code', (req, res) => {
+  res.render('user_discount_code', { layout: 'loggedin_user' });
+});
+app.get('/user_purchase_history', (req, res) => {
+  res.render('user_purchase_history', { layout: 'loggedin_user' });
+});
+app.get('/user_wishlist', (req, res) => {
+  res.render('user_wishlist', { layout: 'loggedin_user' });
+});
+// end of users page
+
+app.get('/myCart_showList', (req, res) => {
+  res.render('myCart_showList', { layout: 'loggedin_user' });
+});
+app.get('/myCart_Delivery', (req, res) => {
+  res.render('myCart_Delivery', { layout: 'loggedin_user' });
+});
+app.get('/myCart_payment', (req, res) => {
+  res.render('myCart_payment', { layout: 'loggedin_user' });
+});
+app.get('/myCart_payCompleted', (req, res) => {
+  res.render('myCart_payCompleted', { layout: 'loggedin_user' });
+});
 
 // end of myCart
 app.get('/stats', (req, res) => {
