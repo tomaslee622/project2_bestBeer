@@ -8,13 +8,20 @@ app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => {
   res.render('homepage');
+  // if (loggedin() == true){
+  //   res.render('homepage', { defaultLayout: 'loggedin_User' });
+  // }
+  // else {
+
+  // }
 
   // , {layout: 'alternate'}, add this as the second argument to res.render
 });
 
 // end of navbar section
 
-app.get('/company_info', (req, res) => {
+
+app.get('/company_info',(req, res) => {
   res.render('company_info');
 });
 app.get('/company_promotion', (req, res) => {
@@ -49,9 +56,6 @@ app.get('/login_input', (req, res) => {
 
 app.get('/user_regist_registered', (req, res) => {
   res.render('user_regist_registered', { layout: 'loggedin_user' });
-});
-app.get('/user_registration', (req, res) => {
-  res.render('user_registration', { layout: 'loggedin_user' });
 });
 app.get('/user_account-details', (req, res) => {
   res.render('user_account-details', { layout: 'loggedin_user' });
