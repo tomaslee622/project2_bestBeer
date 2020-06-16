@@ -12,7 +12,7 @@ module.exports = (express) => {
     });
 
     router.get('/user_registration', (req, res) => {
-        res.render('user_registration', { layout: 'loggedin_user' });
+        res.render('user_registration', { layout: 'main' });
     });
 
     return router;
