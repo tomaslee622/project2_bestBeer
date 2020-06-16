@@ -7,7 +7,6 @@ app.engine('handlebars', hb({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => {
-    res.render('homepage');
   res.render('homepage');
   // if (loggedin() == true){
   //   res.render('homepage', { defaultLayout: 'loggedin_User' });
