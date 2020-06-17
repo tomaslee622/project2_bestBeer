@@ -30,7 +30,11 @@ module.exports = (express) => {
     router.get('/', async(req, res) => {
         let data = await getAllBeers();
         // res.send(data);
+<<<<<<< HEAD
         res.render('test', { beer: data });
+=======
+        res.render('menu_page',{beer: data});
+>>>>>>> 39667a262881e03fd024d630a15414d471f7bd75
     });
 
     return router;
