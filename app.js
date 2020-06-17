@@ -38,7 +38,7 @@ const setupCookie = require('./utils/init-cookie')(app);
 
 // Local passport setup
 const setupLocalPassport = require('./utils/strategies/local-passport');
-setupLocalPassport(app);
+setupLocalPassport();
 
 // Social login setup
 const googleSetup = require('./utils/strategies/google-strategy');
@@ -75,6 +75,15 @@ app.get('/chart', (req, res) => {
 
 const apiRoute = require('./routes/api/apiRoutes')(express);
 app.use('/data', apiRoute);
+
+// Testing the database
+const knexConfig = require('./knexfile')['development'];
+const knex = require('knex')(knexConfig);
+
+let query = knex('users').select();
+query.then((data) => {
+    console.log(data);
+});
 
 app.listen(3000, () => {
     console.log(`App is listening to port 3000`);

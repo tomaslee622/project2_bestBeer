@@ -30,13 +30,5 @@ module.exports = (express) => {
         }
     });
 
-    router.post(
-        '/login',
-        passport.authenticate('local-login', {
-            successRedirect: '/success',
-            failureRedirect: '/error',
-        })
-    );
-
     return router;
 };
