@@ -21,7 +21,7 @@ module.exports = (express) => {
             .join('users', 'users.id', 'reviews.user_id')
             .select('reviews.content', 'reviews.created_at', 'users.first_name');
         return query.then((data) => {
-            if (data.length >= 0) {
+            if (data.length > 0) {
                 let newData = data[0]['created_at'];
                 newData = JSON.stringify(newData);
                 for (let i = 0; i < data.length; i++) {
