@@ -21,7 +21,7 @@ app.get('/homepage', (req, res) => {
 
 
 app.get('/stats', (req, res) => {
-  res.render('stats', { layout: 'loggedin_User' }, { stats: 'homepage_login' });
+  res.render('stats', { layout: 'loggedin_User',stats:"homepage_login" });
 });
 
 app.get('/menu_page_loggin', (req, res) => {
@@ -143,6 +143,6 @@ app.get('/chart', (req, res) => {
 const apiRoute = require('./routes/api/apiRoutes')(express);
 app.use('/data', apiRoute);
 
-app.listen(3000, () => {
+app.listen(3001, () => {
   console.log(`App is listening to port 3000`);
 });

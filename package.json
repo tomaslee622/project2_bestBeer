@@ -25,10 +25,7 @@
         "express": "^4.17.1",
         "express-handlebars": "^4.0.4",
         "express-session": "^1.17.1",
-<<<<<<< HEAD
         "handlebars": "^4.7.6",
-=======
->>>>>>> aa640a5278ae5b64a276cf580c93f4aa45f107aa
         "knex": "^0.21.1",
         "passport": "^0.4.1",
         "passport-facebook": "^3.0.0",
