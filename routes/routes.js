@@ -23,11 +23,18 @@ module.exports = (express) => {
         return next();
     };
 
-    router.get('/', (req, res) => {
+    
+    const getAllBeers = () => {
+        let query = knex('beers').select();
+        return query.then((data) => data);
+    };
+
+    router.get('/', async(req, res) => {
+        let data = await getAllBeers()
         if (req.isAuthenticated()) {
-            res.render('homepage', { layout: 'loggedin_User' });
+            res.render('homepage_logged_in', { layout: 'loggedin_User', beer:data });
         } else {
-            res.render('homepage', { layout: 'main' });
+            res.render('homepage', { layout: 'main', beer:data });
         }
     });
 
