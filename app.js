@@ -33,7 +33,7 @@ app.use(cors());
 
 // 2. Passport authentication setup
 
-// Setup cookie
+// Setup cookie and passport
 const setupCookie = require('./utils/init-cookie')(app);
 
 // Local passport setup

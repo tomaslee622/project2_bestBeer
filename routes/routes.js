@@ -42,7 +42,6 @@ module.exports = (express) => {
 
     router.post('/register', async(req, res) => {
         // try {
-        // console.log(req.body);
         let check = knex('users').select().where('email', '=', req.body.email);
         check.then((data) => {
             if (data.length >= 1) {
@@ -64,8 +63,6 @@ module.exports = (express) => {
         });
 
         query.then((data) => {
-            console.log('User registered');
-            console.log(data);
             res.redirect('/login');
         });
         // res.redirect('/login');
