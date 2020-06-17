@@ -69,4 +69,8 @@ body{
   color: red;
 }
 
+.beerDetailButton {
+    align-items: center;
+}
+
 /* end of product_detail page */
