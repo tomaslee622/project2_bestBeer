@@ -21,17 +21,16 @@
             <div class="col-sm-12 col-md-5 col-lg-5 login-col text-center ">
                 <p class="col text-center"><u>Login Here</u></p>
                 <br>
-                <form>
+                <form action="/login" method="POST">
                     <div class="form-group">
-                        <label for="text_username">User name</label>
-                        <input class="form-control" type="text" placeholder="User Name" id="text_username">
-
+                        <label for="text_username">Email</label>
+                        <input class="form-control" type="text" placeholder="User Name" id="text_username" name="username">
                     </div>
                     <div class="form-group">
                         <label for="user_InputPassword1">Password</label>
-                        <input type="password" class="form-control" id="user_InputPassword1">
+                        <input type="password" class="form-control" id="user_InputPassword1" name="password">
                     </div>
-                    <a class="btn btn-primary" href="/user_account-details" role="button">Submit</a>
+                    <input type="submit" class="btn btn-primary">
                 </form>
                 <br>
                     <a href="/auth/facebook" class="btn-lg btn-primary text-left" type="button">Login
@@ -39,7 +38,6 @@
                     facebook account <i class="fab fa-facebook"></i></a>
 
                 <br>
-                
                     <a href="/auth/google" class="btn-lg btn-primary text-left" type="button">Login
                     as google account <i class="fab fa-google"></i></a>
             </div>
