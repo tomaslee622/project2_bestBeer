@@ -15,8 +15,12 @@ module.exports = (express) => {
     };
 
     const getReviews = (id) => {
-        let query = knex('reviews').select().where({ beer_id: id });
-        return query.then((data) => data);
+        let query = knex('reviews')
+            .join('users', 'reviews.user_id', '=', 'users.id')
+            .select('users.first_name', 'reviews.content').where({ user_id:id});
+        return query.then((data) => {
+            return data;
+        });
     };
 
     router.get('/:id', async(req, res) => {
@@ -33,7 +37,7 @@ module.exports = (express) => {
     router.get('/', async(req, res) => {
         let data = await getAllBeers();
         // res.send(data);
-        res.render('test', { beer: data });
+        res.render('menu_page', { beer: data });
     });
 
     return router;
