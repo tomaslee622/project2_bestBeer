@@ -6,11 +6,10 @@ exports.up = function(knex) {
         table.string('first_name');
         table.string('last_name');
         table.string('phone');
-        table.date('birthday');
         table.string('propic_path');
         table.string('google_id');
         table.string('facebook_id');
-        table.boolean('noti');
+        table.boolean('noti').defaultTo(false);
     });
 };
 

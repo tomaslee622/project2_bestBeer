@@ -2,7 +2,10 @@ const knexConfig = require('../../knexfile')['development'];
 const knex = require('knex')(knexConfig);
 
 module.exports = (profile, done, socialLoginID) => {
-    let query = knex.select('*').from('users').where({ email: email });
+    let query = knex
+        .select('*')
+        .from('users')
+        .where({ email: profile.emails[0].value });
     query
         .then((data) => {
             if (data.length == 1) {
