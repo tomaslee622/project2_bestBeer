@@ -43,6 +43,8 @@ module.exports = (express) => {
 
         res.send(reviews);
 
+        // TEST comment
+
         // res.render('beer1_detail');
     });
 
