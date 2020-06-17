@@ -5,6 +5,10 @@
             <div class="card-header align-middle">
                 <h5 class="card-title text-center h2">{{beer_name}}</h5>
             </div>
+            <div class="col justify-content-end">
+                <a type="button" class="btn" id="wish_btn1" data-toggle="tooltip" data-placement="top"
+                    title="Add to Favourites"><i class="far fa-2x fa-star"></i></a>
+            </div>
             <div class="row">
                 <div class="col d-inline-flex">
                     <a href="/beer/{{id}}" class="a_home_product mx-auto"><img
@@ -41,10 +45,10 @@
             </div>
             <div class="card-footer">
                 <div class="row justify-content-center">
-                    <button type="submit" class="btn btn-primary my-1">Login to Buy</button>
+                    <button type="submit" class="btn btn-primary my-1">Buy</button>
                 </div>
             </div>
         </div>
     </div>
     {{/each}}
-</div>
+    </div>

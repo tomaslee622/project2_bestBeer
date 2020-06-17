@@ -73,4 +73,14 @@ body{
     align-items: center;
 }
 
+.card-header {
+    height: 120px;
+    align-items: center;
+}
+
+#wish_btn1:hover{
+    color: blue !important;
+}
+
+
 /* end of product_detail page */

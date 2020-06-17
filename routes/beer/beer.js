@@ -36,23 +36,24 @@ module.exports = (express) => {
     };
 
     router.get('/:id', async(req, res) => {
-        // let data = await getBeerInfo(req.params.id);
-        let reviews = await getReviews(req.params.id); // res.send(data);
-        // res.render('beer1_detail', { beer: data, review: reviews });
-        // let data = await getBeerInfo(req.params.id);
-
-        res.send(reviews);
-
-        // TEST comment
-
-        // res.render('beer1_detail');
+        let reviews = await getReviews(req.params.id); 
+        let data = await getBeerInfo(req.params.id);
+        if (req.isAuthenticated()) {
+            res.render('beer_detail_logged_in', { layout: 'loggedin_User', beer:data, review: reviews });
+        } else {
+            res.render('beer_detail_logged_in', { layout: 'loggedin_User', beer:data, review: reviews });
+        }
     });
 
     router.get('/', async(req, res) => {
-        let data = await getAllBeers();
-        // res.send(data);
-        res.render('menu_page', { beer: data });
+        let data = await getAllBeers()
+        if (req.isAuthenticated()) {
+            res.render('menu_page_logged_in', { layout: 'loggedin_User', beer:data });
+        } else {
+            res.render('menu_page', { layout: 'main', beer:data });
+        }
     });
-
     return router;
 };
+
+
