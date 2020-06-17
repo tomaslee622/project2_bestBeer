@@ -21,13 +21,15 @@ module.exports = (express) => {
             .join('users', 'users.id', 'reviews.user_id')
             .select('reviews.content', 'reviews.created_at', 'users.first_name');
         return query.then((data) => {
-            let newData = data[0]['created_at'];
-            newData = JSON.stringify(newData);
-            for (let i = 0; i < data.length; i++) {
-                data[i].date = newData.split('T')[0];
-                data[i].time = newData.split('T')[1];
-                data[i].date = data[i].date.replace('"', '');
-                data[i].time = data[i].time.replace('Z"', '');
+            if (data.length >= 0) {
+                let newData = data[0]['created_at'];
+                newData = JSON.stringify(newData);
+                for (let i = 0; i < data.length; i++) {
+                    data[i].date = newData.split('T')[0];
+                    data[i].time = newData.split('T')[1];
+                    data[i].date = data[i].date.replace('"', '');
+                    data[i].time = data[i].time.replace('Z"', '');
+                }
             }
             return data;
         });

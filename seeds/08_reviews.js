@@ -23,8 +23,16 @@ exports.seed = function(knex) {
                 },
                 {
                     user_id: 1,
+                    beer_id: 2,
+                    content: 'Damn it! What a crap',
+                    rating: 3.5,
+                    upvote: 21,
+                    downvote: 52,
+                },
+                {
+                    user_id: 2,
                     beer_id: 3,
-                    content: 'Well, good but expensive!',
+                    content: 'dsfjdsoifjdisojfiosfjdso < (drunk)',
                     rating: 3.5,
                     upvote: 21,
                     downvote: 52,
