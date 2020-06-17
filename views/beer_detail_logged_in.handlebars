@@ -1,0 +1,110 @@
+<section class="product__carousel_outerbox">
+    {{#each beer}}
+    <div class="container mt-5">
+
+        <div class="beerDetailButton col-8 offset-2 d-flex justify-content-between">
+            <a href="/beer/{{id}}" class="a_home_product "><button type="button" class="btn btn-secondary">Prev
+                    Beer</button></a>
+            <a><img src="/{{thumbnail}}" alt="beer_image" style="width: 200px; height:330px"></img></a>
+            <a href="/beer/{{id}}" class="a_home_product "><button type="button" class="btn btn-secondary">Next
+                    Beer</button></a>
+        </div>
+
+        <div class="row mt-5 mr-2 col-12 d-flex flex-wrap justify-space-between">
+            <div class="col-xs-10 col-sm-10 col-md-10 col-lg-5 col-xl-5 offset-1">
+                <div class="row d-flex-inline">
+                    <p class="text-left h2">{{beer_name}}</p><a type="button" class="btn" id="wish_btn1" data-toggle="tooltip" data-placement="top"
+                    title="Add to Favourites"><i class="favouriteButton far fa-2x fa-star" onclick="addFavourites()"></i></a>
+                </div>
+                <p class="text-left">WHEAT BEER</p>
+            </div>
+
+            <div class="col-xs-10 col-sm-10 col-md-10 col-lg-4 col-xl-4 offset-1">
+                <div class="d-flex flex-column mx-auto bg-light">
+                    <form class="form-inline ">
+                        <label class="mx-auto mr-2 text-center h4" for="inlineFormCustomSelectPref">Order
+                            Now ! ${{price}} each</label>
+                        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                            <option selected>Cans</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </form>
+                    <button type="submit" class="btn btn-primary my-1 mx-auto mb-5">Buy</button>
+                </div>
+            </div>
+            <div class="col-10 offset-1">
+                <p class="text-left">{{info}}</p>
+            </div>
+        </div>
+        {{/each}}
+
+        <p class="text-left h2 offset-1">Customer Feedback</p></a>
+        <div class="col-12 d-flex flex-wrap justify-space-between">
+            <div
+                class="userInfoContainer mt-2 mb-2 border border-secondary rounded bg-light col-xs-8 col-sm-8 col-md-8 col-lg-4 col-xl-4 offset-1">
+                <form id="submitComment">
+                    <div class="form-group mt-2">
+                        <label for="inputComment">Submit your own comment !</label>
+                        <input type="text" name="password" class="form-control" id="inputPassword"
+                            placeholder="Write here...">
+                    </div>
+                    <input type="submit" class="btn btn-dark"></button>
+                </form>
+            </div>
+
+            {{#each review}}
+
+            <div
+                class="userInfoContainer mt-2 mb-2 border border-secondary rounded bg-light col-xs-8 col-sm-8 col-md-8 col-lg-4 col-xl-4 offset-1">
+                <table class="table table-sm table-borderless table-hover">
+                    <thead>
+                        <tr>
+                            <th class="table-secondary border-right border-dark" scope="row">First Name</th>
+                            <td colspan="3">{{first_name}}</td>
+                        </tr>
+                        <tr>
+                            <th class="table-secondary border-right border-dark" scope="row">Date</th>
+                            <td colspan="3">{{date}}</td>
+                        </tr>
+                        <tr>
+                            <th class="table-secondary border-right border-dark" scope="row">Time</th>
+                            <td colspan="3">{{time}}</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="align-middle" colspan="3">{{content}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            {{/each}}
+
+
+
+        </div>
+    </div>
+</section>
+<!-- end of description and buy btn , remark : need to fix of color, position. -->
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+<script type='text/javascript'>
+    $('#submitComment').submit(function (event) {
+        event.preventDefault();
+        alert(`Thanks, your feedback has been received !`);
+    });
+
+    function addFavourites () {
+        alert(`Thanks, this item has been added to your wishlist !`);
+    }
+</script>

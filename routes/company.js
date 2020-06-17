@@ -2,10 +2,21 @@ module.exports = (express) => {
     const router = express.Router();
 
     router.get('/info', (req, res) => {
-        res.render('company_info');
+        if (req.isAuthenticated()) {
+            res.render('company_info', { layout: 'loggedin_User'});
+        } else {
+            res.render('company_info', { layout: 'main' });
+        }
     });
+
+
+
     router.get('/promotion', (req, res) => {
-        res.render('company_promotion');
+        if (req.isAuthenticated()) {
+            res.render('company_promotion', { layout: 'loggedin_User'});
+        } else {
+            res.render('company_promotion', { layout: 'main'});
+        }
     });
 
     return router;
