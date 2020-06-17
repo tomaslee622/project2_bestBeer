@@ -10,7 +10,12 @@ app.set('view engine', 'handlebars');
 app.get('/stats', (req, res) => {
     res.render('stats', { layout: 'loggedin_user' });
 });
-
+app.get('/user_registration', (req, res) => {
+    res.render('user_registration');
+});
+app.get('/login_input', (req, res) => {
+    res.render('login_input');
+});
 // Cross origin resource sharing - on your app server
 const cors = require('cors');
 
