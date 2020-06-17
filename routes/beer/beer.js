@@ -15,19 +15,21 @@ module.exports = (express) => {
     };
 
     const getReviews = (id) => {
-        let reviewData;
         let query = knex('reviews')
             .join('users', 'reviews.user_id', '=', 'users.id')
-            .select('users.first_name', 'reviews.content');
+            .select('users.first_name', 'reviews.content').where({ user_id:id});
         return query.then((data) => {
             return data;
         });
     };
 
     router.get('/:id', async(req, res) => {
+        let data = await getBeerInfo(req.params.id);
+         let reviews = await getReviews(req.params.id); // res.send(data);
+        res.render('beer1_detail', {beer: data, review:reviews});
         // let data = await getBeerInfo(req.params.id);
-        let review = await getReviews(req.params.id);
-        res.send(review);
+      
+        // res.send(review);
 
         // res.render('beer1_detail');
     });
