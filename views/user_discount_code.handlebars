@@ -1,0 +1,47 @@
+<section class="secondary">
+    {{!--user ac dropdown bar start --}}
+    <div class="dropdown text-center d-flex justify-content-center">
+        <div class="dropdown p-2">
+            <button class="btn btn-warning dropdown-toggle btn-lg" type="button" id="myAC_dropdown"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                My Account
+            </button>
+            <div class="dropdown-menu" aria-labelledby="myAC_dropdown" style="font-size: 20px">
+                <a class="dropdown-item" href="/user_account-details">Account Settings</a>
+                <a class="dropdown-item" href="/user_wishlist">Wishlist</a>
+                <a class="dropdown-item" href="/user_comment_history">My Comments</a>
+            </div>
+        </div>
+        <div class="dropdown p-2">
+            <button class="btn btn-warning dropdown-toggle btn-lg" type="button" id="myPurchase_dropdown"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                My Account
+            </button>
+            <div class="dropdown-menu" aria-labelledby="myPurchase_dropdown" style="font-size: 20px">
+                <a class="dropdown-item" href="/user_purchase_history">My Record</a>
+            </div>
+        </div>
+        <div class="dropdown p-2">
+            <button class="btn btn-warning  btn-lg" type="button" id="discount" aria-haspopup="true"
+                aria-expanded="false"><a href="/user_discount_code">
+                    Discount
+                    Codes</a>
+            </button>
+            {{!-- <div class="dropdown-menu" aria-labelledby="myPurchase_dropdown" style="font-size: 20px">
+                <a class="dropdown-item" href="#">My Record</a>
+            </div> --}}
+        </div>
+    </div>
+    {{!-- end of user ac dropdown bar --}}
+    
+    <div class="col-6 offset-3 text-center">
+        <div class="form-group row discountCodeContainer" style="font-size:24px;font-weight:700">My Discount Codes</div>
+        <div class="border border-secondary rounded bg-warning">
+            <div class="my-auto p-2" style="font-size: 30px">NOBEERNOLIFEx3</div>
+        </div>
+        <div class="border border-secondary rounded bg-warning">
+            <div class="my-auto p-2" style="font-size: 30px"><del>NOPILSNERNOPARTYx5</del></div>
+        </div>
+    </div>
+    </div>
+</section>

@@ -1,0 +1,97 @@
+<section class="secondary">
+
+        {{!--user ac dropdown bar start --}}
+    <div class="dropdown text-center d-flex justify-content-center">
+        <div class="dropdown p-2">
+            <button class="btn btn-warning dropdown-toggle btn-lg" type="button" id="myAC_dropdown"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                My Account
+            </button>
+            <div class="dropdown-menu" aria-labelledby="myAC_dropdown" style="font-size: 20px">
+                <a class="dropdown-item" href="/user_account-details">Account Settings</a>
+                <a class="dropdown-item" href="/user_wishlist">Wishlist</a>
+                <a class="dropdown-item" href="/user_comment_history">My Comments</a>
+            </div>
+        </div>
+        <div class="dropdown p-2">
+            <button class="btn btn-warning dropdown-toggle btn-lg" type="button" id="myPurchase_dropdown"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                My Account
+            </button>
+            <div class="dropdown-menu" aria-labelledby="myPurchase_dropdown" style="font-size: 20px">
+                <a class="dropdown-item" href="/user_purchase_history">My Record</a>
+            </div>
+        </div>
+        <div class="dropdown p-2">
+            <button class="btn btn-warning  btn-lg" type="button" id="discount" aria-haspopup="true"
+                aria-expanded="false"><a href="/user_discount_code">
+                    Discount
+                    Codes</a>
+            </button>
+            {{!-- <div class="dropdown-menu" aria-labelledby="myPurchase_dropdown" style="font-size: 20px">
+                <a class="dropdown-item" href="#">My Record</a>
+            </div> --}}
+        </div>
+    </div>
+{{!-- end of user ac dropdown bar --}}
+
+    </section>
+    <section >
+        <div class="col-6 offset-3 text-center">
+            <div class="form-group row discountCodeContainer" style="font-size:24px;font-weight:700">
+                My Comment History
+            </div>
+            <div class="userInfoContainer border border-secondary rounded bg-light">
+                <table class="table table-sm table-borderless table-hover">
+                    <thead>
+                        <tr>
+                            <th class="table-secondary border-right border-dark" scope="row">Date</th>
+                            <td colspan="3">8th May 2020</td>
+                        </tr>
+                        <tr>
+                            <th class="table-secondary border-right border-dark" scope="row">Time</th>
+                            <td colspan="3">20:35</td>
+                        </tr>
+                        <tr>
+                            <th class="table-secondary border-bottom border-right border-dark" scope="row">Product</th>
+                            <td class="border-bottom border-secondary" colspan="3">Jacky's Jumping Juice</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th class="table-secondary border-bottom border-right border-dark" scope="row">
+                                    <img src="/pure_folder/asset/product1.png" width="50px" alt="">
+                            </th>
+                            <td class="align-middle" colspan="3">Yuck ! What a disgusting beer ! I almost threw up :-(</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="userInfoContainer border border-secondary rounded bg-light">
+                <table class="table table-sm table-borderless table-hover">
+                    <thead>
+                        <tr>
+                            <th class="table-secondary border-right border-dark" scope="row">Date</th>
+                            <td colspan="3">1st May 2020</td>
+                        </tr>
+                        <tr>
+                            <th class="table-secondary border-right border-dark" scope="row">Time</th>
+                            <td colspan="3">10:15</td>
+                        </tr>
+                        <tr>
+                            <th class="table-secondary border-bottom border-right border-dark" scope="row">Product</th>
+                            <td class="border-bottom border-secondary" colspan="3">Chris's Cracking Cask</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th class="table-secondary border-bottom border-right border-dark" scope="row">
+                                    <img src="/pure_folder/asset/product2.png" width="50px" alt="">
+                            </th>
+                            <td class="align-middle" colspan="3">Not bad ! I will recommend this one to my friends !</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
