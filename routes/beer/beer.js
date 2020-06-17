@@ -22,8 +22,8 @@ module.exports = (express) => {
 
     router.get('/', async(req, res) => {
         let data = await getAllBeers();
-        res.send(data);
-        // res.render('test', { beer: data });
+        // res.send(data);
+        res.render('menu_page',{beer: data});
     });
 
     return router;
