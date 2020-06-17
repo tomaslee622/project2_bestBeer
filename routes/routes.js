@@ -40,6 +40,10 @@ module.exports = (express) => {
         res.render('user_registration', { layout: 'main' });
     });
 
+    router.post('/review', async(req, res) => {
+        console.log(req.user.id);
+    });
+
     router.post('/register', async(req, res) => {
         // try {
         let check = knex('users').select().where('email', '=', req.body.email);
