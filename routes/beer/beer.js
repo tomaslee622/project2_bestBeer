@@ -16,20 +16,30 @@ module.exports = (express) => {
 
     const getReviews = (id) => {
         let query = knex('reviews')
-            .join('users', 'reviews.user_id', '=', 'users.id')
-            .select('users.first_name', 'reviews.content').where({ user_id:id});
+            .select()
+            .where('reviews.beer_id', '=', id)
+            .join('users', 'users.id', 'reviews.user_id')
+            .select('reviews.content', 'reviews.created_at', 'users.first_name');
         return query.then((data) => {
+            let newData = data[0]['created_at'];
+            newData = JSON.stringify(newData);
+            for (let i = 0; i < data.length; i++) {
+                data[i].date = newData.split('T')[0];
+                data[i].time = newData.split('T')[1];
+                data[i].date = data[i].date.replace('"', '');
+                data[i].time = data[i].time.replace('Z"', '');
+            }
             return data;
         });
     };
 
     router.get('/:id', async(req, res) => {
-        let data = await getBeerInfo(req.params.id);
-         let reviews = await getReviews(req.params.id); // res.send(data);
-        res.render('beer1_detail', {beer: data, review:reviews});
         // let data = await getBeerInfo(req.params.id);
-      
-        // res.send(review);
+        let reviews = await getReviews(req.params.id); // res.send(data);
+        // res.render('beer1_detail', { beer: data, review: reviews });
+        // let data = await getBeerInfo(req.params.id);
+
+        res.send(reviews);
 
         // res.render('beer1_detail');
     });
