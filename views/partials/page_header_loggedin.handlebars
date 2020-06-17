@@ -1,4 +1,40 @@
 <header class="my-auto">
+    {{#if stats}}
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top text-uppercase border-bottom">
+        <!-- Navigation :fixed top  -->
+        <div class="d-flex flex-row">
+            <a class="navbar-brand ml-5 " href="{{stats}}"><i class="fas fa-3x fa-beer"></i></a>
+            <a class="navbar-brand h1 mx-auto my-auto" href="{{stats}}">
+                <h1 class="h1 font-weight-bolder">BEST BEER</h1>
+            </a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown mr-5 my-auto">
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Beers
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            {{!-- Create out product list --}}
+                            <a class="dropdown-item" href="/menu_page">Menu</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item active mr-5">
+                    <a class="nav-link font-weight-bolder" href="/login_input"><i class="fa-2x fas fa-sign-out-alt"></i>Log out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    {{else}}
     <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top text-uppercase border-bottom">
         <!-- Navigation :fixed top  -->
         <div class="d-flex flex-row">
@@ -50,5 +86,6 @@
             </ul>
         </div>
     </nav>
+    {{/if}}
 </header>
 <!-- end of navbar -->
