@@ -15,9 +15,9 @@ module.exports = (express) => {
     };
 
     router.get('/:id', async(req, res) => {
-        // let data = await getBeerInfo(req.params.id);
+        let data = await getBeerInfo(req.params.id);
         // res.send(data);
-        res.render('beer1_detail');
+        res.render('beer1_detail', {beer: data});
     });
 
     router.get('/', async(req, res) => {
