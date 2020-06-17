@@ -13,11 +13,10 @@ passport.use(
         },
         function(accessToken, refreshToken, profile, done) {
             console.log(profile);
-            // loginOrCreate(profile.value, done, {
-            //     provider: 'facebook',
-            //     facebook_id: profile.id,
-            // });
-            // done();
+            loginOrCreate(profile, done, {
+                provider: 'facebook',
+                facebook_id: profile.id,
+            });
         }
     )
 );

@@ -14,7 +14,7 @@ passport.use(
             // console.log('Given name: ' + profile.name.givenName);
             // console.log('Last name: ' + profile.name.familyName);
             // console.log('Nice looking pic: ' + profile.photos[0].value);
-            console.log(profile);
+            console.log(profile.emails[0].value);
             loginOrCreate(profile, done, {
                 provider: 'google',
                 google_id: profile.id,
