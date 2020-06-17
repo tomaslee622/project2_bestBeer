@@ -35,7 +35,7 @@ module.exports = (express) => {
 
     // Register handler
     router.get('/register', checkNotAuthenticated, (req, res) => {
-        res.send('Register Page');
+        res.render('user_registration', { layout: 'main' });
     });
 
     router.post('/register', async(req, res) => {
@@ -45,10 +45,12 @@ module.exports = (express) => {
                 email: req.body.username,
                 password: hashedPassword,
             });
-            res.redirect('/');
+            res.redirect('/login');
         } catch {
             res.redirect('/error');
         }
+
+        res.redirect('/login');
     });
 
     router.get('/logout', (req, res) => {

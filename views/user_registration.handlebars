@@ -1,6 +1,6 @@
 <section class="secondary">
     <div class="col-8 offset-2">
-        <form id="newUserRegistration">
+        <form id="newUserRegistration" action="/register" method="POST">
             <div class="form-group row" style="font-size:24px;font-weight:700">New User Registration</div>
             <div class="form-group">
                 <label for="inputFirstName">First Name</label>
@@ -22,17 +22,11 @@
             </div>
             <div class="form-group">
                 <label for="inputPassword">Password</label>
-                <input type="text" name="password" class="form-control" id="inputPassword" placeholder="Password">
+                <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
             </div>
             <input type="submit" class="btn btn-primary btn-lg"></button>
         </form>
     </div>
 </section>
-<script  src="https://code.jquery.com/jquery-3.4.1.js"  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="  crossorigin="anonymous"></script>
-    <script type='text/javascript'>
-        $('#newUserRegistration').submit(function(event){
-            event.preventDefault();
-            var firstName = event.target.firstName.value;
-            alert(`Thanks ${firstName}, registration is complete !`);
-        });
-    </script>
+<script src="https://code.jquery.com/jquery-3.4.1.js"  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="  crossorigin="anonymous"></script>
+   
