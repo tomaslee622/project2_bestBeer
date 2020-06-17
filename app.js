@@ -125,13 +125,13 @@ const facebookSetup = require('./utils/strategies/facebook-strategy');
 
 // Auehtnication routes
 const localRouter = require('./routes/routes')(express);
-const googleAuth = require('./routes/OAuth/google-auth');
-const facebookAuth = require('./routes/OAuth/facebook-auth');
-const userInfo = require('./routes/user');
-const companyInfo = require('./routes/company');
-const checkout = require('./routes/checkout');
-const loginRegistration = require('./routes/login&register_routes');
-const beerInfo = require('./routes/beer');
+const googleAuth = require('./routes/OAuth/google-auth')(express);
+const facebookAuth = require('./routes/OAuth/facebook-auth')(express);
+const userInfo = require('./routes/user')(express);
+const companyInfo = require('./routes/company')(express);
+const checkout = require('./routes/checkout')(express);
+const loginRegistration = require('./routes/login&register_routes')(express);
+const beerInfo = require('./routes/beer')(express);
 
 // Directing to local authentication
 app.use('/', localRouter);
@@ -142,8 +142,11 @@ app.use('/auth/google', googleAuth);
 // Directing to Facebook authentication
 app.use('/auth/facebook', facebookAuth);
 
-// Directing to user's personal info
+// General pages
 app.use('/user', userInfo);
+app.use('/company', companyInfo);
+app.use('/checkout', checkout);
+app.use('/');
 
 // Testing the chart.js
 app.get('/chart', (req, res) => {
