@@ -1,19 +1,42 @@
+const user = require('./user/user');
+const passport = require('passport');
+
 module.exports = (express) => {
     const router = express.Router();
 
     // The login page that allows user either login or register
-    router.get('/login_begin', (req, res) => {
-        res.render('login_begin', { layout: 'main' });
+    router.get('/', (req, res) => {
+        if (req.isAuthenticated()) {
+            res.redirect('/');
+        } else {
+            res.render('login_begin', { layout: 'main' });
+        }
     });
 
     // Users can opt for social login or local login
-    router.get('/login_input', (req, res) => {
-        res.render('login_input', { layout: 'main' });
+    router.get('/input', (req, res) => {
+        if (req.isAuthenticated()) {
+            res.redirect('/');
+        } else {
+            res.render('login_input', { layout: 'main' });
+        }
     });
 
     router.get('/user_registration', (req, res) => {
-        res.render('user_registration', { layout: 'loggedin_user' });
+        if (req.isAuthenticated()) {
+            res.redirect('/');
+        } else {
+            res.render('user_registration', { layout: 'main' });
+        }
     });
+
+    router.post(
+        '/login',
+        passport.authenticate('local-login', {
+            successRedirect: '/success',
+            failureRedirect: '/error',
+        })
+    );
 
     return router;
 };

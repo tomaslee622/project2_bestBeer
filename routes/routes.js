@@ -21,21 +21,13 @@ module.exports = (express) => {
         return next();
     };
 
-    router.get('/', checkNotAuthenticated, (req, res) => {
-        res.render('login_input');
+    router.get('/', (req, res) => {
+        if (req.isAuthenticated()) {
+            res.render('homepage', { layout: 'loggedin_User' });
+        } else {
+            res.render('homepage', { layout: 'main' });
+        }
     });
-
-    router.get('/success', checkAuthenticated, (req, res) => {
-        res.send('Hello, ' + req.user.email + ' you successfully logged in');
-    });
-
-    router.post(
-        '/login',
-        passport.authenticate('local-login', {
-            successRedirect: '/success',
-            failureRedirect: '/error',
-        })
-    );
 
     router.get('/error', (req, res) => {
         res.send('Opps, error!');

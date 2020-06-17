@@ -13,7 +13,7 @@ router.get(
 router.get(
     '/redirect',
     passport.authenticate('google', {
-        successRedirect: '/success',
+        successRedirect: '/',
         failureRedirect: '/error',
     })
 );
