@@ -13,8 +13,9 @@
         <div class="row mt-5 mr-2 col-12 d-flex flex-wrap justify-space-between">
             <div class="col-xs-10 col-sm-10 col-md-10 col-lg-5 col-xl-5 offset-1">
                 <div class="row d-flex-inline">
-                    <p class="text-left h2">{{beer_name}}</p><a type="button" class="btn" id="wish_btn1" data-toggle="tooltip" data-placement="top"
-                    title="Add to Favourites"><i class="favouriteButton far fa-2x fa-star" onclick="addFavourites()"></i></a>
+                    <p class="text-left h2">{{beer_name}}</p><a type="button" class="btn" id="wish_btn1"
+                        data-toggle="tooltip" data-placement="top" title="Add to Favourites"><i
+                            class="favouriteButton far fa-2x fa-star" onclick="addFavourites()"></i></a>
                 </div>
                 <p class="text-left">WHEAT BEER</p>
             </div>
@@ -37,9 +38,11 @@
                             <option value="9">9</option>
                             <option value="10">10</option>
                         </select>
-                    </form>
-                    <form action="/review" method="POST">
-                    <button type="submit" class="btn btn-primary my-1 mx-auto mb-5">Buy</button>
+                        <div class="ml-auto mr-auto">
+                            <a href="/checkout/showlist">
+                                <button type="btn" class="btn btn-primary my-1">Buy</button>
+                            </a>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -106,7 +109,7 @@
         alert(`Thanks, your feedback has been received !`);
     });
 
-    function addFavourites () {
+    function addFavourites() {
         alert(`Thanks, this item has been added to your wishlist !`);
     }
 </script>

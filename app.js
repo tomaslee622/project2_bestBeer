@@ -119,6 +119,7 @@ const facebookSetup = require('./utils/strategies/facebook-strategy');
 // Auehtnication routes
 const googleAuth = require('./routes/OAuth/google-auth');
 const facebookAuth = require('./routes/OAuth/facebook-auth');
+// other
 const localRouter = require('./routes/routes')(express);
 const userInfo = require('./routes/user/user')(express);
 const companyInfo = require('./routes/company')(express);
