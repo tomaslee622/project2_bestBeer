@@ -1,36 +1,38 @@
 <footer class="my-5">
-        <div class="col">
-            <hr class="mt-5">
-        </div>
+    <div class="col">
+        <hr class="mt-5">
+    </div>
 
-        <div class="container bg-dark rounded my-auto">
-            <div class="row">
-                <div class="col mr-5 text-left footer_co_policy">
-                    <br>
-                    <a href="#"> Pick up/Delivery Arrangement</a>
-                    <br>
-                    <a href="#"> Delivery Schedule</a>
-                    <br>
-                    <a href="#"> Privacy policy</a>
-                    <br>
-                    <div class="d-flex justify-content-start">
-                    <p class="text-white my-auto h5"> follow us</p>
-                    <a class="p-2 my-auto" href="#"><i class="fab fa-2x fa-facebook-square"></i></a>
-                    <a class="p-1 my-auto" href="#"><i class="fab fa-2x fa-instagram"></i></a>
-                    </div>
-                    <br>
-                </div>
-                <div class="col mr-5 text-left footer_message_us">
-                    <form>
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1" class="text-white">Message us</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                            <input type="submit" value="Submit">
-                        </div>
-
-                    </form>
-                </div>
+    <div class="container bg-dark rounded my-auto d-flex flex-wrap">
+        <div class="col-md-8 col-lg-6 text-left footer_co_policy">
+            <a href="/company/info"> Shipping Arrangement</a>
+            <br>
+            <a href="/company/info"> Delivery Schedule</a>
+            <br>
+            <a href="/company/info"> Privacy policy</a>
+            <br>
+            <div class="d-flex justify-content-start">
+                <p class="text-white my-auto"> Follow Us</p>
+                <a class="p-2 my-auto" href="#"><i class="fab fa-2x fa-facebook-square"></i></a>
+                <a class="p-1 my-auto" href="#"><i class="fab fa-2x fa-instagram"></i></a>
             </div>
         </div>
-    </footer>
-    {{!-- end of footer  --}}
+
+        <div class="col-md-8 col-lg-6 text-left footer_message_us">
+            <form id="messageUs">
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1" class="text-white">Message Us</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</footer>
+{{!-- end of footer  --}}
+<script type='text/javascript'>
+    $('#messageUs').submit(function (event) {
+        event.preventDefault();
+        alert(`Thanks, your feedback has been received !`);
+    });
+</script>
