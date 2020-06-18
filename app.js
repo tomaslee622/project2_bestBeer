@@ -148,6 +148,6 @@ app.get('/chart', (req, res) => {
 const apiRoute = require('./routes/api/apiRoutes')(express);
 app.use('/data', apiRoute);
 
-app.listen(3001, () => {
+app.listen(3000, () => {
   console.log(`App is listening to port 3000`);
 });
