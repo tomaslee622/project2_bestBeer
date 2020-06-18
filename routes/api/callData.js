@@ -6,4 +6,10 @@ const getData = (target) => {
     return query.then((data) => data);
 };
 
-module.exports = { getData };
+const getUserPurchase = (id) => {
+    console.log('getUserPurchase is called');
+    let query = knex('purchase').select().where({ user_id: id, bought: false });
+    return query.then((data) => data);
+};
+
+module.exports = { getData, getUserPurchase };

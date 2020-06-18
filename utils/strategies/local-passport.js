@@ -22,9 +22,12 @@ module.exports = () => {
                         message: 'This email is linked with either Google or Facebook, please login using Google or Facebook.',
                     });
                 }
-                if (await bcrypt.compare(password, user.password)) {
-                    console.log(password);
-                    console.log(user.password);
+                // Bcrypt implemented
+                // if (await bcrypt.compare(password, user.password)) {
+                //     console.log(password);
+                //     console.log(user.password);
+                //     return done(null, username);
+                if (password == user.password) {
                     return done(null, username);
                 } else {
                     console.log('Wrong password with local login');

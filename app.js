@@ -50,7 +50,7 @@ const facebookAuth = require('./routes/OAuth/facebook-auth');
 const localRouter = require('./routes/routes')(express);
 const userInfo = require('./routes/user/user')(express);
 const companyInfo = require('./routes/company')(express);
-const checkout = require('./routes/checkout')(express);
+const checkout = require('./routes/checkout/checkout')(express);
 const loginOrRegistration = require('./routes/login&register_routes')(express);
 const beerInfo = require('./routes/beer/beer')(express);
 
@@ -77,13 +77,13 @@ const apiRoute = require('./routes/api/apiRoutes')(express);
 app.use('/data', apiRoute);
 
 // Testing the database
-const knexConfig = require('./knexfile')['development'];
-const knex = require('knex')(knexConfig);
+// const knexConfig = require('./knexfile')['development'];
+// const knex = require('knex')(knexConfig);
 
-let query = knex('users').select();
-query.then((data) => {
-    console.log(data);
-});
+// let query = knex('reviews').select();
+// query.then((data) => {
+//     console.log(data);
+// });
 
 app.listen(3000, () => {
     console.log(`App is listening to port 3000`);

@@ -1,5 +1,6 @@
 const passport = require('passport');
 const bcrypt = require('bcrypt');
+const beer = require('./beer/beer');
 const knexConfig = require('../knexfile')['development'];
 const knex = require('knex')(knexConfig);
 
@@ -23,18 +24,18 @@ module.exports = (express) => {
         return next();
     };
 
-    
     const getAllBeers = () => {
         let query = knex('beers').select();
         return query.then((data) => data);
     };
 
     router.get('/', async(req, res) => {
-        let data = await getAllBeers()
+        console.log(req);
+        let data = await getAllBeers();
         if (req.isAuthenticated()) {
-            res.render('homepage_logged_in', { layout: 'loggedin_User', beer:data });
+            res.render('homepage_logged_in', { layout: 'loggedin_User', beer: data });
         } else {
-            res.render('homepage', { layout: 'main', beer:data });
+            res.render('homepage', { layout: 'main', beer: data });
         }
     });
 
@@ -48,7 +49,18 @@ module.exports = (express) => {
     });
 
     router.post('/review', async(req, res) => {
-        console.log(req.user.id);
+        let beerID = req.headers.referer.split('/');
+        beerID = beerID[beerID.length - 1];
+
+        let query = await knex('reviews').insert({
+            beer_id: beerID,
+            user_id: req.user.id,
+            content: req.body.review,
+        });
+
+        query.then(() => {
+            console.log('Review is inserted');
+        });
     });
 
     router.post('/register', async(req, res) => {
