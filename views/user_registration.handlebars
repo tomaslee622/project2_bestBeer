@@ -1,76 +1,72 @@
 <section class="secondary">
-        <div class="col-8 offset-2">
-            <form id="newUserRegistration" action="/register" method="POST">
-                <div class="form-group row" style="font-size:24px;font-weight:700">
-                    New User Registration
-                </div>
-                <div class="form-group fName col-6">
-                    <label for="regist_firstName">First Name</label>
-                    <input type="text" name="firstName" class="form-control" id="regist_firstName"
-                        placeholder="First Name">
-
-                </div>
-
-                <div class="form-group lName col-6">
-                    <label for="inputLastName">Last Name</label>
-                    <input type="text" name="lastName" class="form-control" id="inputLastName" placeholder="Last Name">
-                </div>
-                <div class="form-group mail col-6">
-                    <label for="inputEmail">Email address</label>
-                    <input type="text" name="email" class="form-control" id="inputEmail" placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                        else.</small>
-                </div>
-                <div class="form-group pw col-6">
-                    <label for="inputPassword">Password</label>
-                    <input type="password" name="password" class="form-control" id="inputPassword"
-                        placeholder="Password">
-                </div>
-                <input type="submit" class="btn btn-primary btn-lg">
-            </form>
-        </div>
-    </section>
+  <div class="col-8 offset-2">
+    <form id="newUserRegistration" action="/register" method="POST">
+      <div class="form-group row" style="font-size:24px;font-weight:700">
+        New User Registration
+      </div>
+      <div class="form-group fName col-6">
+        <label for="regist_firstName">First Name</label>
+        <input type="text" name="firstName" class="form-control" id="regist_firstName" placeholder="First Name">
+      </div>
+      <div class="form-group lName col-6">
+        <label for="inputLastName">Last Name</label>
+        <input type="text" name="lastName" class="form-control" id="inputLastName" placeholder="Last Name">
+      </div>
+      <div class="form-group mail col-6">
+        <label for="inputEmail">Email address</label>
+        <input type="text" name="email" class="form-control" id="inputEmail" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+          else.</small>
+      </div>
+      <div class="form-group pw col-6">
+        <label for="inputPassword">Password</label>
+        <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
+      </div>
+      <input type="submit" class="btn btn-primary btn-lg">
+    </form>
+  </div>
+</section>
 
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-    crossorigin="anonymous"></script>
+  crossorigin="anonymous"></script>
 
 <script type='text/javascript'>
-    $("#newUserRegistration").submit(function (event) {
-  event.preventDefault();
-  var fName = event.target.firstName.value;
-  var lName = event.target.lastName.value;
-  var email = event.target.email.value;
-  var pw = event.target.password.value;
+  $("#newUserRegistration").submit(function (event) {
+    event.preventDefault();
+    var fName = event.target.firstName.value;
+    var lName = event.target.lastName.value;
+    var email = event.target.email.value;
+    var pw = event.target.password.value;
 
-  var comment1 = $("<p/>", {
-    class: "text-left",
-    style: (color = "red"),
-    html: `<smal>Please type in 15 words.</small>`,
+    var comment1 = $("<p/>", {
+      class: "text-left",
+      style: (color = "red"),
+      html: `<smal>Please type in 15 words.</small>`,
+    });
+    var comment2 = $("<p/>", {
+      class: "text-left",
+      style: (color = "red"),
+      html: `<smal>Please type the right Email.</small>`,
+    });
+    var comment3 = $("<p/>", {
+      class: "text-left",
+      style: (color = "red"),
+      html: `<smal>Please type with 10 words</small>`,
+    });
+    if (fName === "" || fName.length < 1 || fName.length > 15) {
+      $(".fName").css("border", "red solid 2px");
+      $(".fName").append(comment1);
+    } else if (lName === "" || fName.length < 1 || fName.length > 15) {
+      $(".lName").css("border", "red solid 2px");
+      $(".lName").append(comment1);
+    } else if (email === "" || fName.length < 1 || fName.length > 20) {
+      $(".email").css("border", "red solid 2px");
+      $(".email").append(comment2);
+    } else if (pw === "" || fName.length < 1 || fName.length > 10) {
+      $(".pw").css("border", "red solid 2px");
+      $(".pw").append(comment3);
+    } else {
+      alert(`Your registration completed.Thank you !${fName}`)
+    }
   });
-  var comment2 = $("<p/>", {
-    class: "text-left",
-    style: (color = "red"),
-    html: `<smal>Please type the right Email.</small>`,
-  });
-  var comment3 = $("<p/>", {
-    class: "text-left",
-    style: (color = "red"),
-    html: `<smal>Please type with 10 words</small>`,
-  });
-  if (fName === "" || fName.length < 1 || fName.length > 15) {
-    $(".fName").css("border", "red solid 2px");
-    $(".fName").append(comment1);
-  } else if (lName === "" || fName.length < 1 || fName.length > 15){
-    $(".lName").css("border", "red solid 2px");
-    $(".lName").append(comment1);
-  } else if (email === "" || fName.length < 1 || fName.length > 20){
-    $(".email").css("border", "red solid 2px");
-    $(".email").append(comment2);
-  }else if(pw === "" || fName.length < 1 || fName.length > 10){
-    $(".pw").css("border", "red solid 2px");
-    $(".pw").append(comment3);
-  }else{
-    alert(`Your registration completed.Thank you !${fName}`)
-  }
-});
 </script>
