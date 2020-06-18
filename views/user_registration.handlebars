@@ -12,7 +12,7 @@
         <label for="inputLastName">Last Name</label>
         <input type="text" name="lastName" class="form-control" id="inputLastName" placeholder="Last Name">
       </div>
-      <div class="form-group mail col-6">
+      <div class="form-group email col-6">
         <label for="inputEmail">Email address</label>
         <input type="text" name="email" class="form-control" id="inputEmail" placeholder="Enter email">
         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
@@ -41,32 +41,33 @@
     var comment1 = $("<p/>", {
       class: "text-left",
       style: (color = "red"),
-      html: `<smal>Please type in 15 words.</small>`,
+      html: `<small>Please enter less than 15 characters.</small>`,
     });
     var comment2 = $("<p/>", {
       class: "text-left",
       style: (color = "red"),
-      html: `<smal>Please type the right Email.</small>`,
+      html: `<small>Please enter a valid email address.</small>`,
     });
     var comment3 = $("<p/>", {
       class: "text-left",
       style: (color = "red"),
-      html: `<smal>Please type with 10 words</small>`,
+      html: `<small>Please enter less than 10 characters.</small>`,
     });
     if (fName === "" || fName.length < 1 || fName.length > 15) {
       $(".fName").css("border", "red solid 2px");
       $(".fName").append(comment1);
-    } else if (lName === "" || fName.length < 1 || fName.length > 15) {
+    } else if (lName === "" || lName.length < 1 || lName.length > 15) {
       $(".lName").css("border", "red solid 2px");
       $(".lName").append(comment1);
-    } else if (email === "" || fName.length < 1 || fName.length > 20) {
+    } else if (email === "" || email.length < 1 || email.length > 20) {
       $(".email").css("border", "red solid 2px");
       $(".email").append(comment2);
-    } else if (pw === "" || fName.length < 1 || fName.length > 10) {
+    } else if (pw === "" || pw.length < 1 || pw.length > 10) {
       $(".pw").css("border", "red solid 2px");
       $(".pw").append(comment3);
     } else {
-      alert(`Your registration completed.Thank you !${fName}`)
+      alert(`Thanks ${fName}, your registration has been submitted`);
+      $('#newUserRegistration')[0].reset();
     }
   });
 </script>
