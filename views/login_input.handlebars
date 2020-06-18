@@ -21,27 +21,52 @@
             <div class="col-sm-12 col-md-5 col-lg-5 login-col text-center ">
                 <p class="col text-center"><u>Login Here</u></p>
                 <br>
-                <form action="/login" method="POST">
+                <form class="users_login">
                     <div class="form-group">
-                        <label for="text_username">Email</label>
-                        <input class="form-control" type="text" placeholder="User Name" id="text_username" name="username">
+                        <label for="text_username">User name</label>
+                        <input name='name' type="text" placeholder="User Name/Email">
                     </div>
                     <div class="form-group">
                         <label for="user_InputPassword1">Password</label>
-                        <input type="password" class="form-control" id="user_InputPassword1" name="password">
+                        <input type="text" name="password" placeholder="Password">
                     </div>
-                    <input type="submit" class="btn btn-primary">
+                    <div id="row-submit">
+                        <input type="submit" value="submit" />
+                    </div>
                 </form>
                 <br>
-                    <a href="/auth/facebook" class="btn-lg btn-primary text-left" type="button">Login
+                <a href="/auth/facebook" class="btn-lg btn-primary text-left" type="button">Login
                     as
                     facebook account <i class="fab fa-facebook"></i></a>
 
                 <br>
-                    <a href="/auth/google" class="btn-lg btn-primary text-left" type="button">Login
+
+                <a href="/auth/google" class="btn-lg btn-primary text-left" type="button" role="submit">Login
                     as google account <i class="fab fa-google"></i></a>
             </div>
         </div>
     </div>
     </div>
 </section>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+
+<script type='text/javascript'>
+    $('.users_login').submit(function (event) {
+        event.preventDefault();
+        var user = event.target.name.value;
+        var pw = event.target.password.value;
+        if (user === '' || user.length < 1 || user.length > 20) {
+            $("input:eq(0)").css("border", "red solid 2px");
+            alert(`Input your right ID`)
+        } else if (pw === '' || pw.length > 15) {
+            $("input:eq(1)").css("border", "red solid 2px");
+            alert(`input your password`)
+        } else {
+            $("input:eq(0)").css("border", "");
+            $("input:eq(1)").css("border", "");
+            alert(`welcome back ${user}`)
+        }
+    });
+</script>

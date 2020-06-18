@@ -45,7 +45,7 @@ module.exports = (express) => {
                 review: reviews,
             });
         } else {
-            res.render('beer_detail_logged_in', {
+            res.render('beer_detail', {
                 layout: 'main',
                 beer: data,
                 review: reviews,
@@ -55,6 +55,7 @@ module.exports = (express) => {
 
     router.get('/', async(req, res) => {
         let data = await getAllBeers();
+        console.log(data);
         if (req.isAuthenticated()) {
             res.render('menu_page_logged_in', {
                 layout: 'loggedin_User',

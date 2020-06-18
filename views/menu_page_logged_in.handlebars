@@ -7,7 +7,8 @@
             </div>
             <div class="col justify-content-end">
                 <a type="button" class="btn" id="wish_btn1" data-toggle="tooltip" data-placement="top"
-                    title="Add to Favourites"><i class="far fa-2x fa-star"></i></a>
+                    title="Add to Favourites"><i class="favouriteButton far fa-2x fa-star"
+                        onclick="addFavourites()"></i></a>
             </div>
             <div class="row">
                 <div class="col d-inline-flex">
@@ -43,12 +44,18 @@
                     </form>
                 </div>
             </div>
-            <div class="card-footer">
-                <div class="row justify-content-center">
-                    <button type="submit" class="btn btn-primary my-1">Buy</button>
-                </div>
+            <div class="card-footer text-center">
+                <a href="/checkout/showlist">
+                    <button type="btn" class="btn btn-primary my-1 text-center">Buy</button>
+                </a>
             </div>
         </div>
     </div>
     {{/each}}
-    </div>
+</div>
+
+<script type='text/javascript'>
+    function addFavourites() {
+        alert(`Thanks, this item has been added to your wishlist !`);
+    }
+</script>
