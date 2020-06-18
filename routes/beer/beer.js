@@ -41,7 +41,7 @@ module.exports = (express) => {
         if (req.isAuthenticated()) {
             res.render('beer_detail_logged_in', { layout: 'loggedin_User', beer:data, review: reviews });
         } else {
-            res.render('beer_detail_logged_in', { layout: 'loggedin_User', beer:data, review: reviews });
+            res.render('beer_detail', { layout: 'main', beer:data, review: reviews });
         }
     });
 

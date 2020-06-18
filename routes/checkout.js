@@ -8,6 +8,7 @@ module.exports = (express) => {
             res.render('myCart_showList', { layout: 'loggedin_user' });
         }
     });
+    // this one above doesnt seem to work
 
     router.get('/delivery', (req, res) => {
         if (!req.isAuthenticated()) {
