@@ -6,9 +6,76 @@ const bodyParser = require('body-parser');
 app.engine('handlebars', hb({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
+app.get('/homepage_login', (req, res) => {
+  res.render('homepage_login');
+});
+
+app.get('/homepage', (req, res) => {
+  if (req.isAuthenticated()) {
+    res.render('homepage', { layout: 'loggedin_User' });
+  } else {
+    res.redirect('homepage', { layout: 'main' });
+  }
+});
+
+
+
+app.get('/stats', (req, res) => {
+  res.render('stats', { layout: 'loggedin_User',stats:"homepage_login" });
+});
+
+app.get('/menu_page_loggin', (req, res) => {
+  res.render('menu_page_loggin', { layout: 'loggedin_User' });
+});
+app.get('/menu_page', (req, res) => {
+  res.render('menu_page');
+});
+//   end of menu page
+
+app.get('/login_begin', (req, res) => {
+  res.render('login_begin', { layout: 'main' });
+});
+app.get('/login_input', (req, res) => {
+  res.render('login_input', { layout: 'main' });
+});
+// login_ begin & input >> using layout page_header_view
+
+app.get('/user_regist_registered', (req, res) => {
+  res.render('user_regist_registered', { layout: 'loggedin_user' });
+});
+app.get('/user_account-details', (req, res) => {
+  res.render('user_account-details', { layout: 'loggedin_user' });
+});
+app.get('/user_comment_history', (req, res) => {
+  res.render('user_comment_history', { layout: 'loggedin_user' });
+});
+app.get('/user_discount_code', (req, res) => {
+  res.render('user_discount_code', { layout: 'loggedin_user' });
+});
+app.get('/user_purchase_history', (req, res) => {
+  res.render('user_purchase_history', { layout: 'loggedin_user' });
+});
+app.get('/user_wishlist', (req, res) => {
+  res.render('user_wishlist', { layout: 'loggedin_user' });
+});
+// end of users page
+
+app.get('/myCart_showList', (req, res) => {
+  res.render('myCart_showList', { layout: 'loggedin_user' });
+});
+app.get('/myCart_Delivery', (req, res) => {
+  res.render('myCart_Delivery', { layout: 'loggedin_user' });
+});
+app.get('/myCart_payment', (req, res) => {
+  res.render('myCart_payment', { layout: 'loggedin_user' });
+});
+app.get('/myCart_payCompleted', (req, res) => {
+  res.render('myCart_payCompleted', { layout: 'loggedin_user' });
+});
+
 // end of myCart
 app.get('/stats', (req, res) => {
-    res.render('stats', { layout: 'loggedin_user' });
+  res.render('stats', { layout: 'loggedin_user' });
 });
 
 // Cross origin resource sharing - on your app server
@@ -70,21 +137,12 @@ app.use('/beer', beerInfo);
 
 // Testing the chart.js
 app.get('/chart', (req, res) => {
-    res.sendFile(__dirname + '/chart.html');
+  res.sendFile(__dirname + '/chart.html');
 });
 
 const apiRoute = require('./routes/api/apiRoutes')(express);
 app.use('/data', apiRoute);
 
-// Testing the database
-const knexConfig = require('./knexfile')['development'];
-const knex = require('knex')(knexConfig);
-
-let query = knex('users').select();
-query.then((data) => {
-    console.log(data);
-});
-
-app.listen(3000, () => {
-    console.log(`App is listening to port 3000`);
+app.listen(3001, () => {
+  console.log(`App is listening to port 3000`);
 });
