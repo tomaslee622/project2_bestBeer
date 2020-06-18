@@ -22,14 +22,14 @@
                             Beers
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            {{!-- Create out product list --}}
                             <a class="dropdown-item" href="/menu_page">Menu</a>
                         </div>
                     </div>
                 </li>
 
                 <li class="nav-item active mr-5">
-                    <a class="nav-link font-weight-bolder" href="/login_input"><i class="fa-2x fas fa-sign-out-alt"></i>Log out</a>
+                    <a class="nav-link font-weight-bolder" href="/login_input"><i
+                            class="fa-2x fas fa-sign-out-alt"></i>Log out</a>
                 </li>
             </ul>
         </div>
@@ -60,7 +60,6 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/company/info">About us</a>
                             <a class="dropdown-item" href="/company/promotion">Promotion</a>
-                            {{!-- Create news --}}
                         </div>
                     </div>
                 </li>
@@ -71,17 +70,19 @@
                             Beers
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            {{!-- Create out product list --}}
                             <a class="dropdown-item" href="/beer">Menu</a>
                         </div>
                     </div>
                 </li>
-
                 <li class="nav-item active mr-5">
-                    <a class="nav-link font-weight-bolder" href="/logout"><i class="fa-2x fas fa-sign-out-alt"></i>Log out</a>
+                    <a class="nav-link font-weight-bolder" href="/logout"><i class="fa fa-user"></i></a>
                 </li>
                 <li class="nav-item active mr-5">
-                    <a class="nav-link" href="/checkout/showlist"><i class="fas fa-2x fa-shopping-cart"></i>My Cart</a>
+                    <a class="nav-link font-weight-bolder" href="/user/profile/:id"><i class="fa fas fa-sign-out-alt"></i></a>
+                    {{!-- check with Jacky --}}
+                </li>
+                <li class="nav-item active mr-5">
+                    <a class="nav-link" href="/checkout"><i class="fa fa-shopping-cart"></i></a>
                 </li>
             </ul>
         </div>
