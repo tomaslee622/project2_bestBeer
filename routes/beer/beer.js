@@ -47,6 +47,7 @@ module.exports = (express) => {
 
     router.get('/', async(req, res) => {
         let data = await getAllBeers()
+        console.log(data)
         if (req.isAuthenticated()) {
             res.render('menu_page_logged_in', { layout: 'loggedin_User', beer:data });
         } else {
