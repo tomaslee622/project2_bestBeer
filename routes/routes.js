@@ -30,7 +30,6 @@ module.exports = (express) => {
     };
 
     router.get('/', async(req, res) => {
-        console.log(req);
         let data = await getAllBeers();
         if (req.isAuthenticated()) {
             res.render('homepage_logged_in', { layout: 'loggedin_User', beer: data });
@@ -106,6 +105,17 @@ module.exports = (express) => {
             failureRedirect: '/login',
         })
     );
+
+    // Below is the api call from other scripts
+
+    router.get('/test', (req, res) => {
+        res.render('test');
+    });
+
+    router.post('/addOrRemoveWishlist', (req, res) => {
+        console.log(req.body);
+        // console.log(res.body);
+    });
 
     return router;
 };

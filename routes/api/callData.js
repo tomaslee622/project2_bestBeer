@@ -12,4 +12,4 @@ const getUserPurchase = (id) => {
     return query.then((data) => data);
 };
 
-module.exports = { getData, getUserPurchase };
+// module.exports = { getData, getUserPurchase };

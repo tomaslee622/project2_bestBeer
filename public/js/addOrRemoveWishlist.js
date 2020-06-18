@@ -1,3 +1,10 @@
-const { default: Axios } = require('axios');
+// Remember to have axios CDN installed
 
-const addOrRemoveWishlist = () => {};
+const addOrRemoveWishlist = (id) => {
+    console.log(id);
+    axios.post('/addOrRemoveWishlist', {
+        beTheOnlyOne: 'Beatles',
+    });
+};
+
+// addOrRemoveWishlist();

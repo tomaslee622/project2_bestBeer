@@ -23,7 +23,7 @@ exports.seed = function(knex) {
                 {
                     user_id: 1,
                     bill_id: 1,
-                    beer_id: 2,
+                    beer_id: 1,
                     quantity: 3,
                     price: 43,
                     bought: false,

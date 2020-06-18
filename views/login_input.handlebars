@@ -21,14 +21,14 @@
             <div class="col-sm-12 col-md-5 col-lg-5 login-col text-center ">
                 <p class="col text-center"><u>Login Here</u></p>
                 <br>
-                <form class="users_login">
+                <form class="users_login" action="/login" method="POST">
                     <div class="form-group">
                         <label for="text_username">User name</label>
-                        <input name='name' type="text" placeholder="User Name/Email">
+                        <input name='username' type="text" placeholder="User Name/Email">
                     </div>
                     <div class="form-group">
                         <label for="user_InputPassword1">Password</label>
-                        <input type="text" name="password" placeholder="Password">
+                        <input type="password" name="password" placeholder="Password">
                     </div>
                     <div id="row-submit">
                         <input type="submit" value="submit" />
@@ -52,8 +52,8 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script>
 
-<script type='text/javascript'>
-    $('.users_login').submit(function (event) {
+{{!-- <script type='text/javascript'> --}}
+    {{!-- $('.users_login').submit(function (event) {
         event.preventDefault();
         var user = event.target.name.value;
         var pw = event.target.password.value;
@@ -68,5 +68,5 @@
             $("input:eq(1)").css("border", "");
             alert(`welcome back ${user}`)
         }
-    });
-</script>
+    }); --}}
+{{!-- </script> --}}

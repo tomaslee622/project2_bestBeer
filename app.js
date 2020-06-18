@@ -148,10 +148,18 @@ const apiRoute = require('./routes/api/apiRoutes')(express);
 app.use('/data', apiRoute);
 
 // Testing the database
-// const knexConfig = require('./knexfile')['development'];
-// const knex = require('knex')(knexConfig);
+const knexConfig = require('./knexfile')['development'];
+const knex = require('knex')(knexConfig);
 
-// let query = knex('reviews').select();
+// let query = knex('users').select();
+// query.then((data) => {
+//     console.log(data);
+// });
+
+// let query = knex('purchase')
+//     .join('beers', 'beers.id', 'purchase.beer_id')
+//     .select()
+//     .where({ 'purchase.user_id': 1, 'purchase.bought': false });
 // query.then((data) => {
 //     console.log(data);
 // });
