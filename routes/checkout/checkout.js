@@ -2,7 +2,7 @@ module.exports = (express) => {
     const router = express.Router();
 
     router.get('/showlist', (req, res) => {
-        res.render('myCart_showList', { layout: 'loggedin_user' });
+        res.render('/checkout/showlist', { layout: 'loggedin_user' });
         // if (!req.isAuthenticated()) {
         //     res.redirect('/login');
         // } else {}
