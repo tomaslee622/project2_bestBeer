@@ -77,7 +77,12 @@ app.get('/myCart_payCompleted', (req, res) => {
 app.get('/stats', (req, res) => {
   res.render('stats', { layout: 'loggedin_user' });
 });
-
+app.get('/user_registration', (req, res) => {
+    res.render('user_registration');
+});
+app.get('/login_input', (req, res) => {
+    res.render('login_input');
+});
 // Cross origin resource sharing - on your app server
 const cors = require('cors');
 
@@ -144,6 +149,6 @@ app.get('/chart', (req, res) => {
 const apiRoute = require('./routes/api/apiRoutes')(express);
 app.use('/data', apiRoute);
 
-app.listen(3001, () => {
+app.listen(3000, () => {
   console.log(`App is listening to port 3000`);
 });
