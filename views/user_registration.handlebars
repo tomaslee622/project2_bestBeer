@@ -67,6 +67,10 @@
       $(".pw").append(comment3);
     } else {
       alert(`Thanks ${fName}, your registration has been submitted`);
+      $(".fName").css("border", "");
+      $(".lName").css("border", "");
+      $(".email").css("border", "");
+      $(".pw").css("border", "");
       $('#newUserRegistration')[0].reset();
     }
   });
