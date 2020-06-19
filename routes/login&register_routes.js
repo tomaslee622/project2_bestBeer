@@ -13,6 +13,15 @@ module.exports = (express) => {
         }
     });
 
+    // Authenticating user's local login
+    router.post(
+        '/',
+        passport.authenticate('local-login', {
+            successRedirect: '/',
+            failureRedirect: '/login',
+        })
+    );
+
     // Users can opt for social login or local login
     router.get('/input', (req, res) => {
         if (req.isAuthenticated()) {

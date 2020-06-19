@@ -57,6 +57,9 @@ module.exports = (profile, done, socialLoginID) => {
                 // This is a non-registered account, using social login
                 // Verify account using either Google or Facebook
                 if (socialLoginID['provider'] == 'google') {
+                    console.log('/////////////////////');
+                    // console.log(profile);
+                    console.log('/////////////////////');
                     console.log('Creating a google login account for this user');
                     let googleQuery = knex('users').insert({
                         email: profile.emails[0].value,

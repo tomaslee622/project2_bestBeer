@@ -7,7 +7,7 @@ exports.up = function(knex) {
         table.foreign('beer_id').references('beers.id');
         table.string('content').notNullable();
         table.timestamp('created_at', { precision: 0 }).defaultTo(knex.fn.now(0));
-        table.decimal('rating', 2, 1).notNullable();
+        table.decimal('rating', 2, 1);
         table.string('img_path');
         table.integer('upvote');
         table.integer('downvote');

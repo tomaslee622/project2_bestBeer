@@ -36,6 +36,4 @@ module.exports = (app) => {
                 console.log(err);
             });
     });
-
-    console.log('passport initilization finished');
 };

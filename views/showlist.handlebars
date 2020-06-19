@@ -1,20 +1,21 @@
 <section class="secondary" id="mycart">
     <div id="basket_list">
         <div class="col-sm-12 col-md-4 col-lg-4 d-inline-flex justify-content-center">
+            {{#each purchase}}
             <div class="card" style="width: 25rem;height: auto;">
                 <div class="card-header bg-white border-0 d-flex justify-content-between">
-                    <a class="btn " id="wish_btn1"><i class="far fa-2x fa-star "></i></a>
-                    <a class="btn " id="wish_btn1"><i class="far fa-2x fa-times-circle "></i></a>
+                    <a class="btn" id="wish_btn1"><i class="far fa-2x fa-star "></i></a>
+                    <a class="btn" id="wish_btn1"><i class="far fa-2x fa-times-circle "></i></a>
                 </div>
                 <div class="col d-inline-flex">
                     <a href="#" class="a_home_product mx-auto"><img class="card-img-top mx-auto d-block products__img"
                             src="../asset/product3.png" alt="Card image cap" style="width: 100px; "></a>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title text-center h2">Chris's Cracking Cask</h5>
+                    <h5 class="card-title text-center h2">{{beer_name}}</h5>
                     <p class="card-text text-center h4">330 ML </p>
                     <br>
-                    <p class="card-text text-center h4">$ 150.00 /Pack</p>
+                    <p class="card-text text-center h4">$ {{total_price}} /Pack</p>
 
 
                     <div class="row justify-content-center"><small class="text-secondary">Each packs have 6
@@ -25,6 +26,7 @@
 
                 </div>
             </div>
+            {{/each}}
         </div>
     </div>
 </section>
@@ -71,8 +73,8 @@
 
 </section>
 
-<div class="container pb-5">
-    <a href="/myCart_Delivery" class="text-white btn-lg btn-primary btn-block text-center rounded" type="button">
-        Proceed to Delivery
-    </a>
-</div>
+    <div class="container pb-5"> <a href="/myCart_Delivery" class="text-white btn-lg btn-primary btn-block text-center rounded" type="button">Proceed to Delivery
+            </a></div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    

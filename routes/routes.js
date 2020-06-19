@@ -1,5 +1,6 @@
 const passport = require('passport');
 const bcrypt = require('bcrypt');
+const beer = require('./beer/beer');
 const knexConfig = require('../knexfile')['development'];
 const knex = require('knex')(knexConfig);
 
@@ -23,18 +24,17 @@ module.exports = (express) => {
         return next();
     };
 
-    
     const getAllBeers = () => {
         let query = knex('beers').select();
         return query.then((data) => data);
     };
 
     router.get('/', async(req, res) => {
-        let data = await getAllBeers()
+        let data = await getAllBeers();
         if (req.isAuthenticated()) {
-            res.render('homepage_logged_in', { layout: 'loggedin_User', beer:data });
+            res.render('homepage_logged_in', { layout: 'loggedin_User', beer: data });
         } else {
-            res.render('homepage', { layout: 'main', beer:data });
+            res.render('homepage', { layout: 'main', beer: data });
         }
     });
 
@@ -47,9 +47,23 @@ module.exports = (express) => {
         res.render('user_registration', { layout: 'main' });
     });
 
+    router.post('/review', async(req, res) => {
+        let beerID = req.headers.referer.split('/');
+        beerID = beerID[beerID.length - 1];
+
+        let query = await knex('reviews').insert({
+            beer_id: beerID,
+            user_id: req.user.id,
+            content: req.body.review,
+        });
+
+        query.then(() => {
+            console.log('Review is inserted');
+        });
+    });
+
     router.post('/register', async(req, res) => {
         // try {
-        // console.log(req.body);
         let check = knex('users').select().where('email', '=', req.body.email);
         check.then((data) => {
             if (data.length >= 1) {
@@ -71,8 +85,6 @@ module.exports = (express) => {
         });
 
         query.then((data) => {
-            console.log('User registered');
-            console.log(data);
             res.redirect('/login');
         });
         // res.redirect('/login');
@@ -86,13 +98,16 @@ module.exports = (express) => {
         res.redirect('/');
     });
 
-    router.post(
-        '/login',
-        passport.authenticate('local-login', {
-            successRedirect: '/',
-            failureRedirect: '/login',
-        })
-    );
+    // Below is the api call from other scripts
+
+    router.get('/test', (req, res) => {
+        res.render('test');
+    });
+
+    router.post('/addOrRemoveWishlist', (req, res) => {
+        console.log(req.body);
+        // console.log(res.body);
+    });
 
     return router;
 };
