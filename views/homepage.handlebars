@@ -5,8 +5,7 @@
                 <div class="modal-content modal_warning">
                     <div class="modal-header d-flex flex-column">
 
-                        <h4 class="modal-title d-inline-flex"><i class="my-auto fas fa-3x fa-beer">BEST BEER </i></h4>
-                        <br>
+                        <img class="logo mx-auto m-3" src="/asset/logo.png" alt="logo">
                         <div class="col">
                             <p class="h3 text-bolder-light text-center">Friendly Reminder</p>
                         </div>
@@ -48,12 +47,12 @@
 </section>
 <!--  end of carousel div -->
 
-<div class="content-section row secondary mt-0 col-8 d-flex mx-auto" id="section1">
+<div class="content-section row secondary mt-0 col-8 d-flex mx-auto " id="section1">
     {{#each beer}}
-    <div class="col-sm-12 col-md-12 col-lg-4 d-inline-flex mb-3">
+    <div class="col-sm-12 col-md-12 col-lg-4 d-inline-flex mb-3 animate__fadeInLeft beer_each">
         <div class="card" style="width: 25rem;">
-            <div class="card-header align-middle">
-                <h5 class="card-title text-center h2">{{beer_name}}</h5>
+            <div class="card-header align-middle ">
+                <h5 class="card-title text-center h2 ">{{beer_name}}</h5>
             </div>
 
             <div class="row">
@@ -100,3 +99,7 @@
     </div>
     {{/each}}
 </div>
+
+<script>
+    $("#card").flip();
+</script> 
