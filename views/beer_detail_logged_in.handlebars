@@ -13,7 +13,7 @@
         <div class="row mt-5 mr-2 col-12 d-flex flex-wrap justify-space-between">
             <div class="col-xs-10 col-sm-10 col-md-10 col-lg-5 col-xl-5 offset-1">
                 <div class="row d-flex-inline">
-                    <p class="text-left h2">{{beer_name}}</p><a type="button" class="btn" id="wish_btn1"
+                    <p class="text-left h2">{{beer_name}}</p><a type="button" class="btn bg-white" id="wish_btn1"
                         data-toggle="tooltip" data-placement="top" title="Add to Favourites"><i
                             class="favouriteButton far fa-2x fa-star" onclick="addFavourites()"></i></a>
                 </div>
@@ -54,8 +54,8 @@
 
         <p class="text-left h2 offset-1">Customer Feedback</p></a>
         <div class="col-12 d-flex flex-wrap justify-space-between">
-            <div
-                class="userInfoContainer mt-2 mb-2 border border-secondary rounded bg-light col-xs-8 col-sm-8 col-md-8 col-lg-4 col-xl-4 offset-1">
+            <div class="userInfoContainer mt-2 mb-2 border border-secondary rounded bg-light col-xs-8 col-sm-8 col-md-8 col-lg-4 col-xl-4 offset-1">
+                <form class="submitComment">
                     <div class="form-group mt-2">
                         <label for="inputComment">Submit your own comment !</label>
                             <input type="text" name="review" class="form-control" id="review"
@@ -103,7 +103,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script>
 <script type='text/javascript'>
-    $('#submitComment').submit(function (event) {
+    $('.submitComment').submit(function (event) {
         event.preventDefault();
         alert(`Thanks, your feedback has been received !`);
     });

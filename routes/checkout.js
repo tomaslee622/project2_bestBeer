@@ -14,7 +14,7 @@ module.exports = (express) => {
         if (!req.isAuthenticated()) {
             res.redirect('/login');
         } else {
-            res.render('myCart_Delivery', { layout: 'loggedin_user' });
+            res.render('myCart_Delivery', { layout: 'loggedin_User' });
         }
     });
 
@@ -22,7 +22,7 @@ module.exports = (express) => {
         if (!req.isAuthenticated()) {
             res.redirect('/login');
         } else {
-            res.render('myCart_payment', { layout: 'loggedin_user' });
+            res.render('myCart_payment', { layout: 'loggedin_User' });
         }
     });
 
@@ -30,7 +30,7 @@ module.exports = (express) => {
         if (!req.isAuthenticated()) {
             res.redirect('/login');
         } else {
-            res.render('myCart_payCompleted', { layout: 'loggedin_user' });
+            res.render('myCart_payCompleted', { layout: 'loggedin_User' });
         }
     });
 
