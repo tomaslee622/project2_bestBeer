@@ -3,8 +3,8 @@
         <hr class="mt-5">
     </div>
 
-    <div class="container bg-dark rounded my-auto d-flex flex-wrap">
-        <div class="col-md-8 col-lg-6 text-left footer_co_policy">
+    <div class="container bg-dark rounded d-flex flex-wrap">
+        <div class="col-md-8 col-lg-6 text-left footer_co_policy mt-3">
             <a href="/company/info"> Shipping Arrangement</a>
             <br>
             <a href="/company/info"> Delivery Schedule</a>
@@ -20,10 +20,10 @@
 
         <div class="col-md-8 col-lg-6 text-left footer_message_us">
             <form id="messageUs">
-                <div class="form-group">
+                <div class="form-group mt-1">
                     <label for="exampleFormControlTextarea1" class="text-white">Message Us</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    <input type="submit" value="Submit">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" ></textarea>
+                    <br><input class="text-white rounded bg-dark"type="submit" value="Submit">
                 </div>
             </form>
         </div>
@@ -33,6 +33,14 @@
 <script type='text/javascript'>
     $('#messageUs').submit(function (event) {
         event.preventDefault();
-        alert(`Thanks, your feedback has been received !`);
+        var message = event.target.message.value;
+        if (message === "" || message.length < 1 || message.length > 1000) {
+            $(".textArea").css("border", "red solid 2px");
+             alert(`please enter valid message text with no more than 1000 characters`);
+        } else {
+            alert(`Thanks, your feedback has been received !`);
+            $(".textArea").css("border", "");
+            $('#messageUs')[0].reset();
+        }
     });
 </script>

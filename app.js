@@ -18,9 +18,9 @@ app.get('/homepage', (req, res) => {
     }
 });
 
-app.get('/stats', (req, res) => {
-    res.render('stats', { layout: 'loggedin_User', stats: 'homepage_login' });
-});
+// app.get('/stats', (req, res) => {
+//     res.render('stats', { layout: 'loggedin_User', stats: 'homepage_login' });
+// });
 
 app.get('/menu_page_loggin', (req, res) => {
     res.render('menu_page_loggin', { layout: 'loggedin_User' });
