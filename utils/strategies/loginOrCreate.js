@@ -65,7 +65,7 @@ module.exports = (profile, done, socialLoginID) => {
                         last_name: profile.name.familyName,
                     });
                     googleQuery.then(() => {
-                        return done(null, profile.email[0].value);
+                        return done(null, profile.emails[0].value);
                     });
                 } else if (socialLoginID['provider'] == 'facebook') {
                     console.log('Creating a google login account for this user.');
