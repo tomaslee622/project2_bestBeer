@@ -4,21 +4,22 @@ const { use } = require('passport');
 module.exports = (express) => {
     const router = express.Router();
 
-    router.get('/profile/:id', async(req, res) => {
-        // if (!req.isAuthenticated()) {
-        //     res.redirect('/login');
-        // } else {
-        let data = await userInfo.getInfo(req.params.id);
-        // res.send(data);
-        res.send(data);
-        res.render('user_account-details', {
-            layout: 'loggedin_user',
-            dtasd: data,
-        });
+    router.get('/profile', async(req, res) => {
+        if (!req.isAuthenticated()) {
+            res.redirect('/login');
+        } else {
+            // let data = await userInfo.getInfo(req.params.id);
+            // res.send(data);
+            // res.send('data');
+            res.render('user_account-details', {
+                layout: 'loggedin_user',
+                //     dtasd: data,
+            });
+        }
     });
 
-    router.get('/comment/:id', async(req, res) => {
-        if (req.isAuthenticated()) {
+    router.get('/comment', async(req, res) => {
+        if (!req.isAuthenticated()) {
             res.redirect('/login');
         } else {
             // let data = await userInfo.getComment(req.params.id);
@@ -27,8 +28,8 @@ module.exports = (express) => {
         }
     });
 
-    router.get('/discount/:id', async(req, res) => {
-        if (req.isAuthenticated()) {
+    router.get('/discount', async(req, res) => {
+        if (!req.isAuthenticated()) {
             res.redirect('/login');
         } else {
             // let data = await userInfo.getDiscount(req.params.id);
@@ -37,8 +38,8 @@ module.exports = (express) => {
         }
     });
 
-    router.get('/purchase_history/:id', async(req, res) => {
-        if (req.isAuthenticated()) {
+    router.get('/purchase_history', async(req, res) => {
+        if (!req.isAuthenticated()) {
             res.redirect('/login');
         } else {
             // let data = await userInfo.getPurchaseHistory(req.params.id);
@@ -47,8 +48,8 @@ module.exports = (express) => {
         }
     });
 
-    router.get('/wishlist/:id', async(req, res) => {
-        if (req.isAuthenticated()) {
+    router.get('/wishlist', async(req, res) => {
+        if (!req.isAuthenticated()) {
             res.redirect('/login');
         } else {
             // let data = await userInfo.getPurchaseHistory(req.params.id);

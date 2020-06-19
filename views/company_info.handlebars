@@ -1,10 +1,5 @@
 <section class="secondary">
     <div class="container">
-        <div class="row">
-            <div>
-
-            </div>
-        </div>
         <div class="row d-flex flex-wrap">
             <div class="col-sm-12 col-lg-4">
                 <img src="/asset/beer1.png" class="img-fluid rounded float-left" style="height: auto;"
@@ -17,12 +12,14 @@
                 </p>
             </div>
         </div>
-        <div class="row d-flex flex-wrap pt-2">
+        {{!-- End of About us div --}}
+
+        <div class="row d-flex flex-wrap mt-5 pt-5">
             <div class="col-sm-12 col-lg-4">
                 <img src="/asset/delivery.jpeg" class="img-fluid rounded float-left" style="height: auto;" alt="">
             </div>
             <div class="col-sm-12 col-lg-6 mt-5 my-auto">
-                <p class="text-dark text-left h3">Pick up/Shipping Arrangment:</p>
+                <p class="text-dark text-left h3">Shipping Arrangment:</p>
                 <div class="row">
                     <div class="col-6">
                         <div class="list-group" id="list-tab" role="tablist">
@@ -42,15 +39,17 @@
                                 aria-labelledby="pick_up_list">
                                 <p class="text-left">People who ordered online can directly go to our store
                                     to pick up the beer. Please pick up within 72 hours, otherwise we will charge HKD
-                                    $50 per days
+                                    $50 per days.
                                     To find us, please follow the location below.
                                 </p>
                             </div>
                             <div class="tab-pane fade" id="shipping_oversea" role="tabpanel"
                                 aria-labelledby="shipping_list1">
-                                <p class="text-left">Shipping to oversea is available here. All you have to do is to go
+                                <p class="text-left">Shipping to oversea is available here. We will delivery your order
+                                    by DHL. All you have to do is to go
                                     to order here , select your address, indicate
-                                    the details of your shipment, and pay for the service. All you will need to do then
+                                    the details of your shipment, and pay for the service. After all you will receive a
+                                    track code in email. All you will need to do then
                                     is to pack your parcel and we will do all the rest.</p>
                             </div>
                             <div class="tab-pane fade" id="shipping_local" role="tabpanel"
@@ -59,26 +58,105 @@
                                     need to is select your address or input the SF pick up location's code. Then pay for
                                     the serivce</p>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{!-- end of shipping div --}}
+
+        <div class="row d-flex flex-wrap mt-5 pt-5">
+            <div class="col-sm-12 col-lg-4">
+                <img src="/asset/delivery_schedule.jpeg" class="img-fluid rounded float-left" style="height: auto;"
+                    alt="">
+            </div>
+            <div class="col-sm-12 col-lg-6 mt-5 my-auto">
+                <p class="text-dark text-left h3">Delivery Schedule:</p>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="list-group" id="list-tab" role="tablist">
+                            <a class="list-group-item list-group-item-action active" id="delivery_local"
+                                data-toggle="list" href="#delivery_local_customer" role="tab"
+                                aria-controls="home">Delivery (For local)
+                            </a>
+                            <a class="list-group-item list-group-item-action" id="delivery_oversea" data-toggle="list"
+                                href="#delivery_oversea_customer" role="tab" aria-controls="profile">Shipping to
+                                Oversea</a>
+                            <a class="list-group-item list-group-item-action" id="question_answer" data-toggle="list"
+                                href="#page_question_answer" role="tab" aria-controls="messages">Shipping to Local</a>
 
                         </div>
                     </div>
-
-                </div>
-
-
-            </div>
-            <!-- end of company's info -->
-            <div class="container mt-5">
-                <div class="row">
-                    <p class="text-left">Find Us:</p>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12 col-lg-12">
-                        <iframe class="responsive-iframe"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4032.1932989143106!2d114.18922105741045!3d22.303613572722302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3404011fc42f1b4f%3A0x17358f145243a912!2sThe%20Harbourfront%20Landmark!5e0!3m2!1sen!2shk!4v1591895356905!5m2!1sen!2shk"
-                            width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""
-                            aria-hidden="false" tabindex="0"></iframe>
+                    <div class="col-6">
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="delivery_local_customer" role="tabpanel"
+                                aria-labelledby="delivery_local">
+                                <p class="text-left">Deliver by SF Express, we will start sending the beers as soon as
+                                    possible.
+                                    Your order will arrive to your address wihin 3-4 days (depends on weather).
+                                </p>
+                            </div>
+                            <div class="tab-pane fade" id="delivery_oversea_customer" role="tabpanel"
+                                aria-labelledby="delivery_oversea">
+                                <p class="text-left">DHL EXPRESS BREAKBULK provides door-to-door delivery of shipments
+                                    that are consolidated at origin, sent from one customs zone to another, then
+                                    deconsolidated by DHL at destination before delivery to different addresses within
+                                    the same country or customs union. The consolidated shipment is cleared as a single
+                                    entry on arrival at the destination facility.</p>
+                            </div>
+                            <div class="tab-pane fade" id="page_question_answer" role="tabpanel"
+                                aria-labelledby="question_answer">
+                                <p class="text-left">If you have futher question or suggestion. Please feel free to
+                                    contact us. <br>Email: thebestbeer@gmail.com<br>
+                                    Customer Service: +852 2020 2020 (10:00 - 1830)
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+        {{!-- end of delivery schedule  --}}
+
+
+
+
+        <div class="row d-flex flex-wrap mt-5 pt-5">
+            <div class="col-sm-12 col-lg-4">
+                <iframe class="responsive-iframe"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4032.1932989143106!2d114.18922105741045!3d22.303613572722302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3404011fc42f1b4f%3A0x17358f145243a912!2sThe%20Harbourfront%20Landmark!5e0!3m2!1sen!2shk!4v1591895356905!5m2!1sen!2shk"
+                    width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                    tabindex="0">
+                </iframe>
+            </div>
+            <div class="col-sm-12 col-lg-4 mt-3 my-auto text-left">
+                <p class="h2">Contact us:<br></p>
+                <p>Location: <br>6/F Harbourfront Landmark, 11 Wan Hoi St, Hung Hom<br>
+                    Open: Mon - Sun, 10:00 - 18:30<br>
+                    Tel: +852 1234 5678<br>
+                    Email: thebestbeer@gmail.com<br>
+                    Customer Service: +852 2020 2020 (10:00 - 1830)<br>
+                </p>
+            </div>
+        </div>
+        {{!-- end of find us div  --}}
+        <div class="row d-flex flex-wrap bg-secondary mt-5 p-5 rounded">
+            <div class="col-sm-12 col-lg-4">
+                <p class="text-white text-left h2">Privacy Policy<i class=" fa fa-lock text-white"
+                        aria-hidden="true"></i></p>
+            </div>
+            <div class="col-sm-12 col-lg-6 mt-3 my-auto text-left">
+                <p class="h2 text-white">What This Privacy Policy Covers<br></p>
+                <p class="text-white">This policy covers how we BestBeer co.,ltd treats personal information that we
+                    collect and
+                    receive, including information related to your past use of our products and services. Personal
+                    information is information about you that is personally identifiable like your name, address, email
+                    , or phone number, and that is not otherwise publicly available.
+
+                    This Privacy Policy does not apply to the practices of companies that we does not own or control,
+                    or to people that we do not employ or manage.
+                </p>
+            </div>
+        </div>
+    </div>
 </section>

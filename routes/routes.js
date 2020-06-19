@@ -98,14 +98,6 @@ module.exports = (express) => {
         res.redirect('/');
     });
 
-    router.post(
-        '/login',
-        passport.authenticate('local-login', {
-            successRedirect: '/',
-            failureRedirect: '/login',
-        })
-    );
-
     // Below is the api call from other scripts
 
     router.get('/test', (req, res) => {
