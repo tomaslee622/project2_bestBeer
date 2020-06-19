@@ -8,3 +8,5 @@ $(function () {
         localStorage.setItem('popState', 'shown');
     });
 });
+
+// end of homepage modal 
