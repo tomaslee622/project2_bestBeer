@@ -1,76 +1,29 @@
 <header class="my-auto">
     {{#if stats}}
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top text-uppercase border-bottom">
+    <nav class="navbar navbar-fluid navbar-expand-lg fixed-top border-bottom">
         <!-- Navigation :fixed top  -->
         <div class="d-flex flex-row">
-            <a class="navbar-brand ml-5 " href="{{stats}}"><i class="fas fa-3x fa-beer"></i></a>
-            <a class="navbar-brand h1 mx-auto my-auto" href="{{stats}}">
-                <h1 class="h1 font-weight-bolder">BEST BEER</h1>
+            <a class="navbar-brand ml-5 " href="/">
+                <img class="logo" src="/asset/logo.png" alt="First slide">
             </a>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon">
+                <i class="fas fa-bars" style="color: white; font-size:28px;"></i>
+            </span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown mr-5 my-auto">
                     <div class="dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Beers
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/menu_page">Menu</a>
-                        </div>
-                    </div>
-                </li>
-
-                <li class="nav-item active mr-5">
-                    <a class="nav-link font-weight-bolder" href="/login_input"><i
-                            class="fa-2x fas fa-sign-out-alt"></i>Log out</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    {{else}}
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top text-uppercase border-bottom">
-        <!-- Navigation :fixed top  -->
-        <div class="d-flex flex-row">
-            <a class="navbar-brand ml-5 " href="/"><i class="fas fa-3x fa-beer"></i></a>
-            <a class="navbar-brand h1 mx-auto my-auto" href="/">
-                <h1 class="h1 font-weight-bolder">BEST BEER</h1>
-            </a>
-        </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-
-                <li class="nav-item dropdown mr-5 my-auto">
-                    <div class="dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            About
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/company/info">About us</a>
-                            <a class="dropdown-item" href="/company/promotion">Promotion</a>
-                        </div>
-                    </div>
-                </li>
-                <li class="nav-item dropdown mr-5 my-auto">
-                    <div class="dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Beers
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/beer">Menu</a>
+                            <a class="dropdown-item text-white" href="/beer">Menu</a>
                         </div>
                     </div>
                 </li>
@@ -83,6 +36,57 @@
                 </li>
                 <li class="nav-item active mr-5">
                     <a class="nav-link" href="/checkout"><i class="fa fa-shopping-cart"></i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    {{else}}
+    <nav class="navbar navbar-fluid navbar-expand-lg fixed-top border-bottom">
+        <!-- Navigation :fixed top  -->
+        <div class="d-flex flex-row">
+            <a class="navbar-brand ml-5 " href="{{stats}}">
+                <img class="logo" src="asset/logo.png" alt="logo">
+            </a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown mr-5 my-auto">
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            About
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item text-white" href="/company/info">About us</a>
+                            <a class="dropdown-item text-white" href="/company/promotion">Promotion</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown mr-5 my-auto">
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Beers
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item text-white" href="/beer">Menu</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item active mr-5">
+                    <a class="nav-link text-white" href="/logout"><i class="fa fa-user"></i></a>
+                </li>
+                <li class="nav-item active mr-5">
+                    <a class="nav-link text-white" href="/user/profile/:id"><i class="fa fas fa-sign-out-alt"></i></a>
+                    {{!-- check with Jacky --}}
+                </li>
+                <li class="nav-item active mr-5">
+                    <a class="nav-link text-white" href="/checkout"><i class="fa fa-shopping-cart"></i></a>
                 </li>
             </ul>
         </div>

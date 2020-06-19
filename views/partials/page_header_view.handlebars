@@ -1,48 +1,48 @@
 <header class="my-auto">
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top text-uppercase border-bottom">
+    <nav class="navbar navbar-expand-lg fixed-top text-uppercase border-bottom">
         <!-- Navigation :fixed top  -->
         <div class="d-flex flex-row">
-            <a class="navbar-brand ml-5 " href="/"><i class="fas fa-3x fa-beer"></i></a>
-            <a class="navbar-brand h1 mx-auto my-auto" href="/">
-                <h1 class="h1 font-weight-bolder">BEST BEER</h1>
+            <a class="navbar-brand ml-5 " href="/">
+                <img class="logo" src="/asset/logo.png" alt="logo">
             </a>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon">
+                <i class="fas fa-bars" style="color: white; font-size:28px;"></i>
+            </span>
         </button>
 
-        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-
-                <li class="nav-item dropdown p-2 my-auto mx-auto">
-                    <div class="dropdown my-auto">
-                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
+                <li class="nav-item dropdown mr-5 my-auto">
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             About
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/company/info">About us</a>
-                            <a class="dropdown-item" href="/company/promotion">Promotion</a>
-                            {{!-- Create news --}}
+                            <a class="dropdown-item text-white" href="/company/info">About us</a>
+                            <a class="dropdown-item text-white" href="/company/promotion">Promotion</a>
                         </div>
                     </div>
                 </li>
-                <li class="nav-item dropdown p-2 my-auto mx-auto">
-                    <div class="dropdown my-auto">
-                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
+                <li class="nav-item dropdown mr-5 my-auto">
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Beers
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            {{!-- Create out product list --}}
-                            <a class="dropdown-item" href="/beer">Menu</a>
+                            <a class="dropdown-item text-white" href="/beer">
+                                Menu
+                            </a>
                         </div>
                     </div>
                 </li>
-                <li class="nav-item active my-auto mx-auto">
-                    <a class="nav-link" href="/login">
-                        <p class="h6 my-auto mx-auto font-weight-bolder">Login</p>
+                <li class="nav-item active mr-5">
+                    <a class="nav-link text-white" href="/login">
+                        Login
                     </a>
                 </li>
             </ul>
