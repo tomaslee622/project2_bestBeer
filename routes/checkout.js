@@ -5,7 +5,7 @@ module.exports = (express) => {
         if (!req.isAuthenticated()) {
             res.redirect('/login');
         } else {
-            res.render('myCart_showList', { layout: 'loggedin_user' });
+            res.render('showlist', { layout: 'loggedin_User' });
         }
     });
     // this one above doesnt seem to work
@@ -14,7 +14,7 @@ module.exports = (express) => {
         if (!req.isAuthenticated()) {
             res.redirect('/login');
         } else {
-            res.render('myCart_Delivery', { layout: 'loggedin_user' });
+            res.render('delivery', { layout: 'loggedin_User' });
         }
     });
 
@@ -22,7 +22,7 @@ module.exports = (express) => {
         if (!req.isAuthenticated()) {
             res.redirect('/login');
         } else {
-            res.render('myCart_payment', { layout: 'loggedin_user' });
+            res.render('payment', { layout: 'loggedin_User' });
         }
     });
 
@@ -30,7 +30,7 @@ module.exports = (express) => {
         if (!req.isAuthenticated()) {
             res.redirect('/login');
         } else {
-            res.render('myCart_payCompleted', { layout: 'loggedin_user' });
+            res.render('payment_completed', { layout: 'loggedin_User' });
         }
     });
 
