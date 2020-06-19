@@ -34,7 +34,7 @@ module.exports = (express) => {
         if (req.isAuthenticated()) {
             res.render('homepage_logged_in', { layout: 'loggedin_User', beer:data });
         } else {
-            res.render('homepage', { layout: 'main', beer:data });
+            res.render('homepage_logged_in', { layout: 'loggedin_User', beer:data });
         }
     });
 
