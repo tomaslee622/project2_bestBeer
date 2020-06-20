@@ -21,11 +21,10 @@
             </div>
 
             <div class="col-xs-10 col-sm-10 col-md-10 col-lg-4 col-xl-4 offset-1">
-                <div class="d-flex flex-column mx-auto bg-light">
+                <h4 class="text-center">Order Now ! ${{price}} each</h4>
+                <div class="d-flex justify-content-around">
                     <form class="form-inline ">
-                        <label class="mx-auto mr-2 text-center h4" for="inlineFormCustomSelectPref">Order
-                            Now ! ${{price}} each</label>
-                        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                        <select class="custom-select" id="inlineFormCustomSelectPref">
                             <option selected>Cans</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -38,12 +37,12 @@
                             <option value="9">9</option>
                             <option value="10">10</option>
                         </select>
-                        <div class="ml-auto mr-auto">
-                            <a href="/checkout/showlist">
-                                <button type="btn" class="btn btn-primary my-1">Buy</button>
-                            </a>
-                        </div>
                     </form>
+                    <div>
+                        <a href="/checkout/showlist">
+                            <button type="btn" class="btn btn-primary my-1">Buy</button>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="col-10 offset-1">
@@ -54,13 +53,13 @@
 
         <p class="text-left h2 offset-1">Customer Feedback</p></a>
         <div class="col-12 d-flex flex-wrap justify-space-between">
-            <div class="userInfoContainer mt-2 mb-2 border border-secondary rounded bg-light col-xs-8 col-sm-8 col-md-8 col-lg-4 col-xl-4 offset-1">
+            <div
+                class="userInfoContainer mt-2 mb-2 border border-secondary rounded bg-light col-xs-8 col-sm-8 col-md-8 col-lg-4 col-xl-4 offset-1">
                 <form class="submitComment">
                     <div class="form-group mt-2">
                         <label for="inputComment">Submit your own comment !</label>
-                            <input type="text" name="review" class="form-control" id="review"
-                            placeholder="Write here...">
-                            <input type="submit" class="btn btn-dark">
+                        <input type="text" name="review" class="form-control" id="review" placeholder="Write here...">
+                        <input type="submit" class="btn btn-dark mt-4">
                     </div>
                 </form>
             </div>
