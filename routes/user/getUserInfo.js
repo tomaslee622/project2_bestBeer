@@ -2,7 +2,10 @@ const knexConfig = require('../../knexfile')['development'];
 const knex = require('knex')(knexConfig);
 
 const getInfo = (id) => {
-    let query = knex('users').select().where({ id: id });
+    let query = knex('users')
+        .select()
+        .innerJoin('user_address', 'users.id', 'user_address.user_id')
+        .where('users.id', id);
     return query.then((data) => data);
 };
 
@@ -12,18 +15,11 @@ const getUserAddress = (id) => {
 };
 
 const getComment = (id) => {
-    // let reviewsQuery = knex('reviews').select('beer_id').where({ user_id: id });
+    let query = knex('reviews')
+        .select()
+        .innerJoin('beers', 'beers.id', 'reviews.beer_id')
+        .where('reviews.user_id', id);
 
-    let query = knex('reviews').where({ user_id: id });
-    // .where({ user_id: id })
-    // .as('r')
-    // .leftJoin(knex('beers'))
-    // .where('beers.id', 'r.beer_id');
-
-    // .join('beers')
-    //     .select()
-    //     .where('reviews.beer_id', 'beers.id')
-    //     .where('reviews.user_id', id);
     return query.then((data) => {
         if (data.length > 0) {
             let newData = data[0]['created_at'];
@@ -46,7 +42,24 @@ const getDiscount = (id) => {
 };
 
 const getPurchaseHistory = (id) => {
-    let query = knex('purchase').select().where({ user_id: id, bought: true });
+    let query = knex('bills')
+        .select()
+        .innerJoin('purchase', 'bills.id', 'purchase.bill_id')
+        .innerJoin('beers', 'beers.id', 'purchase.beer_id')
+        .where('bills.user_id', id)
+        .where('purchase.bought', true);
+
+    // let query = knex('purchase').select().where({ user_id: id, bought: true });
+    return query.then((data) => data);
+};
+
+const getBill = (id) => {
+    //TODO set where status is true
+
+    let query = knex('bills')
+        .select()
+        .innerJoin('user_address', 'user_address.id', 'bills.delivery_address_id')
+        .where('bills.user_id', id);
     return query.then((data) => data);
 };
 
@@ -70,4 +83,5 @@ module.exports = {
     getWishList,
     getUserAddress,
     getBeers,
+    getBill,
 };

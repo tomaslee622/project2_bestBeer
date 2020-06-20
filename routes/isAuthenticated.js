@@ -11,7 +11,7 @@ module.exports = () => {
     // Visitor checking function
     const checkNotAuthenticated = (req, res, next) => {
         if (req.isAuthenticated()) {
-            return res.redirect('/success');
+            return res.redirect('/');
         }
         return next();
     };
