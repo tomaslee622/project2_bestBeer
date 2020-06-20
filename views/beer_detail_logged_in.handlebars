@@ -64,6 +64,7 @@
                 </form>
             </div>
 
+
             {{#each review}}
 
             <div
@@ -104,6 +105,7 @@
 <script type='text/javascript'>
     $('.submitComment').submit(function (event) {
         event.preventDefault();
+        console.log(event)
         alert(`Thanks, your feedback has been received !`);
     });
 

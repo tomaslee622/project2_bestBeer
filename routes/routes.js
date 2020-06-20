@@ -32,7 +32,14 @@ module.exports = (express) => {
     router.get('/', async(req, res) => {
         let data = await getAllBeers();
         if (req.isAuthenticated()) {
-            res.render('homepage_logged_in', { layout: 'loggedin_User', beer: data });
+            if (req.user.id == 2) {
+                res.render('stats', { layout: 'employee' });
+            } else {
+                res.render('homepage_logged_in', {
+                    layout: 'loggedin_User',
+                    beer: data,
+                });
+            }
         } else {
             res.render('homepage', { layout: 'main', beer: data });
         }
@@ -102,11 +109,6 @@ module.exports = (express) => {
 
     router.get('/test', (req, res) => {
         res.render('test');
-    });
-
-    router.post('/addOrRemoveWishlist', (req, res) => {
-        console.log(req.body);
-        // console.log(res.body);
     });
 
     return router;

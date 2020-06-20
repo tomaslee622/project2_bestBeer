@@ -6,6 +6,12 @@ const api = require('./callData');
 module.exports = (express) => {
     const router = express.Router();
 
+    // Add or remove wishlist
+    router.post('/addOrRemoveWishlist', (req, res) => {
+        console.log(req.body);
+        // console.log(res.body);
+    });
+
     // TODO, only staff authentication can call it
     // router.get('/stock', async(req, res) => {
     //     console.log(req);
