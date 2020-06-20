@@ -58,6 +58,7 @@ footer {
 }
 
 /* homepage modal */
+
 .modal-header{
     color: #ffffff;
 }
@@ -117,7 +118,8 @@ footer {
 }
 
 .card-header {
-    height: 120px;
+    padding: 1rem;
+    height: 150px;
     align-items: center;
 }
 
@@ -132,3 +134,18 @@ footer {
 }
 
 /* end of product_detail page */
+
+/* animation for class */
+.logo_jello{
+    animation: jello;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    
+}
+/* above: navbar logo animated */
+.beer_each{
+    animation: fadeInLeft;
+    animation-duration: 4s;
+    animation-iteration-count: 1;
+}
+/* above: homepage's beer list fade in from left */
