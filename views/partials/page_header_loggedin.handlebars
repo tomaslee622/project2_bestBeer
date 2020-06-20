@@ -1,6 +1,6 @@
 <header class="my-auto">
     {{#if stats}}
-    <nav class="navbar navbar-fluid navbar-expand-lg fixed-top border-bottom navbar-light">
+    <nav class="navbar navbar-expand-lg fixed-top border-bottom">
         <!-- Navigation :fixed top  -->
         <div class="d-flex flex-row">
             <a class="navbar-brand ml-5 " href="/">
@@ -28,10 +28,10 @@
                     </div>
                 </li>
                 <li class="nav-item active mr-5">
-                    <a class="nav-link font-weight-bolder" href="/logout"><i class="fa fa-user"></i></a>
+                    <a class="nav-link font-weight-bolder" href="/user/profile"><i class="fa fa-user"></i></a>
                 </li>
                 <li class="nav-item active mr-5">
-                    <a class="nav-link font-weight-bolder" href="/user/profile/:id"><i class="fa fas fa-sign-out-alt"></i></a>
+                    <a class="nav-link font-weight-bolder" href="/logout"><i class="fa fas fa-sign-out-alt"></i></a>
                     {{!-- check with Jacky --}}
                 </li>
                 <li class="nav-item active mr-5">
@@ -41,16 +41,18 @@
         </div>
     </nav>
     {{else}}
-    <nav class="navbar navbar-fluid navbar-expand-lg fixed-top border-bottom">
+    <nav class="navbar navbar-expand-lg fixed-top border-bottom">
         <!-- Navigation :fixed top  -->
         <div class="d-flex flex-row">
-            <a class="navbar-brand ml-5 " href="{{stats}}">
-                <img class="logo" src="asset/logo.png" alt="logo">
+            <a class="navbar-brand ml-5 " href="/">
+                <img class="logo" src="/asset/logo.png" alt="logo">
             </a>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon">
+                <i class="fas fa-bars" style="color: white; font-size:28px;"></i>
+            </span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -79,10 +81,10 @@
                     </div>
                 </li>
                 <li class="nav-item active mr-5">
-                    <a class="nav-link text-white" href="/logout"><i class="fa fa-user"></i></a>
+                    <a class="nav-link text-white" href="/user/profile"><i class="fa fa-user"></i></a>
                 </li>
                 <li class="nav-item active mr-5">
-                    <a class="nav-link text-white" href="/user/profile"><i class="fa fas fa-sign-out-alt"></i></a>
+                    <a class="nav-link text-white" href="/logout"><i class="fa fas fa-sign-out-alt"></i></a>
                     {{!-- check with Jacky --}}
                 </li>
                 <li class="nav-item active mr-5">

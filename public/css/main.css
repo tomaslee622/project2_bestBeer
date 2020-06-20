@@ -6,7 +6,7 @@ header{
     color: white;
 }
 nav{
-    font-family: "MV Boli","Comic Sans MS";
+    font-family: "MV Boli", "Comic Sans MS";
     background-color: rgb(31, 31, 36);
     font-size: 24px;
     font-weight: 700;
@@ -27,7 +27,7 @@ nav{
 }
 
 .dropdown-menu{
-    font-family: "MV Boli","Comic Sans MS";
+    font-family: "MV Boli", "Comic Sans MS";
     background-color: rgb(31, 31, 36);
 }
 
@@ -42,7 +42,7 @@ body{
     padding: 0;
     margin: 0;
     background-color: #ffffff;
-    font-family: "MV Boli","Comic Sans MS";
+    font-family: "MV Boli", "Comic Sans MS";
     font-weight: 600;
     line-height: 1.7;
 }
@@ -62,8 +62,7 @@ footer {
     color: #ffffff;
 }
 .modal_warning{
-    background-image: url(../asset/warning.jpeg);
-    background-position: left;
+    background-color: rgb(31, 31, 36);
     opacity: 0.9;
 }
 .modal_text_warning{
@@ -80,6 +79,17 @@ footer {
 
 .homepage_beer{
     margin-top: 30px;
+}
+.secondary2{
+    margin: 20px;
+    padding-top: 50px;
+}
+
+
+
+/* home page start */
+.carousel__images{
+    object-fit: contain;
 }
 
 

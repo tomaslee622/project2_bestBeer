@@ -8,12 +8,15 @@ module.exports = (express) => {
         if (!req.isAuthenticated()) {
             res.redirect('/login');
         } else {
-            // let data = await userInfo.getInfo(req.params.id);
-            // res.send(data);
-            // res.send('data');
+            let data = await userInfo.getInfo(req.user.id);
+            let address = await userInfo.getUserAddress(req.user.id);
+
+            // Assigning the address to the data
+            data[0].address = address[0].address;
+
             res.render('user_account-details', {
-                layout: 'loggedin_user',
-                //     dtasd: data,
+                layout: 'loggedin_User',
+                userInfo: data,
             });
         }
     });
@@ -22,9 +25,15 @@ module.exports = (express) => {
         if (!req.isAuthenticated()) {
             res.redirect('/login');
         } else {
-            // let data = await userInfo.getComment(req.params.id);
+            let data = await userInfo.getComment(req.user.id);
+
+            let reviewBeerID = data[0].beer_id;
+
             // res.send(data);
-            res.render('user_comment_history', { layout: 'loggedin_user' });
+            res.render('user_comment_history', {
+                layout: 'loggedin_User',
+                data: data,
+            });
         }
     });
 
@@ -32,9 +41,9 @@ module.exports = (express) => {
         if (!req.isAuthenticated()) {
             res.redirect('/login');
         } else {
-            // let data = await userInfo.getDiscount(req.params.id);
-            // // res.send(data);
-            res.render('user_discount_code', { layout: 'loggedin_user' });
+            let data = await userInfo.getDiscount(req.user.id);
+            // res.send(data);
+            res.render('user_discount_code', { layout: 'loggedin_User', code: data });
         }
     });
 
@@ -44,7 +53,7 @@ module.exports = (express) => {
         } else {
             // let data = await userInfo.getPurchaseHistory(req.params.id);
             // res.send(data);
-            res.render('user_purchase_history', { layout: 'loggedin_user' });
+            res.render('user_purchase_history', { layout: 'loggedin_User' });
         }
     });
 
@@ -52,9 +61,9 @@ module.exports = (express) => {
         if (!req.isAuthenticated()) {
             res.redirect('/login');
         } else {
-            // let data = await userInfo.getPurchaseHistory(req.params.id);
-            // res.send(data);
-            res.render('user_wishlist', { layout: 'loggedin_user' });
+            let data = await userInfo.getWishList(req.user.id);
+            res.send(data);
+            // res.render('user_wishlist', { layout: 'loggedin_User' });
         }
     });
 
