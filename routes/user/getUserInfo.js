@@ -46,7 +46,7 @@ const getPurchaseHistory = (id) => {
         .select()
         .innerJoin('purchase', 'bills.id', 'purchase.bill_id')
         .innerJoin('beers', 'beers.id', 'purchase.beer_id')
-        .where('bills.user_id', id)
+        .where('bills.id', id)
         .where('purchase.bought', true);
 
     // let query = knex('purchase').select().where({ user_id: id, bought: true });
@@ -60,6 +60,7 @@ const getBill = (id) => {
         .select()
         .innerJoin('user_address', 'user_address.id', 'bills.delivery_address_id')
         .where('bills.user_id', id);
+
     return query.then((data) => data);
 };
 
