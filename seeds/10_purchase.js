@@ -10,7 +10,7 @@ exports.seed = function(knex) {
                     beer_id: 2,
                     quantity: 5,
                     price: 200,
-                    bought: false,
+                    bought: true,
                 },
                 {
                     user_id: 1,
