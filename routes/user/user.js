@@ -62,8 +62,9 @@ module.exports = (express) => {
             res.redirect('/login');
         } else {
             let data = await userInfo.getWishList(req.user.id);
-            res.send(data);
-            // res.render('user_wishlist', { layout: 'loggedin_User' });
+
+            // res.send(data);
+            res.render('user_wishlist', { layout: 'loggedin_User', wishlist: data });
         }
     });
 

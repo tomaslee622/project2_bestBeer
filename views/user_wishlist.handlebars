@@ -32,17 +32,19 @@
        
         <div class="col-6 offset-3 text-center">
             <div class="form-group row wishlistContainer" style="font-size:24px;font-weight:700">My Wishlist</div>
+                {{#each wishlist}}
             <div class="border border-secondary rounded d-flex justify-content-around">
                 <div class="p-2">
                     <img src="/pure_folder/asset/product1.png" width="50px" alt="">
                 </div>
-                <div class="my-auto p-2" style="font-size: 20px">Chris's Cracking Cask</div>
+                <div class="my-auto p-2" style="font-size: 20px">{{beer_name}}</div>
                 <div class="ml-auto my-auto p-2">
                     <!-- <a href="#" class="btn btn-primary margin-left: auto">DELETE</a> -->
                     <a href="/beer3_detail"><i class="fas fa-3x fa-cart-plus mr-50" style="color: black;"></i></a>
                     <a href="#"><i class="fas fa-3x fa-trash-alt" style="color: black;"></i></a>
                 </div>
               </div>
+            {{/each}}
         </div>
     </div>
     </section>

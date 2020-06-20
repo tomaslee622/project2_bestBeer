@@ -56,7 +56,9 @@ const getBeers = (id) => {
 };
 
 const getWishList = (id) => {
-    let query = knex('favorite').select().where({ user_id: id });
+    let query = knex('favorite').select('beer_id').where({ user_id: id });
+    query = knex.select('beer_name').from('beers').whereIn('id', query);
+
     return query.then((data) => data);
 };
 
