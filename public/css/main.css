@@ -1,6 +1,6 @@
 
 header{
-    font-family: "MV Boli", Times, serif;
+    font-family: "MV Boli", "Comic Sans MS";
     background-color: rgb(31, 31, 36);
     font-weight: 700;
     color: white;
@@ -9,7 +9,7 @@ header{
 
 
 nav{
-    font-family: "MV Boli", Times, serif;
+    font-family: "MV Boli","Comic Sans MS";
     background-color: rgb(31, 31, 36);
     font-size: 24px;
     font-weight: 700;
@@ -28,12 +28,12 @@ nav{
 }
 
 .dropdown-menu{
-    font-family: "MV Boli", Times, serif;
+    font-family: "MV Boli","Comic Sans MS";
     background-color: rgb(31, 31, 36);
 }
 
 .dropdown-item:hover{
-    font-family: "MV Boli", Times, serif;
+    font-family: "MV Boli", "Comic Sans MS";
     background-color: grey;
     color: white;
 }
@@ -43,7 +43,7 @@ body{
     padding: 0;
     margin: 0;
     background-color: #ffffff;
-    font-family: "MV Boli", Times, serif;
+    font-family: "MV Boli","Comic Sans MS";
     font-weight: 600;
     line-height: 1.7;
 }
@@ -58,6 +58,7 @@ footer {
 }
 
 /* homepage modal */
+
 .modal-header{
     color: #ffffff;
 }
@@ -110,7 +111,8 @@ footer {
 }
 
 .card-header {
-    height: 120px;
+    padding: 1rem;
+    height: 150px;
     align-items: center;
 }
 
@@ -125,3 +127,18 @@ footer {
 }
 
 /* end of product_detail page */
+
+/* animation for class */
+.logo_jello{
+    animation: jello;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    
+}
+/* above: navbar logo animated */
+.beer_each{
+    animation: fadeInLeft;
+    animation-duration: 4s;
+    animation-iteration-count: 1;
+}
+/* above: homepage's beer list fade in from left */
