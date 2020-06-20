@@ -24,7 +24,8 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid">
+    {{!-- end of homepage's modal (friendly reminder) --}}
+    <div class="container-fluid ">
         <div id="beer_homepageCarousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators text-center justify-content-around">
                 <a href="#beer_homepageCarousel" data-slide="prev" class="btn btn-dark btn-lg"><</a>
@@ -43,10 +44,10 @@
             </div>
         </div>
     </div>
-</section>
+
 <!--  end of carousel div -->
 
-<div class="content-section row secondary mt-0 col-8 d-flex mx-auto " id="section1">
+<div class="content-section row col-8 d-flex mx-auto homepage_beer" id="section1">
     {{#each beer}}
     <div class="col-sm-12 col-md-12 col-lg-4 d-inline-flex mb-3 animate__fadeInLeft beer_each">
         <div class="card" style="width: 25rem;">
@@ -56,7 +57,7 @@
 
             <div class="row">
                 <div class="col d-inline-flex">
-                    <a href="/beer/{{id}}" class="a_home_product mx-auto"><img
+                    <a href="/beer/{{id}}" class="mx-auto"><img
                             class="card-img-top mx-auto d-block products__img" src="/{{thumbnail}}" alt="Card image cap"
                             style="width: 200px; "> </a>
                     {{!-- add animate on the img ** --}}
@@ -99,6 +100,3 @@
     {{/each}}
 </div>
 
-<script>
-    $("#card").flip();
-</script> 

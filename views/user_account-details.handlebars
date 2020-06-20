@@ -30,6 +30,7 @@
     </div>
     {{!-- end of user ac dropdown bar --}}
 
+{{#each userInfo}}
     <form id="accountDetails" class="col-12 text-center" action="/updateAccountDetails" method="PUT">
         <div class="form-group row" style="font-size:24px;font-weight:700">
             Account Details
@@ -37,53 +38,36 @@
         <div class="form-group row">
             <label for="firstName" class="col-3 col-form-label">First Name</label>
             <div class="col-6">
-                <input class="form-control" type="text" name="fname" id="fname" readonly>
+                <input class="form-control" type="text" name="fname" value="{{first_name}}" id="fname" readonly>
             </div>
         </div>
         <div class="form-group row">
             <label for="lastName" class="col-3 col-form-label">Last Name</label>
             <div class="col-6">
-                <input class="form-control" type="search" name="lname" id="lname" readonly>
+                <input class="form-control" type="search" name="lname" value="{{last_name}}" id="lname" readonly>
             </div>
         </div>
         <div class="form-group row">
             <label for="emailInput" class="col-3 col-form-label">Email</label>
             <div class="col-6">
-                <input class="form-control" type="email" name="email" value="john@example.com" id="email" readonly>
+                <input class="form-control" type="email" name="email" value="{{email}}" id="email" readonly>
             </div>
         </div>
         <div class="form-group row">
             <label for="telInput" class="col-3 col-form-label">Telephone</label>
             <div class="col-6">
-                <input class="form-control" type="tel" name="telephone" value="+852-1234-5678" id="tel" readonly>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="passwordInput" class="col-3 col-form-label">Password</label>
-            <div class="col-6">
-                <input class="form-control" type="password" name="password" value="12345" id="pw" readonly>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="example-date-input" class="col-3 col-form-label">Date of Birth</label>
-            <div class="col-6">
-                <input class="form-control" type="date" name="dateOfBirth" value="2011-08-19" id="dob" readonly>
+                <input class="form-control" type="tel" name="telephone" value="{{phone}}" id="tel" readonly>
             </div>
         </div>
         <div class="form-group row">
             <label for="firstName" class="col-3 col-form-label">Address</label>
             <div class="col-6">
-                <input class="form-control" type="text" name="address" value="..." id="address" readonly>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="firstName" class="col-3 col-form-label">Delivery Info</label>
-            <div class="col-6">
-                <input class="form-control" type="text" name="deliveryInfo" value="..." id="deliveryInfo" readonly>
+                <input class="form-control" type="text" name="address" value="{{address}}" id="address" readonly>
             </div>
         </div>
         <input type="submit" class="btn btn-secondary mr-auto ml-auto">
     </form>
+    {{/each}}
 </section>
 
 <script type='text/javascript'>

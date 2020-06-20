@@ -3,9 +3,6 @@ const app = express();
 const hb = require('express-handlebars');
 const bodyParser = require('body-parser');
 
-app.engine('handlebars', hb({ defaultLayout: 'main' }));
-app.set('view engine', 'handlebars');
-
 // Cross origin resource sharing - on your app server
 const cors = require('cors');
 
@@ -13,7 +10,6 @@ const cors = require('cors');
 require('dotenv').config();
 
 // 1. Baisc setup
-
 // Serving the public files
 app.use(express.static('public'));
 
@@ -23,11 +19,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 // Setting handlebars as view engine
-// app.engine('handlebars', hb({ defaultLayout: 'login_main' }));
-// app.set('view engine', 'handlebars');
+app.engine('handlebars', hb({ defaultLayout: 'login_main' }));
+app.set('view engine', 'handlebars');
 
 // 2. Passport authentication setup
-
 // Setup cookie and passport
 const setupCookie = require('./utils/init-cookie')(app);
 
