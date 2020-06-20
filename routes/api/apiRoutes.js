@@ -38,8 +38,53 @@ module.exports = (express) => {
         });
     });
 
-    router.post('/buyBeers', (req, res) => {
-        console.log(req);
+    router.post('/beer', (req, res) => {
+        console.log('HI');
+        console.log(req.body);
+        console.log(req.user);
+        // res.send('Bye');
+
+        let query = knex('purchase')
+            .select()
+            .where({ user_id: req.user.id, beer_id: req.body.id });
+
+        query.then((data) => {
+            console.log(data);
+        });
+
+        // if (existData.length === 0) {
+        //     let buyNewBeers = knex('purchase').insert({
+        //         beer_id: req.body.id,
+        //         user_id: req.user.id,
+        //         quantity: req.body.value,
+        //     });
+
+        //     buyNewBeers.then((data) => {
+        //         console.log('You are getting new beers');
+        //         console.log(data);
+        //     });
+        // } else if (existData.length === 1) {
+        //     req.body.value;
+        //     let updateBeer = knex('purchase').update({});
+        // }
+
+        // let data = await buyBeer(req.user.id, req.body.id, req.body.value);
+        // console.log(data);
+        // let query = await knex('purchase')
+        //     .select()
+        //     .where({ user_id: req.user.id, beer_id: req.body.id });
+        // query.then((data) => data);
+        // return query.then((data) => {
+        //     console.log(data);
+        // });
+
+        // let query = await knex('purchase').select().where({ beer_id: req.body.id });
+        // query.then((data) => {
+        // if(data.length === 0){
+        //     let addNewBeers = knex.insert()
+        // }
+        //     console.log(data);
+        // });
     });
 
     // TODO, only staff authentication can call it

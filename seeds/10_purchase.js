@@ -9,23 +9,13 @@ exports.seed = function(knex) {
                     bill_id: 1,
                     beer_id: 2,
                     quantity: 5,
-                    price: 200,
                     bought: true,
-                },
-                {
-                    user_id: 1,
-                    bill_id: 1,
-                    beer_id: 3,
-                    quantity: 2,
-                    price: 12,
-                    bought: false,
                 },
                 {
                     user_id: 1,
                     bill_id: 1,
                     beer_id: 1,
                     quantity: 3,
-                    price: 43,
                     bought: false,
                 },
                 {
@@ -33,7 +23,6 @@ exports.seed = function(knex) {
                     bill_id: 2,
                     beer_id: 3,
                     quantity: 3,
-                    price: 43,
                     bought: true,
                 },
             ]);

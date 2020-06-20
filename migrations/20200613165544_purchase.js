@@ -8,7 +8,7 @@ exports.up = function(knex) {
         table.integer('beer_id').unsigned().notNullable();
         table.foreign('beer_id').references('beers.id');
         table.integer('quantity').unsigned().notNullable();
-        table.integer('price').unsigned().notNullable();
+        table.integer('price').unsigned();
         table.boolean('bought').defaultTo(false).notNullable();
     });
 };

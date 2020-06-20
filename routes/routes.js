@@ -71,7 +71,14 @@ module.exports = (express) => {
 
     router.post('/register', async(req, res) => {
         // try {
-        let check = knex('users').select().where('email', '=', req.body.email);
+
+        console.log('User registering');
+        console.log(req.body);
+
+        let check = await knex('users')
+            .select()
+            .where('email', '=', req.body.email);
+
         check.then((data) => {
             if (data.length >= 1) {
                 console.log('Email exists.');
