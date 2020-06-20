@@ -39,10 +39,10 @@
         <div class="container col-sm-12 col-md-6 login-col text-center">
             <h2 class="col text-center">Login Here</h2>
             <br>
-            <form class="users_login">
+            <form class="users_login" action="/login" method="POST">
                 <div class="form-group text-center mr-auto ml-auto">
                     <label for="text_username">Email</label>
-                    <input type="text" name='email' placeholder="Email">
+                    <input type="text" name="username" placeholder="Email">
                 </div>
                 <div class="form-group text-center mr-auto ml-auto">
                     <label for="user_InputPassword1">Password</label>
@@ -63,22 +63,3 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script>
 
-<script type='text/javascript'>
-    $('.users_login').submit(function (event) {
-        event.preventDefault();
-        var email = event.target.email.value;
-        var pw = event.target.password.value;
-        if (email === '' || email.length < 1 || email.length > 50) {
-            $("input:eq(0)").css("border", "red solid 2px");
-            alert(`please input a valid email address of no more than 50 characters`)
-        } else if (pw === '' || pw.length > 15) {
-            $("input:eq(1)").css("border", "red solid 2px");
-            alert(`please input a valid password of no more than 15 characters`)
-        } else {
-            alert(`thanks, you have successfully logged in`)
-            $("input:eq(0)").css("border", "");
-            $("input:eq(1)").css("border", "");
-            $('.users_login')[0].reset();
-        }
-    });
-</script>
