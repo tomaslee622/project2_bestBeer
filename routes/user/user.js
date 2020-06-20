@@ -44,10 +44,21 @@ module.exports = (express) => {
         if (!req.isAuthenticated()) {
             res.redirect('/login');
         } else {
-            let data = await userInfo.getPurchaseHistory(req.user.id);
-            let billData = await userInfo.getBill(req.user.id);
-            // res.send(billData);
-            res.render('user_purchase_history', { layout: 'loggedin_User' });
+            let data = await userInfo.getBill(req.user.id);
+
+            let purchase;
+
+            for (let i = 0; i < data.length; i++) {
+                let purchaseData = await userInfo.getPurchaseHistory(data[i].id);
+                purchase.push(purchaseData[0]);
+            }
+
+            // res.send(purchase);
+            res.render('user_purchase_history', {
+                layout: 'loggedin_User',
+                bill: data,
+                purchase: { beer_name: 'Asahi' },
+            });
         }
     });
 

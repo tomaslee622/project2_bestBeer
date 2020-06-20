@@ -36,7 +36,7 @@
         <div class="form-group row discountCodeContainer" style="font-size:24px;font-weight:700">
             My Purchase History
         </div>
-{{!-- {{#each bill}} --}}
+        {{#each bill}}
         <div class="userInfoContainer border border-secondary rounded bg-light">
             <table class="table table-sm table-borderless table-hover">
                 <thead>
@@ -57,7 +57,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Chris's Cracking Cask</td>
+                        <td>{{lookup ../purchase 'beer_name'}}</td>
                         <td>2</td>
                         <td>20</td>
                         <td>40</td>
@@ -97,7 +97,7 @@
                 </tfoot>
             </table>
         </div>
-        {{!-- {{/each}} --}}
+        {{/each}}
         <br>
         <div class="userInfoContainer border border-secondary rounded bg-light">
             <table class="table table-sm table-borderless table-hover">
