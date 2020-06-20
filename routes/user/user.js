@@ -12,7 +12,7 @@ module.exports = (express) => {
             // res.send(data);
             // res.send('data');
             res.render('user_account-details', {
-                layout: 'loggedin_user',
+                layout: 'loggedin_User',
                 //     dtasd: data,
             });
         }
@@ -24,7 +24,7 @@ module.exports = (express) => {
         } else {
             // let data = await userInfo.getComment(req.params.id);
             // res.send(data);
-            res.render('user_comment_history', { layout: 'loggedin_user' });
+            res.render('user_comment_history', { layout: 'loggedin_User' });
         }
     });
 
@@ -34,7 +34,7 @@ module.exports = (express) => {
         } else {
             // let data = await userInfo.getDiscount(req.params.id);
             // // res.send(data);
-            res.render('user_discount_code', { layout: 'loggedin_user' });
+            res.render('user_discount_code', { layout: 'loggedin_User' });
         }
     });
 
@@ -44,7 +44,7 @@ module.exports = (express) => {
         } else {
             // let data = await userInfo.getPurchaseHistory(req.params.id);
             // res.send(data);
-            res.render('user_purchase_history', { layout: 'loggedin_user' });
+            res.render('user_purchase_history', { layout: 'loggedin_User' });
         }
     });
 
@@ -54,7 +54,7 @@ module.exports = (express) => {
         } else {
             // let data = await userInfo.getPurchaseHistory(req.params.id);
             // res.send(data);
-            res.render('user_wishlist', { layout: 'loggedin_user' });
+            res.render('user_wishlist', { layout: 'loggedin_User' });
         }
     });
 

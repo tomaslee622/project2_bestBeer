@@ -2,34 +2,30 @@
     {{!--user ac dropdown bar start --}}
     <div class="dropdown text-center d-flex justify-content-center">
         <div class="dropdown p-2">
-            <button class="btn btn-warning dropdown-toggle btn-lg" type="button" id="myAC_dropdown"
+            <button class="btn btn-secondary dropdown-toggle btn-lg" type="button" id="myAC_dropdown"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 My Account
             </button>
             <div class="dropdown-menu" aria-labelledby="myAC_dropdown" style="font-size: 20px">
-                <a class="dropdown-item" href="/user/profile">Account Settings</a>
-                <a class="dropdown-item" href="/user/wishlist">Wishlist</a>
-                <a class="dropdown-item" href="/user/comment">My Comments</a>
+                <a class="dropdown-item text-white" href="/user/profile">Account Details</a>
             </div>
         </div>
         <div class="dropdown p-2">
-            <button class="btn btn-warning dropdown-toggle btn-lg" type="button" id="myPurchase_dropdown"
+            <button class="btn btn-secondary dropdown-toggle btn-lg" type="button" id="myPurchase_dropdown"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                My Account
+                Activity
             </button>
             <div class="dropdown-menu" aria-labelledby="myPurchase_dropdown" style="font-size: 20px">
-                <a class="dropdown-item" href="/user/purchase_history">My Record</a>
+                <a class="dropdown-item text-white" href="/user/purchase_history">Purchases</a>
+                <a class="dropdown-item text-white" href="/user/wishlist">Wishlist</a>
+                <a class="dropdown-item text-white" href="/user/comment">Comments</a> 
             </div>
         </div>
         <div class="dropdown p-2">
-            <button class="btn btn-warning  btn-lg" type="button" id="discount" aria-haspopup="true"
-                aria-expanded="false"><a href="/user/discount">
-                    Discount
-                    Codes</a>
+            <button class="btn btn-secondary btn-lg" type="button" id="discount" aria-haspopup="true"
+                aria-expanded="false">
+                <a class="text-white text-decoration-none" href="/user/discount">Discount Codes</a>
             </button>
-            {{!-- <div class="dropdown-menu" aria-labelledby="myPurchase_dropdown" style="font-size: 20px">
-                <a class="dropdown-item" href="#">My Record</a>
-            </div> --}}
         </div>
     </div>
     {{!-- end of user ac dropdown bar --}}
