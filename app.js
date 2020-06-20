@@ -38,6 +38,10 @@ const facebookSetup = require('./utils/strategies/facebook-strategy');
 const googleAuth = require('./routes/OAuth/google-auth');
 const facebookAuth = require('./routes/OAuth/facebook-auth');
 
+// API calls
+const apiRoute = require('./routes/api/apiRoutes')(express);
+app.use('/data', apiRoute);
+
 // Other routes
 const localRouter = require('./routes/routes')(express);
 const userInfo = require('./routes/user/user')(express);
@@ -65,17 +69,14 @@ app.get('/chart', (req, res) => {
     res.sendFile(__dirname + '/chart.html');
 });
 
-const apiRoute = require('./routes/api/apiRoutes')(express);
-app.use('/data', apiRoute);
-
 // Testing the database
 const knexConfig = require('./knexfile')['development'];
 const knex = require('knex')(knexConfig);
 
-let query = knex('favorite').select();
-query.then((data) => {
-    console.log(data);
-});
+// let query = knex('favorite').select();
+// query.then((data) => {
+//     console.log(data);
+// });
 
 // let query = knex('purchase')
 //     .join('beers', 'beers.id', 'purchase.beer_id')
