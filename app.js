@@ -72,10 +72,10 @@ app.use('/data', apiRoute);
 const knexConfig = require('./knexfile')['development'];
 const knex = require('knex')(knexConfig);
 
-// let query = knex('users').select();
-// query.then((data) => {
-//     console.log(data);
-// });
+let query = knex('favorite').select();
+query.then((data) => {
+    console.log(data);
+});
 
 // let query = knex('purchase')
 //     .join('beers', 'beers.id', 'purchase.beer_id')

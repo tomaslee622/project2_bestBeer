@@ -32,8 +32,6 @@ module.exports = (express) => {
 
             let sub_total = 0;
 
-            console.log(data);
-
             // Calculate the total price for each item in the returned array data
             for (let i = 0; i < data.length; i++) {
                 data[i].total_price = calTotalPriceForOneBeer(
