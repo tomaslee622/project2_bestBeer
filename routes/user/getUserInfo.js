@@ -43,7 +43,7 @@ const getDiscount = (id) => {
 
 const getPurchaseHistory = (id) => {
     let query = knex('bills')
-        .select()
+        .select('purchase.price', 'purchase.quantity', 'beers.beer_name')
         .innerJoin('purchase', 'bills.id', 'purchase.bill_id')
         .innerJoin('beers', 'beers.id', 'purchase.beer_id')
         .where('bills.id', id)

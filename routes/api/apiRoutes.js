@@ -9,7 +9,37 @@ module.exports = (express) => {
     // Add or remove wishlist
     router.post('/addOrRemoveWishlist', (req, res) => {
         console.log(req.body);
-        // console.log(res.body);
+        console.log(req.user);
+
+        let query = knex('favorite')
+            .select()
+            .where('favorite.beer_id', req.body.id)
+            .where('favorite.user_id', req.user.id);
+
+        query.then((data) => {
+            console.log(data);
+            if (data.length === 0) {
+                let query = knex('favorite').insert({
+                    user_id: req.user.id,
+                    beer_id: req.body.id,
+                });
+                query.then(() => {
+                    console.log('Wishlist added');
+                });
+            } else if (data.length === 1) {
+                let query = knex('favorite').del().where({
+                    user_id: req.user.id,
+                    beer_id: req.body.id,
+                });
+                query.then(() => {
+                    console.log('Wishlist removed');
+                });
+            }
+        });
+    });
+
+    router.post('/buyBeers', (req, res) => {
+        console.log(req);
     });
 
     // TODO, only staff authentication can call it
