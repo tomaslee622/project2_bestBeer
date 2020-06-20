@@ -9,7 +9,7 @@
             <br>
             <a href="/company/info"> Delivery Schedule</a>
             <br>
-            <a href="/company/info"> Privacy policy</a>
+            <a href="/company/info"> Privacy Policy</a>
             <br>
             <div class="d-flex justify-content-start">
                 <p class="text-white my-auto"> Follow Us</p>
@@ -19,11 +19,12 @@
         </div>
 
         <div class="col-md-8 col-lg-6 text-left footer_message_us">
-            <form id="messageUs">
+            <form id="messageUs" action="/message" method="POST">
                 <div class="form-group mt-1">
                     <label for="exampleFormControlTextarea1" class="text-white">Message Us</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" ></textarea>
-                    <br><input class="text-white rounded bg-dark"type="submit" value="Submit">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="message" ></textarea>
+                    <br>
+                    <input class="text-white rounded bg-dark"type="submit" value="Submit">
                 </div>
             </form>
         </div>
@@ -35,11 +36,11 @@
         event.preventDefault();
         var message = event.target.message.value;
         if (message === "" || message.length < 1 || message.length > 1000) {
-            $(".textArea").css("border", "red solid 2px");
+            $("#exampleFormControlTextarea1").css("border", "red solid 2px");
              alert(`please enter valid message text with no more than 1000 characters`);
         } else {
             alert(`Thanks, your feedback has been received !`);
-            $(".textArea").css("border", "");
+            $("#exampleFormControlTextarea1").css("border", "");
             $('#messageUs')[0].reset();
         }
     });
