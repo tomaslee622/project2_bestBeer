@@ -5,9 +5,6 @@ header{
     font-weight: 700;
     color: white;
 }
-
-
-
 nav{
     font-family: "MV Boli","Comic Sans MS";
     background-color: rgb(31, 31, 36);
@@ -20,7 +17,9 @@ nav{
     width: 160px;
     height: 50px;
 }
-
+.navbar-toggler-icon{
+    color: white;
+}
 
 .navbar-toggler{
     color: white;
@@ -57,7 +56,7 @@ footer {
     color: white;
 }
 
-/* homepage modal */
+/* homepage_view's modal */
 
 .modal-header{
     color: #ffffff;
@@ -73,20 +72,16 @@ footer {
     font-weight: 700;
     text-align: left;
 }
-/* end of homepage modal */
+/* end of homepage_view's modal */
 .secondary{
     margin: 60px;
     padding-top: 50px;
 }
-/* home page start */
-.carousel__images{
-    object-fit: contain;
+
+.homepage_beer{
+    margin-top: 30px;
 }
 
-/* .content-section {
-    display: none;
-  } */
-/* end of home page */
 
 .products__img{
     width: 200px;
@@ -98,12 +93,12 @@ footer {
     margin-top: 100px;
 }
 
+/* end of homepage _view & logged_in */
 
 
-
-.btn {
+/* .btn {
     background-color: rgb(31, 31, 36);
-}
+} */
 
 
 .beerDetailButton {
@@ -119,26 +114,45 @@ footer {
 #wish_btn1:hover{
     color: blue !important;
 }
-
-
 .list-group-item-action{
     background-color: rgb(31, 31, 36);
     color: white;
 }
-
 /* end of product_detail page */
 
-/* animation for class */
+/* promotion page  */
+.promote_span1, .promote_span2{
+    color: #FFCE47;
+    padding: 0 5px;
+    background-color: black;
+    border-radius: 10px;
+    font-weight: bolder;
+}
+
+/* end of promotion page */
+
+
+/* animations for classes */
 .logo_jello{
     animation: jello;
-    animation-duration: 1.5s;
-    animation-iteration-count: 1;
+    animation-duration: 1.2s;
+    animation-iteration-count: 2;
+    animation-delay: 5s;
+    /* 5s after will have the second animation */
     
 }
 /* above: navbar logo animated */
 .beer_each{
     animation: fadeInLeft;
-    animation-duration: 4s;
+    animation-duration: 3s;
     animation-iteration-count: 1;
 }
 /* above: homepage's beer list fade in from left */
+
+.promot_text_animate{
+    animation: heartBeat;
+    animation-duration: 2.5s;
+    animation-iteration-count: 5;
+    animation-delay: 2s;
+}
+/* above: company_promotion :h2 text's animation */
