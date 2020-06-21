@@ -27,46 +27,6 @@ module.exports = (express) => {
     };
 
     router.get('/test', async(req, res) => {
-<<<<<<< HEAD
-        let totalAmount = 0;
-        // TODO Using knex to access the false purchase data
-        getUserPurchase(req.user.id).then(async(data) => {
-            for (let i = 0; i < data.length; i++) {
-                console.log(data[i].quantity);
-                console.log(data[i].price);
-                data[i].price = data[i].price * 1;
-                data[i].quantity = data[i].quantity * 1;
-                let result = calTotalPriceForOneBeer(data[i].quantity, data[i].price);
-                totalAmount = result + totalAmount;
-            }
-
-            totalAmount = totalAmount * 1;
-            console.log(totalAmount);
-            try {
-                const session = await stripe.checkout.sessions.create({
-                    success_url: 'http://www.bestbeer79.com:3000/checkout/payment_completed',
-                    cancel_url: 'http://www.bestbeer79.com:3000/checkout/showlist',
-                    payment_method_types: ['card'],
-                    customer_email: req.user.email,
-                    line_items: [{
-                        name: 'Beers',
-                        description: 'A local craft beer website, by the way, is the picture creepy? Or does it look like a scam.',
-                        currency: 'usd',
-                        amount: totalAmount * 100,
-                        quantity: 1,
-                        images: ['https://i.imgur.com/sUjnVxw.jpg'],
-                    }, ],
-                    mode: 'payment',
-                });
-                res.send({
-                    session: session,
-                });
-            } catch (err) {
-                res.send(err);
-                console.log(err);
-            }
-        });
-=======
         if (!req.isAuthenticated()) {
             res.redirect('/login');
         } else {
@@ -84,8 +44,8 @@ module.exports = (express) => {
                 console.log(totalAmount);
                 try {
                     const session = await stripe.checkout.sessions.create({
-                        success_url: 'http://www.bestbeer79.com:3000/checkout/payment_completed',
-                        cancel_url: 'http://www.bestbeer79.com:3000/checkout/showlist',
+                        success_url: 'http://localhost:3000/checkout/payment_completed',
+                        cancel_url: 'http://localhost:3000/checkout/showlist',
                         payment_method_types: ['card'],
                         customer_email: req.user.email,
                         line_items: [{
@@ -107,7 +67,6 @@ module.exports = (express) => {
                 }
             });
         }
->>>>>>> 94016ef18194d749b17e778ea7fc276011f7664a
     });
 
     router.get('/showlist', async(req, res) => {
