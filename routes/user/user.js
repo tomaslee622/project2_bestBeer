@@ -46,31 +46,6 @@ module.exports = (express) => {
         } else {
             let data = await userInfo.getBill(req.user.id);
 
-            let billList = [];
-
-            for (let i = 0; i < data.length; i++) {
-                // let purchaseData = await userInfo.getPurchaseHistory(data[i].id);
-                // purchase.push(purchaseData[i]);
-                billList.push(data[i].id);
-            }
-
-            let purchaseList = [];
-
-            for (let i = 0; i < billList.length; i++) {
-                let purchaseInBill = await userInfo.getPurchaseHistory(billList[i]);
-                purchaseList.push(purchaseInBill);
-            }
-
-            let str = '';
-
-            for (let i = 0; i < purchaseList.length; i++) {
-                purchaseList[i].forEach((e) => {
-                    str += `<tr><td>${e.beer_name}</td><td>${e.quantity}</td><td>${e.price}</td><td>40</td></tr>`;
-                });
-                data[i].purchase_list = str;
-                str = '';
-            }
-
             // res.send(data);
             res.render('user_purchase_history', {
                 layout: 'loggedin_User',

@@ -2,11 +2,11 @@ const knexConfig = require('../../knexfile')['development'];
 const knex = require('knex')(knexConfig);
 
 const getInfo = (id) => {
-    let query = knex('users')
-        .select()
-        .innerJoin('user_address', 'users.id', 'user_address.user_id')
-        .where('users.id', id);
-    return query.then((data) => data);
+    let query = knex('users').select().where('users.id', id);
+    return query.then((data) => {
+        console.log(data);
+        return data;
+    });
 };
 
 const getUserAddress = (id) => {
@@ -50,7 +50,10 @@ const getPurchaseHistory = (id) => {
         .where('purchase.bought', true);
 
     // let query = knex('purchase').select().where({ user_id: id, bought: true });
-    return query.then((data) => data);
+    return query.then((data) => {
+        console.log(data);
+        return data;
+    });
 };
 
 const getBill = (id) => {
@@ -71,9 +74,11 @@ const getBeers = (id) => {
 
 const getWishList = (id) => {
     let query = knex('favorite').select('beer_id').where({ user_id: id });
-    query = knex.select('beer_name').from('beers').whereIn('id', query);
+    query = knex.select('beer_name', 'id').from('beers').whereIn('id', query);
 
-    return query.then((data) => data);
+    return query.then((data) => {
+        return data;
+    });
 };
 
 module.exports = {

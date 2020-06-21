@@ -54,57 +54,54 @@ module.exports = (express) => {
         res.render('user_registration', { layout: 'main' });
     });
 
-    router.post('/review', async(req, res) => {
+    router.post('/review', (req, res) => {
         let beerID = req.headers.referer.split('/');
         beerID = beerID[beerID.length - 1];
 
-        let query = await knex('reviews').insert({
+        console.log(beerID);
+        console.log(req.user);
+        console.log(req.body.review);
+
+        let query = knex('reviews').insert({
             beer_id: beerID,
             user_id: req.user.id,
             content: req.body.review,
         });
 
         query.then(() => {
-            console.log('Review is inserted');
+            res.redirect('/beer/' + beerID);
         });
     });
 
-    router.post('/register', async(req, res) => {
-        // try {
+    const registerNewAccount = (req, res) => {
+        let check = knex('users').select().where('email', '=', req.body.email);
 
-        console.log('User registering');
-        console.log(req.body);
+        check
+            .then(async(data) => {
+                if (data.length >= 1) {
+                    console.log('Email exists.');
+                    res.send('Email exists');
+                } else {
+                    const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
-        let check = await knex('users')
-            .select()
-            .where('email', '=', req.body.email);
+                    let query = knex('users').insert({
+                        first_name: req.body.firstName,
+                        last_name: req.body.lastName,
+                        email: req.body.email,
+                        password: hashedPassword,
+                    });
+                    query.then(() => {
+                        res.redirect('/login');
+                    });
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
 
-        check.then((data) => {
-            if (data.length >= 1) {
-                console.log('Email exists.');
-                res.send('Email exists');
-            }
-        });
-
-        const hashedPassword = await bcrypt.hash(req.body.password, 10);
-
-        console.log(req.body.firstName);
-        console.log(hashedPassword);
-
-        let query = await knex('users').insert({
-            first_name: req.body.firstName,
-            last_name: req.body.lastName,
-            email: req.body.email,
-            password: hashedPassword,
-        });
-
-        query.then((data) => {
-            res.redirect('/login');
-        });
-        // res.redirect('/login');
-        // } catch {
-        //     res.redirect('/error');
-        // }
+    router.post('/register', (req, res) => {
+        registerNewAccount(req, res);
     });
 
     router.get('/logout', (req, res) => {
@@ -116,6 +113,27 @@ module.exports = (express) => {
 
     router.get('/test', (req, res) => {
         res.render('test');
+    });
+
+    router.post('/updateAccountDetails', (req, res) => {
+        let update = knex('users')
+            .update({ address: req.body.address, phone: req.body.telephone })
+            // .update('users.phone', req.body.telephone)
+            .where('id', req.user.id);
+
+        update.then(() => {
+            console.log('User info updated');
+            res.redirect('/user/profile');
+        });
+    });
+
+    // Inside wishlist page
+    router.post('/removeWishlist', (req, res) => {
+        let remove = knex('favorite').del().where({ beer_id: req.body.id });
+        remove.then(() => {
+            console.log('Wishlist removed');
+            res.redirect('user/wishlist');
+        });
     });
 
     return router;
