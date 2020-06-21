@@ -33,7 +33,7 @@
 
     const checkoutBeers = async () => {
         try {
-            const session = await axios.get('/checkout/payforbeer')
+            const session = await axios.get('/checkout/test')
 
             await stripe.redirectToCheckout({
                 sessionId: session.data.session.id

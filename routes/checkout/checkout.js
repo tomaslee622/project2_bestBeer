@@ -34,8 +34,6 @@ module.exports = (express) => {
             // TODO Using knex to access the false purchase data
             getUserPurchase(req.user.id).then(async(data) => {
                 for (let i = 0; i < data.length; i++) {
-                    console.log(data[i].quantity);
-                    console.log(data[i].price);
                     data[i].price = data[i].price * 1;
                     data[i].quantity = data[i].quantity * 1;
                     let result = calTotalPriceForOneBeer(data[i].quantity, data[i].price);
@@ -124,7 +122,6 @@ module.exports = (express) => {
 
     router.post('/payment_intents', (req, res) => {
         console.log('HI');
-        console.log(req.body);
 
         stripe.charges
             .create({
