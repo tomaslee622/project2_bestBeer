@@ -6,21 +6,19 @@
                 <div class="card-header align-middle ">
                     <h5 class="card-title text-center h2 ">{{beer_name}}</h5>
                 </div>
-                <div class="row">
                     <div class="col d-inline-flex">
                         <a type="button" class="btn bg-white" id="wish_btn1" data-toggle="tooltip" data-placement="top"
                             title="Add to Favourites">
-                            <i class="far fa-2x fa-star" id="{{id}}" onclick="addFavourites(this.id)"></i>
+                            <i class="far fa-star" id="{{id}}" onclick="addFavourites(this.id)"></i>
                         </a>
                         <a href="/beer/{{id}}" class="mx-auto"><img class="card-img-top mx-auto d-block products__img"
-                                src="/{{thumbnail}}" alt="Card image cap" style="width: 160px; ">
+                                src="/{{thumbnail}}" alt="Card image cap" style="width: 100px; ">
                         </a>
                         <a type="button" class="btn bg-white" id="wish_btn2" data-toggle="tooltip" data-placement="top"
                             title="Remove">
-                            <i class="far fa-2x fa-times-circle" id="{{id}}" onclick="remove(this.id)"></i>
+                            <i class="far fa-times-circle" id="{{id}}" onclick="remove(this.id)"></i>
                         </a>
                     </div>
-                </div>
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item text-center">{{volumn}} ML</li>
