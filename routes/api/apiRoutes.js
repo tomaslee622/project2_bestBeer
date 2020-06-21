@@ -100,7 +100,7 @@ module.exports = (express) => {
         if ((req.user.id = 2)) {
             let query = knex('stock').select();
             query.then((data) => {
-                console.log(data);
+                return data;
             });
         } else {
             alert('You are not authorized');

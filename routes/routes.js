@@ -33,7 +33,22 @@ module.exports = (express) => {
         let data = await getAllBeers();
         if (req.isAuthenticated()) {
             if (req.user.id == 2) {
-                res.render('stats', { layout: 'employee' });
+                let userRegistered = 0;
+                let query = knex('users').select();
+                query.then((data) => {
+                    let stockQuery = knex('stock').select();
+                    stockQuery.then((stockData) => {
+                        res.render('stats', {
+                            layout: 'employee',
+                            userData: { totalUser: data.length },
+                            stock: {
+                                jacky: stockData[0].stock,
+                                tom: stockData[1].stock,
+                                chris: stockData[2].stock,
+                            },
+                        });
+                    });
+                });
             } else {
                 res.render('homepage_logged_in', {
                     layout: 'loggedin_User',
