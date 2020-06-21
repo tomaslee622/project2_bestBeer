@@ -44,12 +44,21 @@ module.exports = (express) => {
         if (!req.isAuthenticated()) {
             res.redirect('/login');
         } else {
-            // let data = await userInfo.getBill(req.user.id);
+            let data = await userInfo.getPurchaseHistory(req.user.id);
+            let totalPriceOfPurchase = 0;
+            for (let i = 0; i < data.length; i++) {
+                data[i].quantity = data[i].quantity * 1;
+                data[i].price = data[i].price * 1;
+                data[i].total_price = data[i].price * data[i].quantity;
+                totalPriceOfPurchase = data[i].total_price + totalPriceOfPurchase;
+            }
 
-            // res.send(data);
+            console.log(totalPriceOfPurchase);
+
             res.render('user_purchase_history', {
                 layout: 'loggedin_User',
-                // bill: data,
+                purchase: data,
+                money: { total: totalPriceOfPurchase },
             });
         }
     });
