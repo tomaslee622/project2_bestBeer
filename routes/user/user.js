@@ -44,10 +44,13 @@ module.exports = (express) => {
         if (!req.isAuthenticated()) {
             res.redirect('/login');
         } else {
-            let data = await userInfo.getPurchaseHistory(req.user.id);
-            let billData = await userInfo.getBill(req.user.id);
-            // res.send(billData);
-            res.render('user_purchase_history', { layout: 'loggedin_User' });
+            let data = await userInfo.getBill(req.user.id);
+
+            // res.send(data);
+            res.render('user_purchase_history', {
+                layout: 'loggedin_User',
+                bill: data,
+            });
         }
     });
 

@@ -1,6 +1,8 @@
 const knexConfig = require('../../knexfile')['development'];
 const knex = require('knex')(knexConfig);
 
+const checkoutInfo = require('./getCheckoutInfo');
+
 module.exports = (express) => {
     const router = express.Router();
 
@@ -12,28 +14,50 @@ module.exports = (express) => {
     };
 
     const getUserPurchase = (id) => {
-        console.log('getUserPurchase is called');
         let query = knex('purchase')
             .join('beers', 'beers.id', 'purchase.beer_id')
             .select()
-            .where({ 'purchase.user_id': 1, 'purchase.bought': false });
+            .where({
+                'purchase.user_id': id,
+                // bought: false
+            });
         return query.then((data) => data);
     };
 
-    router.get('/showlist', (req, res) => {
+    router.get('/showlist', async(req, res) => {
         if (!req.isAuthenticated()) {
             res.redirect('/login');
         } else {
-            res.render('showlist', { layout: 'loggedin_User' });
+            let data = await getUserPurchase(req.user.id);
+
+            let sub_total = 0;
+
+            // Calculate the total price for each item in the returned array data
+            for (let i = 0; i < data.length; i++) {
+                data[i].total_price = calTotalPriceForOneBeer(
+                    data[i].quantity,
+                    data[i].price
+                );
+                sub_total += data[i].total_price;
+            }
+
+            // res.send(data);
+
+            res.render('showlist', {
+                layout: 'loggedin_User',
+                purchase: data,
+                money: { sub: sub_total },
+            });
         }
     });
-    // this one above doesnt seem to work
 
-    router.get('/delivery', (req, res) => {
+    router.get('/delivery', async(req, res) => {
         if (!req.isAuthenticated()) {
             res.redirect('/login');
         } else {
-            res.render('delivery', { layout: 'loggedin_User' });
+            let data = await checkoutInfo.getAddress(req.user.id);
+
+            res.render('delivery', { layout: 'loggedin_User', data: data });
         }
     });
 
@@ -53,22 +77,22 @@ module.exports = (express) => {
         }
     });
 
-    // router.get('/showlist', async(req, res) => {
-    //     let data = await getUserPurchase(req.user.id);
+    router.get('/showlist', async(req, res) => {
+        let data = await getUserPurchase(req.user.id);
 
-    //     // Calculate the total price for each item in the returned array data
-    //     for (let i = 0; i < data.length; i++) {
-    //         data[i].total_price = calTotalPriceForOneBeer(
-    //             data[i].quantity,
-    //             data[i].price
-    //         );
-    //         // console.log(data);
-    //     }
-    //     res.render('showlist', { layout: 'loggedin_user', purchase: data });
-    //     // if (!req.isAuthenticated()) {
-    //     //     res.redirect('/login');
-    //     // } else {}
-    // });
+        // Calculate the total price for each item in the returned array data
+        for (let i = 0; i < data.length; i++) {
+            data[i].total_price = calTotalPriceForOneBeer(
+                data[i].quantity,
+                data[i].price
+            );
+            // console.log(data);
+        }
+        res.render('showlist', { layout: 'loggedin_user', purchase: data });
+        // if (!req.isAuthenticated()) {
+        //     res.redirect('/login');
+        // } else {}
+    });
 
     // router.get('/delivery', (req, res) => {
     //     let query = knex('user_address').select();

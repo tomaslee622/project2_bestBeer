@@ -5,9 +5,8 @@ exports.up = function(knex) {
         table.string('method').defaultTo('card');
         table.integer('user_id');
         table.foreign('user_id').references('users.id');
-        table.integer('delivery_address_id');
-        table.foreign('delivery_address_id').references('user_address.id');
         table.boolean('status').defaultTo(false);
+        table.string('address');
     });
 };
 
