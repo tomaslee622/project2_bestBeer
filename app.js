@@ -73,7 +73,7 @@ app.get('/chart', (req, res) => {
 const knexConfig = require('./knexfile')['development'];
 const knex = require('knex')(knexConfig);
 
-let query = knex('favorite').select();
+let query = knex('purchase').select();
 query.then((data) => {
     console.log(data);
 });

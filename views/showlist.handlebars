@@ -1,17 +1,67 @@
 <section class="secondary" id="mycart">
     <div id="basket_list">
         <div class="col-sm-12 col-md-4 col-lg-4 d-inline-flex justify-content-center">
-            {{#each purchase}}
-            <div class="card" style="width: 25rem;height: auto;">
-                <div class="card-header bg-white border-0 d-flex justify-content-between">
-                    <a class="btn" id="wish_btn1"><i class="far fa-2x fa-star "></i></a>
-                    <a class="btn" id="wish_btn1"><i class="far fa-2x fa-times-circle "></i></a>
+            {{!-- <div class="card" style="width: auto;height: auto;"> --}}
+
+
+            {{!-- <div class="card-header bg-white border-0 d-flex justify-content-between"> --}}
+            {{!-- <div> --}}
+            <style>
+                table {
+                    border-collapse: collapse;
+                    width: 100%;
+                    margin-left: 30rem;
+                }
+
+                th,
+                td {
+                    text-align: left;
+                    padding: 8px;
+                }
+
+                tr:nth-child(even) {
+                    background-color: #f2f2f2;
+                }
+            </style>
+            <table>
+                <tr>
+                    <th>Beer Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Sub-total</th>
+                </tr>
+                {{#each purchase}}
+                <tr>
+                    <td>{{beer_name}}</td>
+                    <td>{{price}}</td>
+                    <td>{{quantity}}</td>
+                    <td>{{total_price}}</td>
+                </tr>
+                {{/each}}
+            </table>
+
+            {{!-- <section class="container content-section">
+                <h2 class="section-header" style="max-width: 900px; margin: 0 auto; padding: 0 1.5em;">CART</h2>
+                <div class="cart-row">
+                    <span class="cart-item cart-header cart-column">{{beer_name}}</span>
+                    <span class="cart-price cart-header cart-column">{{price}}</span>
+                    <span class="cart-quantity cart-header cart-column">{{quantity}}</span>
                 </div>
-                <div class="col d-inline-flex">
-                    <a href="#" class="a_home_product mx-auto"><img class="card-img-top mx-auto d-block products__img"
-                            src="../asset/product3.png" alt="Card image cap" style="width: 100px; "></a>
+                <div class="cart-items">
                 </div>
-                <div class="card-body">
+                <div class="cart-total">
+                    <strong class="cart-total-title">{{total_price}}</strong>
+                    <span class="cart-total-price">$0</span>
+                </div>
+            </section> --}}
+            {{!-- <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button> --}}
+            {{!-- <li>{{beer_name}} {{volumn}} {{total_price}} {{quantity}} <a class="btn" id="wish_btn1"><i
+                                class="far fa-2x fa-times-circle "></i></a> <a class="btn" id="wish_btn1"><i
+                                class="far fa-2x fa-star "></i></a></li> --}}
+            {{!-- <a class="btn" id="wish_btn1"><i class="far fa-2x fa-star "></i></a>
+                    <a class="btn" id="wish_btn1"><i class="far fa-2x fa-times-circle "></i></a> --}}
+            {{!-- </div> --}}
+            {{!-- <div class="card-body">
                     <h5 class="card-title text-center h2">{{beer_name}}</h5>
                     <p class="card-text text-center h4">{{volumn}} ML </p>
                     <br>
@@ -20,9 +70,8 @@
                     <p class="card-text text-center h4">You ordered {{quantity}} Cans</p>
                     <br>
 
-                </div>
-            </div>
-            {{/each}}
+                </div> --}}
+            {{!-- </div> --}}
         </div>
     </div>
 </section>
@@ -69,8 +118,7 @@
 
 </section>
 
-    <div class="container pb-5"> <a href="/checkout/delivery" class="text-white btn-lg btn-primary btn-block text-center rounded" type="button">Proceed to Delivery
-            </a></div>
+<div class="container pb-5"> <a href="/checkout/delivery"
+        class="text-white btn-lg btn-primary btn-block text-center rounded" type="button">Proceed to Delivery
+    </a></div>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-    

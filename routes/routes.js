@@ -136,5 +136,10 @@ module.exports = (express) => {
         });
     });
 
+    // Buying beers
+    router.post('/beer/shoppingcart', (req, res) => {
+        console.log(req.body);
+    });
+
     return router;
 };

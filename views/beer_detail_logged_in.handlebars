@@ -23,7 +23,7 @@
             <div class="col-xs-10 col-sm-10 col-md-10 col-lg-4 col-xl-4 offset-1">
                 <h4 class="text-center">Order Now ! ${{price}} each</h4>
                 <div class="d-flex justify-content-around">
-                    <form class="form-inline ">
+                    <form class="form-inline">
                         <select class="custom-select" id="inlineFormCustomSelectPref">
                             <option selected>Cans</option>
                             <option value="1">1</option>
@@ -37,12 +37,13 @@
                             <option value="9">9</option>
                             <option value="10">10</option>
                         </select>
+                        <div>
+                            {{!-- <a href="/checkout/showlist"> --}}
+                            <button type="btn" class="btn btn-primary my-1" id="{{id}}"
+                                onclick="buyBeers(this.id)">BUY</button>
+                            {{!-- </a> --}}
+                        </div>
                     </form>
-                    <div>
-                        <a href="/checkout/showlist">
-                            <button type="btn" class="btn btn-primary my-1">Buy</button>
-                        </a>
-                    </div>
                 </div>
             </div>
             <div class="col-10 offset-1">
@@ -109,5 +110,15 @@
         axios
             .post('/data/addOrRemoveWishlist')
         alert("You have added this item to your wishlist")
+    }
+
+    function buyBeers(id) {
+        let dropdownValue = document.querySelector(`#dropdown${id}`).value;
+        console.log("HI")
+        console.log(dropdownValue)
+        axios
+            .post('/data/beer', {
+                id: id, value: dropdownValue
+            })
     }
 </script>
