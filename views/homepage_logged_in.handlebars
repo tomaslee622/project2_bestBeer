@@ -92,20 +92,18 @@
       .post('/data/addOrRemoveWishlist', {
         id: id,
       })
-      .then((res) => console.log(res));
+
     alert(`Thanks, this item has been added to your wishlist !`);
   }
 
 
   function buyBeers(id) {
-
     let dropdownValue = document.querySelector(`#dropdown${id}`).value;
-    console.log("HI")
-    console.log(dropdownValue)
     axios
       .post('/data/beer', {
         id: id, value: dropdownValue
       })
+    alert("Thanks, this item has been added to your shopping cart")
   }
 
 </script>

@@ -11,7 +11,9 @@ module.exports = (express) => {
 
     const getAllBeers = () => {
         let query = knex('beers').select();
-        return query.then((data) => data);
+        return query.then((data) => {
+            return data;
+        });
     };
 
     const getReviews = (id) => {
@@ -55,9 +57,11 @@ module.exports = (express) => {
 
     router.get('/', async(req, res) => {
         let data = await getAllBeers();
-        console.log(data);
         if (req.isAuthenticated()) {
-            res.render('menu_page_logged_in', { layout: 'loggedin_User', beer: data });
+            res.render('menu_page_logged_in', {
+                layout: 'loggedin_User',
+                beer: data,
+            });
         } else {
             res.render('menu_page', { layout: 'main', beer: data });
         }
