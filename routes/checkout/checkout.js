@@ -51,7 +51,7 @@ module.exports = (express) => {
                         name: 'Beers',
                         description: 'A local craft beer website, by the way, is the picture creepy? Or does it look like a scam.',
                         currency: 'usd',
-                        amount: totalAmount * 100,
+                        amount: 835 * 100,
                         quantity: 1,
                         images: ['https://i.imgur.com/sUjnVxw.jpg'],
                     }, ],
