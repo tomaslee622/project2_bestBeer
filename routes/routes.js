@@ -116,9 +116,12 @@ module.exports = (express) => {
     });
 
     router.post('/updateAccountDetails', (req, res) => {
+        console.log(req.body);
         let update = knex('users')
-            .update({ address: req.body.address, phone: req.body.telephone })
-            // .update('users.phone', req.body.telephone)
+            .update({
+                address: req.body.address,
+                phone: req.body.telephone,
+            })
             .where('id', req.user.id);
 
         update.then(() => {
