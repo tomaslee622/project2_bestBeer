@@ -4,7 +4,6 @@ const knex = require('knex')(knexConfig);
 const getInfo = (id) => {
     let query = knex('users').select().where('users.id', id);
     return query.then((data) => {
-        console.log(data);
         return data;
     });
 };
@@ -32,7 +31,6 @@ const getComment = (id) => {
                 data[i].time = data[i].time.split('.')[0];
             }
         }
-        console.log(data);
         return data;
     });
 };
