@@ -34,7 +34,8 @@
         "passport-facebook": "^3.0.0",
         "passport-google-oauth20": "^2.0.0",
         "passport-local": "^1.0.0",
-        "pg": "^8.2.1"
+        "pg": "^8.2.1",
+        "stripe": "^8.64.0"
     },
     "devDependencies": {
         "jest": "^26.0.1"
