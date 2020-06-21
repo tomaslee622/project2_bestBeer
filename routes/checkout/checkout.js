@@ -61,7 +61,8 @@ module.exports = (express) => {
 //                     session: session,
 //                 });
 //             } catch (err) {
-                res.send("HIHIHI");
+         res.render('delivery', { layout: 'loggedin_User'})
+//                 res.send(err);
 //                 console.log(err);
 //             }
 //         });
