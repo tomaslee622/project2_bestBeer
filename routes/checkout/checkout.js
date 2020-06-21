@@ -26,7 +26,7 @@ module.exports = (express) => {
         return query.then((data) => data);
     };
 
-    router.get('/test', async(req, res) => {
+    router.get('/payforbeers', async(req, res) => {
 //         let totalAmount = 0;
 //         // TODO Using knex to access the false purchase data
 //         getUserPurchase(req.user.id).then(async(data) => {
