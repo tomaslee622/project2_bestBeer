@@ -152,7 +152,5 @@ module.exports = (express) => {
         }
     });
 
-    router.post('/');
-
     return router;
 };
