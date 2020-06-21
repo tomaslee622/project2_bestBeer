@@ -1,13 +1,8 @@
 <section class="product__carousel_outerbox">
     {{#each beer}}
     <div class="container mt-5">
-
-        <div class="beerDetailButton col-8 offset-2 d-flex justify-content-between">
-            <a href="/beer/{{id}}" class="a_home_product "><button type="button" class="btn btn-secondary">Prev
-                    Beer</button></a>
-            <a><img src="/{{thumbnail}}" alt="beer_image" style="width: 200px; height:330px"></img></a>
-            <a href="/beer/{{id}}" class="a_home_product "><button type="button" class="btn btn-secondary">Next
-                    Beer</button></a>
+        <div class="beerDetailButton text-center">
+            <a><img src="/{{thumbnail}}" alt="beer_image" style="width: 200px; height:auto" class="img-responsive"></img></a>
         </div>
 
         <div class="row mt-5 mr-2 col-12 d-flex flex-wrap justify-space-between">
@@ -52,9 +47,8 @@
         {{/each}}
 
         <p class="text-left h2 offset-1">Customer Feedback</p></a>
-        <div class="col-12 d-flex flex-wrap justify-space-between">
-            <div
-                class="userInfoContainer mt-2 mb-2 border border-secondary rounded bg-light col-xs-8 col-sm-8 col-md-8 col-lg-4 col-xl-4 offset-1">
+        <div class="p-0 col-12 d-flex flex-wrap justify-space-between">
+            <div class="userInfoContainer mt-2 mb-2 border border-secondary rounded bg-light col-xs-8 col-sm-8 col-md-8 col-lg-4 col-xl-4 offset-1">
                 <form class="submitComment" action="/review" method="POST">
                     <div class="form-group mt-2">
                         <label for="inputComment">Submit your own comment !</label>
@@ -68,7 +62,7 @@
             {{#each review}}
 
             <div
-                class="userInfoContainer mt-2 mb-2 border border-secondary rounded bg-light col-xs-8 col-sm-8 col-md-8 col-lg-4 col-xl-4 offset-1">
+                class="userInfoContainer p-0 mt-2 mb-2 border border-secondary rounded bg-light col-xs-8 col-sm-8 col-md-8 col-lg-4 col-xl-4 offset-1">
                 <table class="table table-sm table-borderless table-hover">
                     <thead>
                         <tr>
@@ -80,7 +74,7 @@
                             <td colspan="3">{{date}}</td>
                         </tr>
                         <tr>
-                            <th class="table-secondary border-right border-dark" scope="row">Time</th>
+                            <th class="table-secondary border-right border-bottom border-dark" scope="row">Time</th>
                             <td colspan="3">{{time}}</td>
                         </tr>
                     </thead>

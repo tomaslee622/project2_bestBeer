@@ -55,11 +55,26 @@ Dashboard:
 
 You can add your own custom CSS into the `CSS` folder which is `main.css`. This will be minified and added to each page.
 
-##### Footer
+##### Views: Layouts
 
-You can add your own custom HTML coded footer which may have contact details, social media links etc into the `partials` folder of `page_footer.handlebars`. This will be added to bottom of each page.
+There are three layouts, depending on the profile of the user:
+`employee.handlebars` is for company staff.
+`loggedin_User.handlebars` is for customers who have logged in.
+`main.handlebars` is for customers who have not logged in.
+
+
+##### Views: Footer
+
+You can add your own custom HTML coded footer which may have contact details, social media links etc into the `partials` folder of `page_footer.handlebars`. This will be added to the bottom of every page.
+
+##### Views: Header
+
+The page header contains the company logo and various navigation links, and is situated in the `partials` folder of `page_footer.handlebars`.
+
+There are two header layouts ; one for customers who are logged in and one for customers who are not logged in. One of these two layouts will be added to the top of every page.
+
 
 ### Products
 
-Adding of new products is done via .
+Adding of new products is done via  a backend server
 
