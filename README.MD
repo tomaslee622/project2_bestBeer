@@ -51,17 +51,18 @@ Popout cart:
 Dashboard:
 <!-- ![Dashboard])() -->
 
-##### CSS
+##### Styling:
 
-You can add your own custom CSS into the `CSS` folder which is `main.css`. This will be minified and added to each page.
+Bootstrap is used heavily within the HTML pages for styling.
+
+Further styling can be done through adding one's own custom CSS into the `CSS` folder which is `main.css`. This will be minified and added to each page.
 
 ##### Views: Layouts
 
 There are three layouts, depending on the profile of the user:
 `employee.handlebars` is for company staff.
-`loggedin_User.handlebars` is for customers who have logged in.
 `main.handlebars` is for customers who have not logged in.
-
+`loggedin_User.handlebars` is for customers who have logged in. Logged-in users have access to more functions than those who are not logged in.
 
 ##### Views: Footer
 
@@ -73,8 +74,42 @@ The page header contains the company logo and various navigation links, and is s
 
 There are two header layouts ; one for customers who are logged in and one for customers who are not logged in. One of these two layouts will be added to the top of every page.
 
+##### Functionality
+
+Customers who are not logged in should be able to:
+
+Access the 'Home', 'About', 'Beer Detail', 'Promotion' 'Menu' and 'Login' pages through the Header.
+
+Submit a message anonymously to the Company through the Footer.
+
+
+Customers who are logged in should additionally be able to:
+
+Access the 'Shopping Cart' and 'Account Details' sections through the Header (also log-out).
+
+Click buttons which permit the user to 'Comment' , 'Like' and 'Buy' products when viewed.
+
+
+Company staff should be able to:
+
+Access the statistics page, which displays stock levels, sales data and user data.
+
 
 ### Products
 
-Adding of new products is done via  a backend server
+The company currently serves three products, all of which are beers.
+
+Additional products can be added through the back-end, which is currently set up only to handle details of additional beers.
+
+
+
+### User Accounts
+
+When a user registers a new account through the 'login' page, the following data can be submitted to the back-end:
+
+First Name
+Last Name
+Email (acts as a username)
+Telephone
+Address
 
