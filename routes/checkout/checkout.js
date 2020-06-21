@@ -61,7 +61,7 @@ module.exports = (express) => {
 //                     session: session,
 //                 });
 //             } catch (err) {
-                res.redirect("/");
+                res.send("HIHIHI");
 //                 console.log(err);
 //             }
 //         });
