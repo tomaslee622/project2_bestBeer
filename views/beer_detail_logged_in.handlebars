@@ -2,7 +2,8 @@
     {{#each beer}}
     <div class="container mt-5">
         <div class="beerDetailButton text-center">
-            <a><img src="/{{thumbnail}}" alt="beer_image" style="width: 200px; height:auto" class="img-responsive"></img></a>
+            <a><img src="/{{thumbnail}}" alt="beer_image" style="width: 200px; height:auto"
+                    class="img-responsive"></img></a>
         </div>
 
         <div class="row mt-5 mr-2 col-12 d-flex flex-wrap justify-space-between">
@@ -20,8 +21,7 @@
                 <div class="d-flex justify-content-around">
                     <form class="form-inline">
                         <select class="custom-select" id="inlineFormCustomSelectPref{{id}}">
-                            <option selected>Cans</option>
-                            <option value="1">1</option>
+                            <option selected value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
@@ -49,7 +49,8 @@
 
         <p class="text-left h2 offset-1">Customer Feedback</p></a>
         <div class="p-0 col-12 d-flex flex-wrap justify-space-between">
-            <div class="userInfoContainer mt-2 mb-2 border border-secondary rounded bg-light col-xs-8 col-sm-8 col-md-8 col-lg-4 col-xl-4 offset-1">
+            <div
+                class="userInfoContainer mt-2 mb-2 border border-secondary rounded bg-light col-xs-8 col-sm-8 col-md-8 col-lg-4 col-xl-4 offset-1">
                 <form class="submitComment" action="/review" method="POST">
                     <div class="form-group mt-2">
                         <label for="inputComment">Submit your own comment !</label>

@@ -1,3 +1,4 @@
+<script src="https://js.stripe.com/v3/"></script>
 <section class="secondary">
     <div class="container">
         <div class="d-flex flex-column mb-5">
@@ -5,76 +6,7 @@
             <p class="h1 text-center">Payment confirm</p>
             <br>
             <div class="d-flex justify-content-around border-bottom">
-                <p class="h4">Purchase Amount</p>
-                <p class="h4" id="purchase_amount">$ 250 (HKD)</p>
-            </div>
-            <br>
-            <div class="d-flex justify-content-around border-bottom pb-5">
-                <p class="h4">Credit Card Details </p>
-                <div class="d-inline-flex">
-                    <i class="fa-2x fab fa-cc-visa mx-2"></i>
-                    <i class="fa-2x fab fa-cc-mastercard mx-2"></i>
-                    <i class="fa-2x fab fa-alipay mx-2"></i>
-                </div>
-            </div>
-            <br>
-
-            <div class="input-group input-group-lg mb-2">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-lg"><i
-                            class="fa-1x fas fa-credit-card"></i></span>
-                </div>
-                <input type="text" class="form-control" aria-label="Sizing example input"
-                    aria-describedby="inputGroup-sizing-lg" placeholder="Card Number">
-            </div>
-            <div class="input-group input-group-lg mb-2">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-lg"><i
-                            class="fa-1x fas fa-user-circle"></i></span>
-                </div>
-                <input type="text" class="form-control" aria-label="Sizing example input"
-                    aria-describedby="inputGroup-sizing-lg" placeholder="Name on Card">
-            </div>
-            <br>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01">Expiry Date</label>
-                </div>
-                <select class="custom-select" id="inputGroupSelect01">
-                    <option selected>Month</option>
-                    <option value="1">JAN</option>
-                    <option value="2">FEB</option>
-                    <option value="3">MAR</option>
-                    <option value="4">APR</option>
-                    <option value="5">MAY</option>
-                    <option value="6">JUN</option>
-                    <option value="7">JUL</option>
-                    <option value="8">AUG</option>
-                    <option value="9">SEP</option>
-                    <option value="10">OCT</option>
-                    <option value="11">NOV</option>
-                    <option value="12">DEC</option>
-                </select>
-                <select class="custom-select" id="inputGroupSelect01">
-                    <option selected>Year</option>
-                    <option value="1">2020</option>
-                    <option value="2">2021</option>
-                    <option value="3">2022</option>
-                    <option value="4">2023</option>
-                    <option value="5">2024</option>
-                    <option value="6">2025</option>
-                    <option value="7">2026</option>
-                    <option value="8">2027</option>
-                    <option value="9">2028</option>
-                    <option value="10">2029</option>
-                    <option value="11">2030</option>
-                </select>
-            </div>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <label class="input-group-text" for="CCV">CCV <i class="fas fa-briefcase"></i></label>
-                </div>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="CCV">
+                <p class="h4">Click to pay with your credit card</p>
             </div>
 
         </div>
@@ -86,7 +18,8 @@
                     </a>
                 </div>
                 <div class="col">
-                    <button class="text-white btn-lg btn-primary btn-block text-center rounded" />Pay Now
+                    <button class="text-white btn-lg btn-primary btn-block text-center rounded"
+                        onclick="checkoutBeers()" />Pay Now
                     </button>
                 </div>
             </div>
@@ -96,5 +29,20 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 <script>
+    const stripe = Stripe('pk_test_518lozLLgBPNaPJ84NQPgM6uFxaGsrlhbznpikqxyw4Q92iBUSYdczk8W8SnZKftCwmVaHI5uN8LND1rCyimzYzDE00WhyBozvy')
+
+    const checkoutBeers = async () => {
+        try {
+            const session = await axios.get('/checkout/test')
+
+            await stripe.redirectToCheckout({
+                sessionId: session.data.session.id
+            })
+        } catch (err) {
+            console.log(err)
+            alert("Something went wrong...please try again")
+        }
+    }
+
 
 </script>

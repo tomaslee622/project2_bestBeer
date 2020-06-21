@@ -48,18 +48,21 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {{#each purchase}}
                     <tr>
-                        <td>CHANGEEEEEEEEEEEEEE</td>
-                        <td>quantity</td>
-                        <td>price</td>
-                        <td>40</td>
+                        <td>{{beer_name}}</td>
+                        <td>{{quantity}}</td>
+                        <td>{{price}}</td>
+                        <td>{{total_price}}</td>
                     </tr>
+                    {{/each}}
                 </tbody>
                 <tfoot>
                     <tr>
                         <th class="table-primary border-top border-bottom border-dark" scope="row">Total (HKD)</th>
                         <td class="table-primary border-top border-bottom border-dark" colspan="2"></td>
-                        <td class=" table-primary border-top border-bottom border-dark">108</td>
+                        <td class=" table-primary border-top border-bottom border-dark">
+                            {{lookup money 'total'}}</td>
                     </tr>
 
                 </tfoot>

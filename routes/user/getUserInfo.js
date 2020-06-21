@@ -41,29 +41,16 @@ const getDiscount = (id) => {
 };
 
 const getPurchaseHistory = (id) => {
-    let query = knex('bills')
-        .select('purchase.price', 'purchase.quantity', 'beers.beer_name')
-        .innerJoin('purchase', 'bills.id', 'purchase.bill_id')
-        .innerJoin('beers', 'beers.id', 'purchase.beer_id')
-        .where('bills.id', id)
+    let query = knex('purchase')
+        .select()
+        .join('beers', 'beers.id', '=', 'purchase.beer_id')
+        .where('purchase.user_id', id)
         .where('purchase.bought', true);
 
-    // let query = knex('purchase').select().where({ user_id: id, bought: true });
     return query.then((data) => {
         console.log(data);
         return data;
     });
-};
-
-const getBill = (id) => {
-    //TODO set where status is true
-
-    let query = knex('bills')
-        .select()
-        .innerJoin('user_address', 'user_address.id', 'bills.delivery_address_id')
-        .where('bills.user_id', id);
-
-    return query.then((data) => data);
 };
 
 const getBeers = (id) => {
@@ -88,5 +75,4 @@ module.exports = {
     getWishList,
     getUserAddress,
     getBeers,
-    getBill,
 };

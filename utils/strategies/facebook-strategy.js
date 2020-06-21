@@ -8,7 +8,7 @@ passport.use(
     new FacebookStrategy({
             clientID: process.env.FB_APP_ID,
             clientSecret: process.env.FB_APP_SECRET,
-            callbackURL: `http://www.bestbeer79.com:3000/auth/facebook/redirect`,
+            callbackURL: `https://www.bestbeer79.com:3000/auth/facebook/redirect`,
             profileFields: ['email', 'name'],
         },
         function(accessToken, refreshToken, profile, done) {
