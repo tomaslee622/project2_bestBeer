@@ -21,7 +21,6 @@ module.exports = (app) => {
     app.use(passport.session());
 
     passport.serializeUser((email, done) => {
-        console.log('Serializing ' + email);
         return done(null, email);
     });
 
@@ -29,7 +28,6 @@ module.exports = (app) => {
         const query = knex('users').select('*').where({ email: email });
         query
             .then((user) => {
-                console.log('Deserializing ' + user[0].email);
                 return done(null, user[0]);
             })
             .catch((err) => {

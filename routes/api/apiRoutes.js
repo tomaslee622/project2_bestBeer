@@ -45,7 +45,9 @@ module.exports = (express) => {
         console.log(req.body);
         let query = knex('purchase')
             .select()
-            .where({ user_id: req.user.id, beer_id: req.body.id });
+            .join('beers', 'beers.id', 'purchase.beer_id')
+            .where('purchase.user_id', req.user.id)
+            .where('purchase.beer_id', req.body.id);
 
         query
             .then((data) => {
