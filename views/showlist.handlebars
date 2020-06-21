@@ -84,7 +84,10 @@
     function removeBeer(id) {
         axios
             .post("/data/showlist/beer", { id: id })
-        alert('You have removed beers from shopping cart')
+        alert('This item has been removed from the Cart');
+        window.location.reload();
+
+        
     }
 
 </script>

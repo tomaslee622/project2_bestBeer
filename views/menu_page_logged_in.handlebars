@@ -67,12 +67,10 @@
 
     function buyBeers(id) {
         let dropdownValue = document.querySelector(`#inlineFormCustomSelectPref${id}`).value;
-
         axios
             .post('/data/beer', {
                 id: id, value: dropdownValue
             })
-        alert('Your beers are in the shopping cart now')
+        alert('Thanks, this item has been added to your Cart !')
     }
-
 </script>
