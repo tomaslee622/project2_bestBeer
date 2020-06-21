@@ -1,7 +1,15 @@
 const express = require('express');
 const app = express();
+const https = require('https');
+const fs = require('fs');
 const hb = require('express-handlebars');
 const bodyParser = require('body-parser');
+
+// Setup the https
+const options = {
+    cert: fs.readFileSync('./localhost.crt'),
+    key: fs.readFileSync('./localhost.key'),
+};
 
 // Cross origin resource sharing - on your app server
 const cors = require('cors');
@@ -86,6 +94,4 @@ const knex = require('knex')(knexConfig);
 //     console.log(data);
 // });
 
-app.listen(3000, () => {
-    console.log(`App is listening to port 3000`);
-});
+https.createServer(options, app).listen(3000);

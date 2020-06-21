@@ -41,8 +41,8 @@ module.exports = (express) => {
             console.log(totalAmount);
             try {
                 const session = await stripe.checkout.sessions.create({
-                    success_url: 'http://localhost:3000/checkout/payment_completed',
-                    cancel_url: 'http://localhost:3000/checkout/showlist',
+                    success_url: 'https://www.bestbeer79.com:3000/checkout/payment_completed',
+                    cancel_url: 'https://www.bestbeer79.com:3000/checkout/showlist',
                     payment_method_types: ['card'],
                     customer_email: req.user.email,
                     line_items: [{
@@ -118,10 +118,7 @@ module.exports = (express) => {
     router.post('/payment_intents', (req, res) => {
         console.log('HI');
         console.log(req.body);
-        // const paymentIntent = await stripe.paymentIntents.create({
-        //     amount: 1099,
-        //     currency: 'usd',
-        // });
+
         stripe.charges
             .create({
                 amount: 1000,
