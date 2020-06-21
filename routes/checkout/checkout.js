@@ -51,7 +51,7 @@ module.exports = (express) => {
                         name: 'Beers',
                         description: 'A local craft beer website, by the way, is the picture creepy? Or does it look like a scam.',
                         currency: 'usd',
-                        amount: 835 * 100,
+                        amount: totalAmount * 100,
                         quantity: 1,
                         images: ['https://i.imgur.com/sUjnVxw.jpg'],
                     }, ],
@@ -61,6 +61,7 @@ module.exports = (express) => {
                     session: session,
                 });
             } catch (err) {
+                res.send(err);
                 console.log(err);
             }
         });
