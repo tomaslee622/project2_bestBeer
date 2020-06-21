@@ -35,8 +35,8 @@ module.exports = (express) => {
             if (req.user.id == 2) {
                 let userRegistered = 0;
                 let query = knex('users').select();
-                query.then(async(data) => {
-                    let stockQuery = await knex('stock').select();
+                query.then((data) => {
+                    let stockQuery = knex('stock').select();
                     stockQuery.then((stockData) => {
                         res.render('stats', {
                             layout: 'employee',
