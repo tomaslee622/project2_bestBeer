@@ -132,9 +132,7 @@ footer {
 
 /* promotion page  */
 .promote_span1, .promote_span2{
-    color: #FFCE47;
     padding: 0 5px;
-    background-color: black;
     border-radius: 10px;
     font-weight: bolder;
 }
@@ -159,7 +157,7 @@ footer {
 }
 /* above: homepage's beer list fade in from left */
 
-.promot_text_animate{
+.promote_text_animate{
     animation: heartBeat;
     animation-duration: 2.5s;
     animation-iteration-count: 5;

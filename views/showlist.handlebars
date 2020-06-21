@@ -1,7 +1,7 @@
 <section class="secondary" id="mycart">
-    <div class="content-section row col-8 d-flex mx-auto homepage_beer" id="basket_list">
+    <div class="content-section row col-lg-12 col-xl-10 d-flex mx-auto homepage_beer" id="basket_list">
         {{#each purchase}}
-        <div class="col-sm-12 col-md-12 col-lg-4 d-inline-flex mb-3 animate__fadeInLeft beer_each">
+        <div class="col-md-12 col-lg-6 col-xl-4 d-inline-flex mb-3 animate__fadeInLeft beer_each">
             <div class="card" style="width: 25rem;">
                 <div class="card-header align-middle ">
                     <h5 class="card-title text-center h2 ">{{beer_name}}</h5>
@@ -10,7 +10,7 @@
                     <div class="col d-inline-flex">
                         </a>
                         <a href="/beer/{{id}}" class="mx-auto"><img class="card-img-top mx-auto d-block products__img"
-                                src="/{{thumbnail}}" alt="Card image cap" style="width: 160px; ">
+                                src="/{{thumbnail}}" alt="Card image cap" style="width: 160px;">
                         </a>
                         <a type="button" class="btn bg-white" id="wish_btn2" data-toggle="tooltip" data-placement="top"
                             title="Remove">
