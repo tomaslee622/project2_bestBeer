@@ -1,7 +1,9 @@
 const knexConfig = require('../../knexfile')['development'];
 const knex = require('knex')(knexConfig);
 require('dotenv').config();
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const stripe = require('stripe')(
+    'sk_test_518lozLLgBPNaPJ84X4r0DY8d0vHLn25N8IVpibuYEA3GyYrirLtBwF86ngH3eyFgutW0KV5S3Cx1lt8OYvIGrnRI005px9sZiD'
+);
 
 const checkoutInfo = require('./getCheckoutInfo');
 
