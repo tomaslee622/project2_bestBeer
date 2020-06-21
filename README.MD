@@ -40,17 +40,13 @@ DB_PW=postgres
 #### Demo images
 
 Homepage:
+![Homepage](https://github.com/tomaslee622/project2_bestBeer/blob/master/public/asset/homepage.png?raw=true)
 
-<!-- ![Homepage]() -->
+User manage settings:
+![User](https://github.com/tomaslee622/project2_bestBeer/blob/master/public/asset/user_page.png?raw=true)
 
-Admin manage settings:
-
-<!-- ![Admin manage settings]() -->
-
-Popout cart:
-
-<!-- ![Popout cart]() -->
-
+Product list:
+![product_list](https://github.com/tomaslee622/project2_bestBeer/blob/master/public/asset/product_list.png?raw=true)
 
 
 ##### Styling:
@@ -66,15 +62,17 @@ There are three layouts, depending on the profile of the user:
 `main.handlebars` is for customers who have not logged in.
 `loggedin_User.handlebars` is for customers who have logged in. Logged-in users have access to more functions than those who are not logged in.
 
-##### Views: Footer
-
-You can add your own custom HTML coded footer which may have contact details, social media links etc into the `partials` folder of `page_footer.handlebars`. This will be added to the bottom of every page.
+To make all these work
 
 ##### Views: Header
 
 The page header contains the company logo and various navigation links, and is situated in the `partials` folder of `page_footer.handlebars`.
 
 There are two header layouts ; one for customers who are logged in and one for customers who are not logged in. One of these two layouts will be added to the top of every page.
+
+##### Views: Footer
+
+You can add your own custom HTML coded footer which may have contact details, social media links etc into the `partials` folder of `page_footer.handlebars`. This will be added to the bottom of every page.
 
 ##### Functionality
 
@@ -112,3 +110,31 @@ Email (acts as a username)</li><li>
 Telephone</li><li>
 Address</li>
 </ul>
+
+After all there will have a notification telling the registration is successful. 
+
+###User Login 
+
+bestBeer is using `passport.js` to login as a normol user. <br>As for FB / Google login, we set up files for authentication. <br>To do > set up folder `routes` > folder for authentication , here we called `OAuth` > 
+inside we created two file (one for FB, one for Google) called `facbook-auth.js`. 
+
+An example of both files is provided : 
+```
+{
+    // Redirect to Faceboook login page
+router.get('/', passport.authenticate('facebook'));
+
+router.get(
+    '/redirect',
+    passport.authenticate('facebook', {
+        successRedirect: '/',
+        failureRedirect: '/error',
+    })
+);
+
+module.exports = router;
+} 
+```
+
+Note: Do not forget to do: `npm install --save passport`
+
