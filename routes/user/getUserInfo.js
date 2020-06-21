@@ -32,6 +32,7 @@ const getComment = (id) => {
                 data[i].time = data[i].time.split('.')[0];
             }
         }
+        console.log(data);
         return data;
     });
 };

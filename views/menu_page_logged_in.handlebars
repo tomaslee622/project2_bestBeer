@@ -1,14 +1,14 @@
-<div class="content-section row secondary col-8 d-flex mx-auto" id="section1">
+<div class="content-section row secondary col-lg-12 col-xl-10 d-flex mx-auto" id="section1">
     {{#each beer}}
-    <div class="col-sm-12 col-md-12 col-lg-4 d-inline-flex mb-3">
+    <div class="col-md-12 col-lg-6 col-xl-4 d-inline-flex mx-auto mb-3 beer_each">
         <div class="card" style="width: 25rem;">
             <div class="card-header align-middle">
                 <h5 class="card-title text-center h2">{{beer_name}}</h5>
             </div>
             <div class="col justify-content-end">
-                <a type="button" class="btn bg-white" id="wish_btn1" data-toggle="tooltip" data-placement="top"
-                    title="Add to Favourites"><i class="favouriteButton far fa-2x fa-star"
-                        onclick="addFavourites()"></i></a>
+                <a type="button" class="btn bg-white" data-toggle="tooltip" data-placement="top"
+                    title="Add to Favourites"><i class="favouriteButton far fa-2x fa-star" id="{{id}}"
+                        onclick="addFavourites(this.id)"></i></a>
             </div>
             <div class="row">
                 <div class="col d-inline-flex">
@@ -28,7 +28,7 @@
                     <form class="form-inline">
                         <label class="mx-1 mr-2 text-center" for="inlineFormCustomSelectPref">Order
                             here</label>
-                        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref{{id}}">
                             <option selected>Cans</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -41,21 +41,36 @@
                             <option value="9">9</option>
                             <option value="10">10</option>
                         </select>
+                        <button type="btn" id="{{id}}" class="btn btn-primary my-1 text-center"
+                            onclick="buyBeers(this.id)">Buy</button>
                     </form>
                 </div>
             </div>
             <div class="card-footer text-center">
-                <a href="/checkout/showlist">
-                    <button type="btn" class="btn btn-primary my-1 text-center">Buy</button>
-                </a>
             </div>
         </div>
     </div>
     {{/each}}
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 <script type='text/javascript'>
-    function addFavourites() {
+    function addFavourites(id) {
+        id = id * 1;
+        axios
+            .post('/data/addOrRemoveWishlist', {
+                id: id,
+            })
         alert(`Thanks, this item has been added to your wishlist !`);
+    }
+
+    function buyBeers(id) {
+        let dropdownValue = document.querySelector(`#inlineFormCustomSelectPref${id}`).value;
+        axios
+            .post('/data/beer', {
+                id: id, value: dropdownValue
+            })
+        alert('Thanks, this item has been added to your Cart !')
     }
 </script>

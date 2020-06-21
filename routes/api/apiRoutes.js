@@ -12,13 +12,8 @@ module.exports = (express) => {
             let beerID = req.headers.referer.split('/');
             beerID = beerID[beerID.length - 1];
 
-            console.log(beerID);
-
             req.body.id = beerID;
         }
-
-        console.log(req.body);
-        console.log(req.user);
 
         let query = knex('favorite')
             .select()
@@ -26,7 +21,6 @@ module.exports = (express) => {
             .where('favorite.user_id', req.user.id);
 
         query.then((data) => {
-            console.log(data);
             if (data.length === 0) {
                 let query = knex('favorite').insert({
                     user_id: req.user.id,
@@ -48,47 +42,51 @@ module.exports = (express) => {
     });
 
     router.post('/beer', (req, res) => {
+        console.log(req.body);
         let query = knex('purchase')
             .select()
             .where({ user_id: req.user.id, beer_id: req.body.id });
 
-        query.then((data) => {
-            console.log(data);
+        query
+            .then((data) => {
+                if (data.length > 0) {
+                    req.body.value = req.body.value * 1;
+                    let newQuantity = data[0].quantity + req.body.value;
+                    let updateQuantity = knex('purchase')
+                        .update({ quantity: newQuantity })
+                        .where({ user_id: req.user.id, beer_id: req.body.id });
+
+                    updateQuantity.then(() => {
+                        console.log('A user has updated beers quantity in showlist');
+                        res.redirect('/beer');
+                    });
+                } else {
+                    let addNewBeers = knex('purchase').insert({
+                        user_id: req.user.id,
+                        beer_id: req.body.id,
+                        quantity: req.body.value,
+                    });
+
+                    addNewBeers.then(() => {
+                        console.log('A user has bought new beers');
+                        res.redirect('/beer');
+                    });
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    });
+
+    router.post('/showlist/beer', (req, res) => {
+        // console.log(req.body);
+        let removeFromCart = knex('purchase')
+            .del()
+            .where({ user_id: req.user.id, beer_id: req.body.id });
+
+        removeFromCart.then(() => {
+            console.log('Beers are removed from the shopping cart');
         });
-
-        // if (existData.length === 0) {
-        //     let buyNewBeers = knex('purchase').insert({
-        //         beer_id: req.body.id,
-        //         user_id: req.user.id,
-        //         quantity: req.body.value,
-        //     });
-
-        //     buyNewBeers.then((data) => {
-        //         console.log('You are getting new beers');
-        //         console.log(data);
-        //     });
-        // } else if (existData.length === 1) {
-        //     req.body.value;
-        //     let updateBeer = knex('purchase').update({});
-        // }
-
-        // let data = await buyBeer(req.user.id, req.body.id, req.body.value);
-        // console.log(data);
-        // let query = await knex('purchase')
-        //     .select()
-        //     .where({ user_id: req.user.id, beer_id: req.body.id });
-        // query.then((data) => data);
-        // return query.then((data) => {
-        //     console.log(data);
-        // });
-
-        // let query = await knex('purchase').select().where({ beer_id: req.body.id });
-        // query.then((data) => {
-        // if(data.length === 0){
-        //     let addNewBeers = knex.insert()
-        // }
-        //     console.log(data);
-        // });
     });
 
     // TODO, only staff authentication can call it

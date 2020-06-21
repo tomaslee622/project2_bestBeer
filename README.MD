@@ -51,15 +51,65 @@ Popout cart:
 Dashboard:
 <!-- ![Dashboard])() -->
 
-##### CSS
+##### Styling:
 
-You can add your own custom CSS into the `CSS` folder which is `main.css`. This will be minified and added to each page.
+Bootstrap is used heavily within the HTML pages for styling.
 
-##### Footer
+Further styling can be done through adding one's own custom CSS into the `CSS` folder which is `main.css`. This will be minified and added to each page.
 
-You can add your own custom HTML coded footer which may have contact details, social media links etc into the `partials` folder of `page_footer.handlebars`. This will be added to bottom of each page.
+##### Views: Layouts
+
+There are three layouts, depending on the profile of the user:
+`employee.handlebars` is for company staff.
+`main.handlebars` is for customers who have not logged in.
+`loggedin_User.handlebars` is for customers who have logged in. Logged-in users have access to more functions than those who are not logged in.
+
+##### Views: Footer
+
+You can add your own custom HTML coded footer which may have contact details, social media links etc into the `partials` folder of `page_footer.handlebars`. This will be added to the bottom of every page.
+
+##### Views: Header
+
+The page header contains the company logo and various navigation links, and is situated in the `partials` folder of `page_footer.handlebars`.
+
+There are two header layouts ; one for customers who are logged in and one for customers who are not logged in. One of these two layouts will be added to the top of every page.
+
+##### Functionality
+
+Customers who are not logged in should be able to:
+
+Access the 'Home', 'About', 'Beer Detail', 'Promotion' 'Menu' and 'Login' pages through the Header.
+
+Submit a message anonymously to the Company through the Footer.
+
+
+Customers who are logged in should additionally be able to:
+
+Access the 'Shopping Cart' and 'Account Details' sections through the Header (also log-out).
+
+Click buttons which permit the user to 'Comment' , 'Like' and 'Buy' products when viewed.
+
+
+Company staff should be able to:
+
+Access the statistics page, which displays stock levels, sales data and user data.
+
 
 ### Products
 
-Adding of new products is done via .
+The company currently serves three products, all of which are beers.
+
+Additional products can be added through the back-end, which is currently set up only to handle details of additional beers.
+
+
+
+### User Accounts
+
+When a user registers a new account through the 'login' page, the following data can be submitted to the back-end:
+
+First Name
+Last Name
+Email (acts as a username)
+Telephone
+Address
 

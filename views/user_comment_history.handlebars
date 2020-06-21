@@ -1,4 +1,4 @@
-<section class="secondary">
+<section class="secondary beer_each">
 
     {{!--user ac dropdown bar start --}}
     <div class="dropdown text-center d-flex justify-content-center">
@@ -32,14 +32,14 @@
     {{!-- end of user ac dropdown bar --}}
 
 </section>
-<section>
+<section class="beer_each">
     <div class="col-6 offset-3 text-center">
         <div class="form-group row discountCodeContainer" style="font-size:24px;font-weight:700">
             My Comment History
         </div>
         {{#each data}}
-        <div class="userInfoContainer border border-secondary rounded bg-light">
-            <table class="table table-sm table-borderless table-hover">
+        <div class="userInfoContainer border border-secondary rounded bg-light mb-3">
+            <table class="table table-sm table-borderless">
                 <thead>
                     <tr>
                         <th class="table-secondary border-right border-dark" scope="row">Date</th>
@@ -56,7 +56,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th class="table-secondary border-bottom border-right border-dark" scope="row">
+                        <th class="table-secondary bg-light" scope="row">
                             <img src="/pure_folder/asset/product1.png" width="50px" alt="">
                         </th>
                         <td class="align-middle" colspan="3">{{content}}</td>

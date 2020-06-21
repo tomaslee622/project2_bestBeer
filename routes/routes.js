@@ -129,11 +129,18 @@ module.exports = (express) => {
 
     // Inside wishlist page
     router.post('/removeWishlist', (req, res) => {
-        let remove = knex('favorite').del().where({ beer_id: req.body.id });
+        let remove = knex('favorite')
+            .del()
+            .where({ user_id: req.user.id, beer_id: req.body.id });
         remove.then(() => {
             console.log('Wishlist removed');
-            res.redirect('user/wishlist');
         });
+        res.redirect('/user/profile');
+    });
+
+    // Buying beers
+    router.post('/beer/shoppingcart', (req, res) => {
+        console.log(req.body);
     });
 
     return router;
