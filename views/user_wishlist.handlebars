@@ -1,5 +1,5 @@
 <section class="secondary">
-       {{!--user ac dropdown bar start --}}
+    {{!--user ac dropdown bar start --}}
     <div class="dropdown text-center d-flex justify-content-center">
         <div class="dropdown p-2">
             <button class="btn btn-secondary dropdown-toggle btn-lg" type="button" id="myAC_dropdown"
@@ -18,7 +18,7 @@
             <div class="dropdown-menu" aria-labelledby="myPurchase_dropdown" style="font-size: 20px">
                 <a class="dropdown-item text-white" href="/user/purchase_history">Purchases</a>
                 <a class="dropdown-item text-white" href="/user/wishlist">Wishlist</a>
-                <a class="dropdown-item text-white" href="/user/comment">Comments</a> 
+                <a class="dropdown-item text-white" href="/user/comment">Comments</a>
             </div>
         </div>
         <div class="dropdown p-2">
@@ -28,23 +28,36 @@
             </button>
         </div>
     </div>
-{{!-- end of user ac dropdown bar --}}
-       
-        <div class="col-6 offset-3 text-center">
-            <div class="form-group row wishlistContainer" style="font-size:24px;font-weight:700">My Wishlist</div>
-                {{#each wishlist}}
-            <div class="border border-secondary rounded d-flex justify-content-around">
-                <div class="p-2">
-                    <img src="/pure_folder/asset/product1.png" width="50px" alt="">
-                </div>
-                <div class="my-auto p-2" style="font-size: 20px">{{beer_name}}</div>
-                <div class="ml-auto my-auto p-2">
-                    <!-- <a href="#" class="btn btn-primary margin-left: auto">DELETE</a> -->
-                    <a href="/beer3_detail"><i class="fas fa-3x fa-cart-plus mr-50" style="color: black;"></i></a>
-                    <a href="#"><i class="fas fa-3x fa-trash-alt" style="color: black;"></i></a>
-                </div>
-              </div>
-            {{/each}}
+    {{!-- end of user ac dropdown bar --}}
+
+    <div class="col-6 offset-3 text-center">
+        <div class="form-group row wishlistContainer" style="font-size:24px;font-weight:700">My Wishlist</div>
+        {{#each wishlist}}
+        <div class="border border-secondary rounded d-flex justify-content-around">
+            <div class="p-2">
+                <img src="/pure_folder/asset/product1.png" width="50px" alt="">
+            </div>
+            <div class="my-auto p-2" style="font-size: 20px">{{beer_name}}</div>
+            <div class="ml-auto my-auto p-2">
+                <!-- <a href="#" class="btn btn-primary margin-left: auto">DELETE</a> -->
+                <a href="/beer3_detail"><i class="fas fa-3x fa-cart-plus mr-50" style="color: black;"></i></a>
+                <button id="{{id}}" onclick="removeWishlist(this.id)"><i class="fas fa-3x fa-trash-alt"
+                        style="color: black;"></i></button>
+            </div>
         </div>
+        {{/each}}
     </div>
-    </section>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+    const removeWishlist = (id) => {
+        console.log(id)
+        axios
+            .post("/removeWishlist", {
+                id: id
+            })
+    }
+</script>

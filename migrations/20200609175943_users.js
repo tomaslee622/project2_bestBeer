@@ -8,6 +8,7 @@ exports.up = function(knex) {
         table.string('phone');
         table.string('propic_path');
         table.string('google_id');
+        table.string('address');
         table.string('facebook_id');
         table.boolean('noti').defaultTo(false);
     });

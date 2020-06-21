@@ -8,6 +8,15 @@ module.exports = (express) => {
 
     // Add or remove wishlist
     router.post('/addOrRemoveWishlist', (req, res) => {
+        if (!req.body.id) {
+            let beerID = req.headers.referer.split('/');
+            beerID = beerID[beerID.length - 1];
+
+            console.log(beerID);
+
+            req.body.id = beerID;
+        }
+
         console.log(req.body);
         console.log(req.user);
 
@@ -39,11 +48,6 @@ module.exports = (express) => {
     });
 
     router.post('/beer', (req, res) => {
-        console.log('HI');
-        console.log(req.body);
-        console.log(req.user);
-        // res.send('Bye');
-
         let query = knex('purchase')
             .select()
             .where({ user_id: req.user.id, beer_id: req.body.id });

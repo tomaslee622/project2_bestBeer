@@ -55,7 +55,7 @@
         <div class="col-12 d-flex flex-wrap justify-space-between">
             <div
                 class="userInfoContainer mt-2 mb-2 border border-secondary rounded bg-light col-xs-8 col-sm-8 col-md-8 col-lg-4 col-xl-4 offset-1">
-                <form class="submitComment">
+                <form class="submitComment" action="/review" method="POST">
                     <div class="form-group mt-2">
                         <label for="inputComment">Submit your own comment !</label>
                         <input type="text" name="review" class="form-control" id="review" placeholder="Write here...">
@@ -102,14 +102,12 @@
 <!-- end of description and buy btn , remark : need to fix of color, position. -->
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script>
-<script type='text/javascript'>
-    $('.submitComment').submit(function (event) {
-        event.preventDefault();
-        console.log(event)
-        alert(`Thanks, your feedback has been received !`);
-    });
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
+<script type='text/javascript'>
     function addFavourites() {
-        alert(`Thanks, this item has been added to your wishlist !`);
+        axios
+            .post('/data/addOrRemoveWishlist')
+        alert("You have added this item to your wishlist")
     }
 </script>

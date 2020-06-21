@@ -23,12 +23,12 @@ module.exports = () => {
                     });
                 }
                 // Bcrypt implemented
-                // if (await bcrypt.compare(password, user.password)) {
-                //     console.log(password);
-                //     console.log(user.password);
-                //     return done(null, username);
-                if (password == user.password) {
+                if (await bcrypt.compare(password, user.password)) {
+                    console.log(password);
+                    console.log(user.password);
                     return done(null, username);
+                    // if (password == user.password) {
+                    //     return done(null, username);
                 } else {
                     console.log('Wrong password with local login');
                     return done(null, false, { message: 'Incorrect credentials.' });

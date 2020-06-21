@@ -18,7 +18,7 @@
             <div class="dropdown-menu" aria-labelledby="myPurchase_dropdown" style="font-size: 20px">
                 <a class="dropdown-item text-white" href="/user/purchase_history">Purchases</a>
                 <a class="dropdown-item text-white" href="/user/wishlist">Wishlist</a>
-                <a class="dropdown-item text-white" href="/user/comment">Comments</a> 
+                <a class="dropdown-item text-white" href="/user/comment">Comments</a>
             </div>
         </div>
         <div class="dropdown p-2">
@@ -30,8 +30,8 @@
     </div>
     {{!-- end of user ac dropdown bar --}}
 
-{{#each userInfo}}
-    <form id="accountDetails" class="col-12 text-center" action="/updateAccountDetails" method="PUT">
+    {{#each userInfo}}
+    <form id="accountDetails" class="col-12 text-center" action="/updateAccountDetails" method="POST">
         <div class="form-group row" style="font-size:24px;font-weight:700">
             Account Details
         </div>
@@ -56,13 +56,13 @@
         <div class="form-group row">
             <label for="telInput" class="col-3 col-form-label">Telephone</label>
             <div class="col-6">
-                <input class="form-control" type="tel" name="telephone" value="{{phone}}" id="tel" readonly>
+                <input class="form-control" type="tel" name="telephone" value="{{phone}}" id="tel">
             </div>
         </div>
         <div class="form-group row">
             <label for="firstName" class="col-3 col-form-label">Address</label>
             <div class="col-6">
-                <input class="form-control" type="text" name="address" value="{{address}}" id="address" readonly>
+                <input class="form-control" type="text" name="address" value="{{address}}" id="address">
             </div>
         </div>
         <input type="submit" class="btn btn-secondary mr-auto ml-auto">
@@ -71,64 +71,5 @@
 </section>
 
 <script type='text/javascript'>
-    $("#accountDetails").submit(function (event) {
-        event.preventDefault();
-        var fName = event.target.fName.value;
-        var lName = event.target.lName.value;
-        var email = event.target.email.value;
-        var tel = event.target.telepone.value;
-        var pw = event.target.password.value;
-        var dob = event.target.dateOfBirth.value;
-        var pw = event.target.address.value;
-        var pw = event.target.deliveryInfo.value;
 
-        var comment1 = $("<p/>", {
-            class: "text-left",
-            style: (color = "red"),
-            html: `<small>Please enter a first name of less than 15 characters.</small>`,
-        });
-
-        var comment2 = $("<p/>", {
-            class: "text-left",
-            style: (color = "red"),
-            html: `<small>Please enter a last name of less than 15 characters.</small>`,
-        });
-
-        var comment3 = $("<p/>", {
-            class: "text-left",
-            style: (color = "red"),
-            html: `<small>Please enter a valid email address of less than 50 characters.</small>`,
-        });
-
-        var comment3 = $("<p/>", {
-            class: "text-left",
-            style: (color = "red"),
-            html: `<small>Please enter a valid email address of less than 50 characters.</small>`,
-        });
-
-        var comment4 = $("<p/>", {
-            class: "text-left",
-            style: (color = "red"),
-            html: `<small>Please enter a password of less than 10 characters.</small>`,
-        });
-        if (fName === "" || fName.length < 1 || fName.length > 15) {
-            $("#fName").css("border", "red solid 2px");
-            $("#fName").append(comment1);
-        } else if (lName === "" || lName.length < 1 || lName.length > 15) {
-            $("#lName").css("border", "red solid 2px");
-            $("#lName").append(comment2);
-        } else if (email === "" || email.length < 1 || email.length > 50) {
-            $("#email").css("border", "red solid 2px");
-            $("#email").append(comment3);
-        } else if (pw === "" || pw.length < 1 || pw.length > 10) {
-            $("#pw").css("border", "red solid 2px");
-            $("#pw").append(comment4);
-        } else {
-            alert(`Thanks ${fName}, your registration has been submitted`);
-            $("#fName").css("border", "");
-            $("#lName").css("border", "");
-            $("#email").css("border", "");
-            $("#pw").css("border", "");
-        }
-    });
 </script>
