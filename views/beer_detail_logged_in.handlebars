@@ -24,7 +24,7 @@
                 <h4 class="text-center">Order Now ! ${{price}} each</h4>
                 <div class="d-flex justify-content-around">
                     <form class="form-inline">
-                        <select class="custom-select" id="inlineFormCustomSelectPref">
+                        <select class="custom-select" id="inlineFormCustomSelectPref{{id}}">
                             <option selected>Cans</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -113,8 +113,8 @@
     }
 
     function buyBeers(id) {
-        let dropdownValue = document.querySelector(`#dropdown${id}`).value;
-        console.log("HI")
+        console.log(id)
+        let dropdownValue = document.querySelector(`#inlineFormCustomSelectPref${id}`).value;
         console.log(dropdownValue)
         axios
             .post('/data/beer', {

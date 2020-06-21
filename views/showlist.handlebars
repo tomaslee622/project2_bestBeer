@@ -8,23 +8,20 @@
                 </div>
                 <div class="row">
                     <div class="col d-inline-flex">
-                        <a type="button" class="btn bg-white" id="wish_btn1" data-toggle="tooltip" data-placement="top"
-                            title="Add to Favourites">
-                            <i class="far fa-2x fa-star" id="{{id}}" onclick="addFavourites(this.id)"></i>
                         </a>
                         <a href="/beer/{{id}}" class="mx-auto"><img class="card-img-top mx-auto d-block products__img"
                                 src="/{{thumbnail}}" alt="Card image cap" style="width: 160px; ">
                         </a>
                         <a type="button" class="btn bg-white" id="wish_btn2" data-toggle="tooltip" data-placement="top"
                             title="Remove">
-                            <i class="far fa-2x fa-times-circle" id="{{id}}" onclick="remove(this.id)"></i>
+                            <i class="far fa-2x fa-times-circle" id="{{id}}" onclick="removeBeer(this.id)"></i>
                         </a>
                     </div>
                 </div>
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item text-center">{{volumn}} ML</li>
-                        <li class="list-group-item text-center">$ {{total_price}} /Can</li>
+                        <li class="list-group-item text-center">Total price:<br>$ {{total_price}} </li>
                     </ul>
                 </div>
                 <div class="card-footer text-center">
@@ -61,13 +58,13 @@
                 <div class="col mt-2" id="code_entered"></div>
                 <div class="d-flex justify-content-between">
                     <p class="h4">Delivery</p>
-                    <p class="h4" id="delivery_fee">HKD$ 100</p>
+                    <p class="h4" id="delivery_fee">HKD$ {{lookup money 'delivery'}}</p>
                 </div>
                 <small class="text-muted text-right">Free(If order over $ 500)</small>
                 <br>
                 <div class="d-flex justify-content-between">
                     <p class="h1 text-uppercase">Total</p>
-                    <p class="h1"> HKD$
+                    <p class="h1"> HKD$ {{lookup money 'total'}}
                     <p class="h1" id="total_$"></p>
                     </p>
 
@@ -82,3 +79,12 @@
         class="text-white btn-lg btn-primary btn-block text-center rounded" type="button">Proceed to Delivery
     </a></div>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+
+    function removeBeer(id) {
+        axios
+            .post("/data/showlist/beer", { id: id })
+        alert('You have removed beers from shopping cart')
+    }
+
+</script>

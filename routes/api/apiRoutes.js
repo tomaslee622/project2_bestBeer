@@ -12,13 +12,8 @@ module.exports = (express) => {
             let beerID = req.headers.referer.split('/');
             beerID = beerID[beerID.length - 1];
 
-            console.log(beerID);
-
             req.body.id = beerID;
         }
-
-        console.log(req.body);
-        console.log(req.user);
 
         let query = knex('favorite')
             .select()
@@ -26,7 +21,6 @@ module.exports = (express) => {
             .where('favorite.user_id', req.user.id);
 
         query.then((data) => {
-            console.log(data);
             if (data.length === 0) {
                 let query = knex('favorite').insert({
                     user_id: req.user.id,
@@ -49,7 +43,6 @@ module.exports = (express) => {
 
     router.post('/beer', (req, res) => {
         console.log(req.body);
-
         let query = knex('purchase')
             .select()
             .where({ user_id: req.user.id, beer_id: req.body.id });
@@ -85,7 +78,16 @@ module.exports = (express) => {
             });
     });
 
-    router.post('');
+    router.post('/showlist/beer', (req, res) => {
+        // console.log(req.body);
+        let removeFromCart = knex('purchase')
+            .del()
+            .where({ user_id: req.user.id, beer_id: req.body.id });
+
+        removeFromCart.then(() => {
+            console.log('Beers are removed from the shopping cart');
+        });
+    });
 
     // TODO, only staff authentication can call it
     // router.get('/stock', async(req, res) => {
