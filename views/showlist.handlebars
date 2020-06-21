@@ -1,29 +1,38 @@
 <section class="secondary" id="mycart">
-    <div id="basket_list">
-        <div class="col-sm-12 col-md-4 col-lg-4 d-inline-flex justify-content-center">
-            {{#each purchase}}
-            <div class="card" style="width: 25rem;height: auto;">
-                <div class="card-header bg-white border-0 d-flex justify-content-between">
-                    <a class="btn" id="wish_btn1"><i class="far fa-2x fa-star "></i></a>
-                    <a class="btn" id="wish_btn1"><i class="far fa-2x fa-times-circle "></i></a>
+    <div class="content-section row col-8 d-flex mx-auto homepage_beer" id="basket_list">
+        {{#each purchase}}
+        <div class="col-sm-12 col-md-12 col-lg-4 d-inline-flex mb-3 animate__fadeInLeft beer_each">
+            <div class="card" style="width: 25rem;">
+                <div class="card-header align-middle ">
+                    <h5 class="card-title text-center h2 ">{{beer_name}}</h5>
                 </div>
-                <div class="col d-inline-flex">
-                    <a href="#" class="a_home_product mx-auto"><img class="card-img-top mx-auto d-block products__img"
-                            src="../asset/product3.png" alt="Card image cap" style="width: 100px; "></a>
+                <div class="row">
+                    <div class="col d-inline-flex">
+                        <a type="button" class="btn bg-white" id="wish_btn1" data-toggle="tooltip" data-placement="top"
+                            title="Add to Favourites">
+                            <i class="far fa-2x fa-star" id="{{id}}" onclick="addFavourites(this.id)"></i>
+                        </a>
+                        <a href="/beer/{{id}}" class="mx-auto"><img class="card-img-top mx-auto d-block products__img"
+                                src="/{{thumbnail}}" alt="Card image cap" style="width: 160px; ">
+                        </a>
+                        <a type="button" class="btn bg-white" id="wish_btn2" data-toggle="tooltip" data-placement="top"
+                            title="Remove">
+                            <i class="far fa-2x fa-times-circle" id="{{id}}" onclick="remove(this.id)"></i>
+                        </a>
+                    </div>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title text-center h2">{{beer_name}}</h5>
-                    <p class="card-text text-center h4">{{volumn}} ML </p>
-                    <br>
-                    <p class="card-text text-center h4">$ {{total_price}} /Can</p>
-                    <br>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item text-center">{{volumn}} ML</li>
+                        <li class="list-group-item text-center">$ {{total_price}} /Can</li>
+                    </ul>
+                </div>
+                <div class="card-footer text-center">
                     <p class="card-text text-center h4">You ordered {{quantity}} Cans</p>
-                    <br>
-
                 </div>
             </div>
-            {{/each}}
         </div>
+        {{/each}}
     </div>
 </section>
 
@@ -69,8 +78,7 @@
 
 </section>
 
-    <div class="container pb-5"> <a href="/checkout/delivery" class="text-white btn-lg btn-primary btn-block text-center rounded" type="button">Proceed to Delivery
-            </a></div>
+<div class="container pb-5"> <a href="/checkout/delivery"
+        class="text-white btn-lg btn-primary btn-block text-center rounded" type="button">Proceed to Delivery
+    </a></div>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-    
