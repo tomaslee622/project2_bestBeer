@@ -20,7 +20,7 @@ Demo User:
 2. FTP/Copy the contents of the zip to your newly created folder
 3. Enter folder: `cd project2_bestBeer`
 4. Install dependencies: `npm install`
-5. Create file: `.env` and input 
+5. Create file: `.env` and input
 
 ```
 (example)
@@ -40,16 +40,18 @@ DB_PW=postgres
 #### Demo images
 
 Homepage:
+
 <!-- ![Homepage]() -->
 
 Admin manage settings:
+
 <!-- ![Admin manage settings]() -->
 
 Popout cart:
+
 <!-- ![Popout cart]() -->
 
-Dashboard:
-<!-- ![Dashboard])() -->
+
 
 ##### Styling:
 
@@ -82,18 +84,15 @@ Access the 'Home', 'About', 'Beer Detail', 'Promotion' 'Menu' and 'Login' pages 
 
 Submit a message anonymously to the Company through the Footer.
 
-
 Customers who are logged in should additionally be able to:
 
 Access the 'Shopping Cart' and 'Account Details' sections through the Header (also log-out).
 
 Click buttons which permit the user to 'Comment' , 'Like' and 'Buy' products when viewed.
 
-
 Company staff should be able to:
 
 Access the statistics page, which displays stock levels, sales data and user data.
-
 
 ### Products
 
@@ -101,15 +100,15 @@ The company currently serves three products, all of which are beers.
 
 Additional products can be added through the back-end, which is currently set up only to handle details of additional beers.
 
-
-
 ### User Accounts
 
 When a user registers a new account through the 'login' page, the following data can be submitted to the back-end:
 
-First Name
-Last Name
-Email (acts as a username)
-Telephone
-Address
-
+<ul>
+<li>
+First Name</li><li>
+Last Name</li><li>
+Email (acts as a username)</li><li>
+Telephone</li><li>
+Address</li>
+</ul>
