@@ -94,4 +94,6 @@ query.then((data) => {
 //     console.log(data);
 // });
 
-https.createServer(options, app).listen(3000);
+// https.createServer(options, app).listen(3000);
+
+app.listen(3000)
