@@ -34,11 +34,11 @@
 </section>
 
 <section>
-    <div class="container" id="prmote_code__enter">
+    <div class="container col-md-8 col-xl-4" id="prmote_code__enter">
         <div class="col">
             <form>
                 <div class="form-group">
-                    <label for="promoteCode">Please Input Our Promote Code Here</label>
+                    <label for="promoteCode">Input Discount Code Here</label>
                     <input type="text" class="form-control" placeholder="e.g: nobeernolifex10">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -48,8 +48,8 @@
 </section>
 
 <section id="confirm_div">
-    <div class="container secondary">
-        <div class="col-8 text-center">
+    <div class="container secondary mx-auto">
+        <div class="col-8 text-center mx-auto">
             <div class="d-flex flex-column ">
                 <div class="d-flex justify-content-between">
                     <p class="h4">Sub-total</p>
@@ -75,7 +75,7 @@
 
 </section>
 
-<div class="container pb-5"> <a href="/checkout/delivery"
+<div class="container pb-5 col-md-8 col-xl-4"> <a href="/checkout/delivery"
         class="text-white btn-lg btn-primary btn-block text-center rounded" type="button">Proceed to Delivery
     </a></div>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -84,7 +84,10 @@
     function removeBeer(id) {
         axios
             .post("/data/showlist/beer", { id: id })
-        alert('You have removed beers from shopping cart')
+        alert('This item has been removed from the Cart');
+        window.location.reload();
+
+        
     }
 
 </script>
