@@ -173,7 +173,7 @@ Note: the output will look like this.
 <li>Animate.css: front-end animations</li>
 <li>Font Awesome icon: For some amazing icons</li>
 <li>coolors.co: For color picker</li>
-<li>Adobe: For pictures, logo editing</li>
+<li>Adobe: For pictures, logo editing, prototype</li>
 <li>Node.js</li>
 <li>Postgres</li>
 </ul>
