@@ -1,10 +1,9 @@
 const knexConfig = require('../../knexfile')['development'];
 const knex = require('knex')(knexConfig);
+require('dotenv').config();
 const stripe = require('stripe')(
     'sk_test_518lozLLgBPNaPJ84X4r0DY8d0vHLn25N8IVpibuYEA3GyYrirLtBwF86ngH3eyFgutW0KV5S3Cx1lt8OYvIGrnRI005px9sZiD'
 );
-
-require('dotenv').config();
 
 const checkoutInfo = require('./getCheckoutInfo');
 
@@ -27,44 +26,48 @@ module.exports = (express) => {
         return query.then((data) => data);
     };
 
-    router.post('/test', async(req, res) => {
-        // TODO Using knex to access the false purchase data
-        getUserPurchase(req.user.id).then((data) => {
-            for (let i = 0; i < data.length; i++) {
-                data[i].quantity;
-            }
-        });
+    router.get('/test', async(req, res) => {
+        if (!req.isAuthenticated()) {
+            res.redirect('/login');
+        } else {
+            let totalAmount = 0;
+            // TODO Using knex to access the false purchase data
+            getUserPurchase(req.user.id).then(async(data) => {
+                for (let i = 0; i < data.length; i++) {
+                    data[i].price = data[i].price * 1;
+                    data[i].quantity = data[i].quantity * 1;
+                    let result = calTotalPriceForOneBeer(data[i].quantity, data[i].price);
+                    totalAmount = result + totalAmount;
+                }
 
-        try {
-            const session = await stripe.checkout.sessions.create({
-                success_url: 'http://localhost:3000/checkout/payment_completed',
-                cancel_url: 'http://localhost:3000/checkout/showlist',
-                payment_method_types: ['card'],
-                line_items: [{
-                    name: 'Beers',
-                    description: 'A local craft beer website',
-                    currency: 'usd',
-                    amount: 100,
-                    quantity: 70,
-                }, ],
-                mode: 'payment',
+                totalAmount = totalAmount * 1;
+                console.log(totalAmount);
+                try {
+                    const session = await stripe.checkout.sessions.create({
+                        success_url: 'http://www.bestbeer79.com:3000/checkout/payment_completed',
+                        cancel_url: 'http://www.bestbeer79.com:3000/checkout/showlist',
+                        payment_method_types: ['card'],
+                        customer_email: req.user.email,
+                        line_items: [{
+                            name: 'Beers',
+                            description: 'A local craft beer website, by the way, is the picture creepy? Or does it look like a scam.',
+                            currency: 'usd',
+                            amount: totalAmount * 100,
+                            quantity: 1,
+                            images: ['https://i.imgur.com/sUjnVxw.jpg'],
+                        }, ],
+                        mode: 'payment',
+                    });
+                    res.send({
+                        session: session,
+                    });
+                } catch (err) {
+                    res.send(err);
+                    console.log(err);
+                }
             });
-            res.send({
-                session: session,
-            });
-        } catch (err) {
-            console.log(err);
         }
     });
-
-    // router.get('/', (req, res) => {
-    //     stripe.checkout.sessions.retrieve(
-    //         'cs_test_hasYnf7uN1p3iJ0Mm0gwYDzoLLBvzwJROvvOSNzY1jtSyoNmhmeOSvlb',
-    //         function(err, session) {
-    //             // asynchronously called
-    //         }
-    //     );
-    // });
 
     router.get('/showlist', async(req, res) => {
         if (!req.isAuthenticated()) {
@@ -119,11 +122,7 @@ module.exports = (express) => {
 
     router.post('/payment_intents', (req, res) => {
         console.log('HI');
-        console.log(req.body);
-        // const paymentIntent = await stripe.paymentIntents.create({
-        //     amount: 1099,
-        //     currency: 'usd',
-        // });
+
         stripe.charges
             .create({
                 amount: 1000,
@@ -144,11 +143,15 @@ module.exports = (express) => {
         if (!req.isAuthenticated()) {
             res.redirect('/login');
         } else {
-            res.render('payment_completed', { layout: 'loggedin_User' });
+            let paymentCompleted = knex('purchase')
+                .update({ bought: true })
+                .where({ user_id: req.user.id });
+
+            paymentCompleted.then(() => {
+                res.render('payment_completed', { layout: 'loggedin_User' });
+            });
         }
     });
-
-    router.post('/');
 
     return router;
 };

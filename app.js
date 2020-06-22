@@ -1,7 +1,15 @@
 const express = require('express');
 const app = express();
+const https = require('https');
+const fs = require('fs');
 const hb = require('express-handlebars');
 const bodyParser = require('body-parser');
+
+// Setup the https
+const options = {
+    cert: fs.readFileSync('./localhost.crt'),
+    key: fs.readFileSync('./localhost.key'),
+};
 
 // Cross origin resource sharing - on your app server
 const cors = require('cors');
@@ -73,10 +81,10 @@ app.get('/chart', (req, res) => {
 const knexConfig = require('./knexfile')['development'];
 const knex = require('knex')(knexConfig);
 
-// let query = knex('purchase').select();
-// query.then((data) => {
-//     console.log(data);
-// });
+let query = knex('purchase').select();
+query.then((data) => {
+    console.log(data);
+});
 
 // let query = knex('purchase')
 //     .join('beers', 'beers.id', 'purchase.beer_id')
@@ -86,6 +94,6 @@ const knex = require('knex')(knexConfig);
 //     console.log(data);
 // });
 
-app.listen(3000, () => {
-    console.log(`App is listening to port 3000`);
-});
+// https.createServer(options, app).listen(3000);
+
+app.listen(3000);
